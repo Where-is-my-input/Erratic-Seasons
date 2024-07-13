@@ -1,7 +1,8 @@
 extends Node2D
 @onready var player_party = $playerParty
 @onready var npc_party = $NPCParty
-@onready var transition: AnimationPlayer = $Transition
+#@onready var transition: AnimationPlayer = $Transition
+@onready var transition = $battleUI/CanvasLayer/Transition
 
 
 # Called when the node enters the scene tree for the first time.

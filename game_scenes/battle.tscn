@@ -9,7 +9,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Transition/ColorRect:self_modulate")
+tracks/0/path = NodePath("battleUI/CanvasLayer/Transition/ColorRect:self_modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -21,7 +21,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Transition/ColorRect:visible")
+tracks/1/path = NodePath("battleUI/CanvasLayer/Transition/ColorRect:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -48,7 +48,7 @@ resource_name = "fadeIn"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Transition/ColorRect:self_modulate")
+tracks/0/path = NodePath("battleUI/CanvasLayer/Transition/ColorRect:self_modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -60,7 +60,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Transition/ColorRect:visible")
+tracks/1/path = NodePath("battleUI/CanvasLayer/Transition/ColorRect:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -137,12 +137,14 @@ layout_mode = 2
 [node name="characterUI2" parent="battleUI/CanvasLayer/playerPartyUI/HBoxContainer" instance=ExtResource("3_f0nxq")]
 layout_mode = 2
 
-[node name="Transition" type="AnimationPlayer" parent="."]
+[node name="Transition" type="AnimationPlayer" parent="battleUI/CanvasLayer"]
+root_node = NodePath("../../..")
 libraries = {
 "": SubResource("AnimationLibrary_fhb1c")
 }
 
-[node name="ColorRect" type="ColorRect" parent="Transition"]
+[node name="ColorRect" type="ColorRect" parent="battleUI/CanvasLayer/Transition"]
+z_index = 5
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
