@@ -4,6 +4,8 @@ enum character {CECILIA, GEOVANNA, TWIN_ANGELS}
 
 var playerParty:Array
 
+var npcParty:Array
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var cc = preload("res://characters/defined/cecilia.tscn").instantiate()

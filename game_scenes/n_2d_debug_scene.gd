@@ -13,3 +13,7 @@ func _process(delta):
 
 func _on_button_pressed():
 	get_tree().change_scene_to_file("res://game_scenes/OverWorld/over_world.tscn")
+
+
+func _on_button_2_pressed():
+	Global.npcParty.push_back(preload("res://characters/npc/twin_angels.tscn").instantiate())
