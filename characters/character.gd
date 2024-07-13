@@ -8,6 +8,8 @@ extends Node2D
 @export var atk = 10
 @export var isNPC = true
 
+var isDead = false
+
 signal gotHit()
 signal died()
 
@@ -20,7 +22,9 @@ func _init():
 
 func getHit(damage = 10):
 	HP -= damage
-	if HP <= 0 && isNPC:
-		print("Dead")
-		queue_free()
+	if HP <= 0:
+		isDead = true
+		if isNPC:
+			print("Dead")
+			queue_free()#maybe keep the node "alive" so someone could revive it
 	gotHit.emit()

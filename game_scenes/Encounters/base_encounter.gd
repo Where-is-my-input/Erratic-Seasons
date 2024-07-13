@@ -28,6 +28,7 @@ func _on_body_entered(body: Node2D) -> void:
 	match(assignedType):
 		"Battle":
 			print("You got attacked by an enemy, engaging battle mode")
+			Global.createRandomNPCParty()
 		"Camp":
 			print("Time for a little rest, nobody is made of iron")
 		"Trade":

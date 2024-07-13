@@ -34,7 +34,8 @@ func enablePlayerTurn():
 
 func endNPCTurn():
 	for c in player_party_container.get_children():
-		c.setDisabledAll(false)
+		if !c.character.isDead:
+			c.setDisabledAll(false)
 
 func disablePlayableCharactersActions():
 	for c in player_party_container.get_children():
