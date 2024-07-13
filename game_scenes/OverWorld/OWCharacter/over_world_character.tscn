@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://chkx3qr4edy"]
+
+[ext_resource type="Script" path="res://game_scenes/OverWorld/OWCharacter/over_world_character.gd" id="1_xnxop"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tlt26"]
+size = Vector2(40, 40)
+
+[node name="OverWorldCharacter" type="CharacterBody2D"]
+script = ExtResource("1_xnxop")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Sprite2D"]
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.685154, 0.947166, 0.995803, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_tlt26")

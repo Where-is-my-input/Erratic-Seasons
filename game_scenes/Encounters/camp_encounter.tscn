@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://clr7jtuuj3p2"]
+
+[ext_resource type="PackedScene" uid="uid://c0mnwb281wdlk" path="res://game_scenes/Encounters/base_encounter.tscn" id="1_w36gs"]
+
+[node name="CampEncounter" instance=ExtResource("1_w36gs")]
+encounterTypes = "Camp"
+
+[node name="ColorRect" parent="Sprite2D" index="0"]
+color = Color(0.795245, 0.659079, 0.417007, 1)
+
+[node name="CollisionShape2D" parent="." index="1"]
+debug_color = Color(0, 0.6, 0.701961, 0)

@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://cpjl5egurf3wn"]
+[gd_scene load_steps=5 format=3 uid="uid://1bj38fktu8r6"]
 
-[ext_resource type="Script" path="res://game_scenes/battle.gd" id="1_q6qng"]
+[ext_resource type="Script" path="res://game_scenes/Camp/camp_scene.gd" id="1_5txfa"]
 
 [sub_resource type="Animation" id="Animation_1yijl"]
 resource_name = "fadeIn"
@@ -62,17 +62,13 @@ _data = {
 "fadeIn": SubResource("Animation_1yijl")
 }
 
-[node name="battle" type="Node2D"]
-script = ExtResource("1_q6qng")
-
-[node name="playerParty" type="Node2D" parent="."]
-
-[node name="NPCParty" type="Node2D" parent="."]
+[node name="CampScene" type="Node2D"]
+script = ExtResource("1_5txfa")
 
 [node name="Label" type="Label" parent="."]
 offset_right = 40.0
 offset_bottom = 23.0
-text = "BATTLE SCENE"
+text = "CAMP SCENE"
 
 [node name="Transition" type="AnimationPlayer" parent="."]
 libraries = {
