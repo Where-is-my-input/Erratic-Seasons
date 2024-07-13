@@ -5,6 +5,14 @@ extends Control
 
 var character:Node2D
 
+signal attack
+signal talk
+signal inspect
+signal flee
+
+signal items
+signal equipment
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	match character.characterType:
@@ -23,3 +31,7 @@ func _ready():
 
 func updateUI():
 	hp.value = character.HP
+
+
+func _on_attack_pressed():
+	attack.emit(character)

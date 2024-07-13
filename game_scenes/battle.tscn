@@ -90,9 +90,6 @@ _data = {
 [node name="battle" type="Node2D"]
 script = ExtResource("1_hoa3k")
 
-[node name="playerParty" type="Node2D" parent="."]
-visible = false
-
 [node name="NPCParty" type="Node2D" parent="."]
 visible = false
 
