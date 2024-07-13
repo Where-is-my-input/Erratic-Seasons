@@ -13,3 +13,9 @@ signal gotHit()
 func _ready():
 	print(HP)
 	HP = maxHP
+
+func getHit(damage = 10):
+	HP -= damage
+	if HP <= 0:
+		queue_free()
+	gotHit.emit()

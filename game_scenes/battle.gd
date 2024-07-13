@@ -13,5 +13,8 @@ func _ready():
 	for c in Global.npcParty:
 		npc_party.add_child(c)
 
-func attack():
+func attack(attacker):
 	print("Battle scene attack called")
+	var targetId = randi_range(0, npc_party.get_child_count() - 1)
+	var target = npc_party.get_child(targetId)
+	target.getHit(attacker.atk)

@@ -18,3 +18,4 @@ func _ready():
 
 func attack(character):
 	print("BattleUI attack ", character)
+	get_parent().attack(character)

@@ -3,6 +3,10 @@ extends Control
 @export var hp:ProgressBar
 @export var lblname:Label
 
+@onready var v_box_container = $HBoxContainer/VBoxContainer
+@onready var v_box_container_2 = $HBoxContainer/VBoxContainer2
+
+
 var character:Node2D
 
 signal attack
@@ -12,6 +16,8 @@ signal flee
 
 signal items
 signal equipment
+
+var turnActionAvailable = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -32,6 +38,17 @@ func _ready():
 func updateUI():
 	hp.value = character.HP
 
+func setDisabledAll(value = true):
+	setDisabled(v_box_container, value)
+	setDisabled(v_box_container_2, value)
+
+func setDisabled(container, value = true):
+	for c in container.get_children():
+		c.disabled = value
 
 func _on_attack_pressed():
+	setDisabledAll()
 	attack.emit(character)
+
+func setTurnDisabled():
+	setDisabledAll(!turnActionAvailable)
