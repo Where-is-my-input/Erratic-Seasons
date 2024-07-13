@@ -1,7 +1,7 @@
 extends Control
 
-@onready var hp = $HBoxContainer/BoxContainer/HP
-@onready var lblname = $HBoxContainer/BoxContainer/name
+@export var hp:ProgressBar
+@export var lblname:Label
 
 var character:Node2D
 

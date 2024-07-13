@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://bdveph0axu0oc"]
+
+[ext_resource type="Script" path="res://UI/character_ui.gd" id="1_yt7u0"]
+
+[node name="npc_character_ui" type="BoxContainer" node_paths=PackedStringArray("hp", "lblname")]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.5
+offset_right = 32.5
+offset_bottom = 23.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_yt7u0")
+hp = NodePath("HBoxContainer/hp")
+lblname = NodePath("HBoxContainer/lblName")
+
+[node name="HBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="lblName" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "dasdasd"
+
+[node name="hp" type="ProgressBar" parent="HBoxContainer"]
+layout_mode = 2
