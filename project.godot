@@ -23,6 +23,10 @@ Global="*res://system/global.gd"
 
 window/stretch/mode="canvas_items"
 
+[gui]
+
+theme/custom="res://UI/theme.tres"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

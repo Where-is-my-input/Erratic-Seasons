@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://cpjl5egurf3wn"]
+[gd_scene load_steps=4 format=3 uid="uid://cpjl5egurf3wn"]
 
 [ext_resource type="Script" path="res://game_scenes/battle.gd" id="1_6a2dg"]
+[ext_resource type="Script" path="res://game_scenes/battleUI.gd" id="2_buw81"]
+[ext_resource type="PackedScene" uid="uid://cmf2x2kufabom" path="res://UI/character_ui.tscn" id="3_f0nxq"]
 
 [node name="battle" type="Node2D"]
 script = ExtResource("1_6a2dg")
@@ -8,3 +10,43 @@ script = ExtResource("1_6a2dg")
 [node name="playerParty" type="Node2D" parent="."]
 
 [node name="NPCParty" type="Node2D" parent="."]
+
+[node name="battleUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_buw81")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="battleUI"]
+
+[node name="playerPartyUI" type="Control" parent="battleUI/CanvasLayer"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = 222.0
+offset_bottom = 222.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="battleUI/CanvasLayer/playerPartyUI"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="characterUI" parent="battleUI/CanvasLayer/playerPartyUI/HBoxContainer" instance=ExtResource("3_f0nxq")]
+layout_mode = 2
+
+[node name="characterUI2" parent="battleUI/CanvasLayer/playerPartyUI/HBoxContainer" instance=ExtResource("3_f0nxq")]
+layout_mode = 2
