@@ -2,6 +2,7 @@ extends Control
 
 @onready var player_party_container = $CanvasLayer/playerPartyUI/playerPartyContainer
 @onready var npc_party_container = $CanvasLayer/npcPartyUI/npcPartyContainer
+@onready var battle = $".."
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -25,12 +26,15 @@ func attack(character):
 func enablePlayerTurn():
 	var turnOver = true
 	for c in player_party_container.get_children():
-		if !turnOver: turnOver = c.turnActionAvailable
+		if c.turnActionAvailable: turnOver = false
 		c.setTurnDisabled()
 	if turnOver:
 		print("Turn ended")
-		#endPlayerTurn
-		pass
+		battle.npcTurn()
+
+func endNPCTurn():
+	for c in player_party_container.get_children():
+		c.setDisabledAll(false)
 
 func disablePlayableCharactersActions():
 	for c in player_party_container.get_children():

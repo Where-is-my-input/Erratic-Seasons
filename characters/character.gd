@@ -11,9 +11,12 @@ extends Node2D
 signal gotHit()
 signal died()
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
+func _init():
 	HP = maxHP
+
+# Called when the node enters the scene tree for the first time.
+#func _ready():
+	#HP = maxHP
 
 func getHit(damage = 10):
 	HP -= damage

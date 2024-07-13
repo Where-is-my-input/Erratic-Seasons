@@ -37,6 +37,7 @@ func _ready():
 	character.connect("died", dead)
 
 func updateUI():
+	print("UI updated")
 	hp.value = character.HP
 
 func setDisabledAll(value = true):
