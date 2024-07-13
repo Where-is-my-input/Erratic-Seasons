@@ -18,3 +18,4 @@ func attack(attacker):
 	var targetId = randi_range(0, npc_party.get_child_count() - 1)
 	var target = npc_party.get_child(targetId)
 	target.getHit(attacker.atk)
+	

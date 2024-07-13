@@ -6,16 +6,18 @@ extends Node2D
 @export var maxHP = 100
 @onready var HP = maxHP
 @export var atk = 10
+@export var isNPC = true
 
 signal gotHit()
+signal died()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print(HP)
 	HP = maxHP
 
 func getHit(damage = 10):
 	HP -= damage
-	if HP <= 0:
+	if HP <= 0 && isNPC:
+		print("Dead")
 		queue_free()
 	gotHit.emit()

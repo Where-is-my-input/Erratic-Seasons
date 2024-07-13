@@ -4,4 +4,5 @@
 
 [node name="character" instance=ExtResource("1_4h4kh")]
 maxHP = 80
-atk = 15
+atk = 1500
+isNPC = false

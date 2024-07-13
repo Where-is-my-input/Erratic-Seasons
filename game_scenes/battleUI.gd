@@ -17,5 +17,21 @@ func _ready():
 		npc_party_container.add_child(charUI)
 
 func attack(character):
+	disablePlayableCharactersActions()
 	print("BattleUI attack ", character)
 	get_parent().attack(character)
+	enablePlayerTurn()
+
+func enablePlayerTurn():
+	var turnOver = true
+	for c in player_party_container.get_children():
+		if !turnOver: turnOver = c.turnActionAvailable
+		c.setTurnDisabled()
+	if turnOver:
+		print("Turn ended")
+		#endPlayerTurn
+		pass
+
+func disablePlayableCharactersActions():
+	for c in player_party_container.get_children():
+		c.setDisabledAll(true)

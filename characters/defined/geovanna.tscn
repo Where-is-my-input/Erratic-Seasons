@@ -6,3 +6,4 @@
 characterType = 1
 maxHP = 250
 atk = 8
+isNPC = false

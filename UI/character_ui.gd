@@ -34,6 +34,7 @@ func _ready():
 	else:
 		hp.value = character.HP
 	character.connect("gotHit", updateUI)
+	character.connect("died", dead)
 
 func updateUI():
 	hp.value = character.HP
@@ -47,8 +48,12 @@ func setDisabled(container, value = true):
 		c.disabled = value
 
 func _on_attack_pressed():
+	turnActionAvailable = false
 	setDisabledAll()
 	attack.emit(character)
 
 func setTurnDisabled():
 	setDisabledAll(!turnActionAvailable)
+
+func dead():
+	pass #show a skull sprite
