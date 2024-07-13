@@ -12,7 +12,6 @@ func _ready():
 	playerParty.push_back(cc)
 	playerParty.push_back(geo)
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass

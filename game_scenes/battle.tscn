@@ -1,37 +1,8 @@
-[gd_scene load_steps=4 load_steps=5 format=3 uid="uid://cpjl5egurf3wn"]
+[gd_scene load_steps=7 format=3 uid="uid://cpjl5egurf3wn"]
 
-[ext_resource type="Script" path="res://game_scenes/battle.gd" id="1_6a2dg"]
+[ext_resource type="Script" path="res://game_scenes/battle.gd" id="1_hoa3k"]
 [ext_resource type="Script" path="res://game_scenes/battleUI.gd" id="2_buw81"]
 [ext_resource type="PackedScene" uid="uid://cmf2x2kufabom" path="res://UI/character_ui.tscn" id="3_f0nxq"]
-
-[ext_resource type="Script" path="res://game_scenes/battle.gd" id="1_q6qng"]
-
-[sub_resource type="Animation" id="Animation_1yijl"]
-resource_name = "fadeIn"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Transition/ColorRect:self_modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.0666667, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Transition/ColorRect:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(1),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
 
 [sub_resource type="Animation" id="Animation_ydali"]
 length = 0.001
@@ -59,6 +30,57 @@ tracks/1/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("battleUI/CanvasLayer:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_1yijl"]
+resource_name = "fadeIn"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Transition/ColorRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0666667, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Transition/ColorRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("battleUI/CanvasLayer:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fhb1c"]
 _data = {
@@ -67,10 +89,13 @@ _data = {
 }
 
 [node name="battle" type="Node2D"]
+script = ExtResource("1_hoa3k")
 
 [node name="playerParty" type="Node2D" parent="."]
+visible = false
 
 [node name="NPCParty" type="Node2D" parent="."]
+visible = false
 
 [node name="battleUI" type="Control" parent="."]
 layout_mode = 3
@@ -111,11 +136,6 @@ layout_mode = 2
 
 [node name="characterUI2" parent="battleUI/CanvasLayer/playerPartyUI/HBoxContainer" instance=ExtResource("3_f0nxq")]
 layout_mode = 2
-
-[node name="Label" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
-text = "BATTLE SCENE"
 
 [node name="Transition" type="AnimationPlayer" parent="."]
 libraries = {
