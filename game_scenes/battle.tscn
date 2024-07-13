@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://cpjl5egurf3wn"]
+[gd_scene load_steps=6 format=3 uid="uid://cpjl5egurf3wn"]
 
 [ext_resource type="Script" path="res://game_scenes/battle.gd" id="1_hoa3k"]
 [ext_resource type="Script" path="res://game_scenes/battleUI.gd" id="2_buw81"]
-[ext_resource type="PackedScene" uid="uid://cmf2x2kufabom" path="res://UI/character_ui.tscn" id="3_f0nxq"]
 
 [sub_resource type="Animation" id="Animation_ydali"]
 length = 0.001
@@ -131,12 +130,6 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="characterUI" parent="battleUI/CanvasLayer/playerPartyUI/playerPartyContainer" instance=ExtResource("3_f0nxq")]
-layout_mode = 2
-
-[node name="characterUI2" parent="battleUI/CanvasLayer/playerPartyUI/playerPartyContainer" instance=ExtResource("3_f0nxq")]
-layout_mode = 2
-
 [node name="Transition" type="AnimationPlayer" parent="battleUI/CanvasLayer"]
 root_node = NodePath("../../..")
 libraries = {
@@ -150,5 +143,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0, 0, 0, 1)
 metadata/_edit_use_anchors_ = true

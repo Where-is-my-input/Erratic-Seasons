@@ -6,4 +6,5 @@ extends Control
 func _ready():
 	for c in Global.playerParty:
 		var charUI = preload("res://UI/character_ui.tscn").instantiate()
+		charUI.character = c
 		player_party_container.add_child(charUI)

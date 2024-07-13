@@ -3,14 +3,23 @@ extends Control
 @onready var hp = $HBoxContainer/BoxContainer/HP
 @onready var lblname = $HBoxContainer/BoxContainer/name
 
-var charType:Global.character = Global.character.CECILIA
+var character:Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	match charType:
+	match character.characterType:
 		0:
 			lblname.text = "Cecilia"
 		1:
 			lblname.text = "Geovanna"
 		_:
 			lblname.text = "Something"
+	hp.max_value = character.maxHP
+	if character.HP == null:
+		hp.value = character.maxHP
+	else:
+		hp.value = character.HP
+	character.connect("gotHit", updateUI)
+
+func updateUI():
+	hp.value = character.HP

@@ -17,4 +17,4 @@ position = Vector2(539, 154)
 position = Vector2(543, 244)
 
 [node name="OverWorldCharacter" parent="." instance=ExtResource("4_omhwd")]
-position = Vector2(126, 144)
+position = Vector2(472, 96)

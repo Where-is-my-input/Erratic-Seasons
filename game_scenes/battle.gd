@@ -10,3 +10,5 @@ func _ready():
 	transition.play("fadeIn")
 	for c in Global.playerParty:
 		player_party.add_child(c)
+	for c in Global.npcParty:
+		npc_party.add_child(c)
