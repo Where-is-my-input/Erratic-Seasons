@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://b3llnd04gm66n"]
+
+[ext_resource type="PackedScene" uid="uid://vrmulrli4eab" path="res://characters/character.tscn" id="1_4h4kh"]
+
+[node name="character" instance=ExtResource("1_4h4kh")]
+maxHP = 80
+atk = 15
