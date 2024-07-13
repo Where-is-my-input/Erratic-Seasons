@@ -15,6 +15,10 @@ run/main_scene="res://game_scenes/n_2d_debug_scene.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Global="*res://system/global.gd"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

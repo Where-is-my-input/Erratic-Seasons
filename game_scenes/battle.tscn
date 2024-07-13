@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://cpjl5egurf3wn"]
+
+[node name="battle" type="Node2D"]
+
+[node name="playerParty" type="Node2D" parent="."]
+
+[node name="NPCParty" type="Node2D" parent="."]
