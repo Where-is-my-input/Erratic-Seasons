@@ -23,7 +23,8 @@ func _init():
 
 func getHit(damage = 10):
 	HP -= damage
-	if HP <= 0:
+	print(self, " hit for ", damage, " damage - current HP is now ", HP)
+	if HP <= 0 && !isDead:
 		isDead = true
 		if isNPC:
 			print("Dead")

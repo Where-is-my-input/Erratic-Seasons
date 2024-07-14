@@ -13,6 +13,8 @@ size = Vector2(24, 24)
 size = Vector2(8, 410.25)
 
 [node name="gameOverMinigame" type="Node2D"]
+z_index = 18
+position = Vector2(456, 96)
 script = ExtResource("1_urof0")
 
 [node name="ColorRect" type="ColorRect" parent="."]
