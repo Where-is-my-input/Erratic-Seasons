@@ -13,18 +13,15 @@ script = ExtResource("1_18ilv")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -154.5
-offset_top = -55.0
-offset_right = 154.5
-offset_bottom = 55.0
+offset_left = -79.5
+offset_top = 75.0
+offset_right = 79.5
+offset_bottom = 136.0
 grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 80
+theme_override_font_sizes/font_size = 40
 text = "Settings"
 
 [node name="Back" type="Button" parent="."]
@@ -34,10 +31,59 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -66.0
-offset_top = -43.0
+offset_left = -186.0
+offset_top = -123.0
+offset_right = -120.0
+offset_bottom = -80.0
 grow_horizontal = 0
 grow_vertical = 0
 text = "Back"
 
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -262.5
+offset_top = -45.0
+offset_right = 262.5
+offset_bottom = 45.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MasterLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Music"
+
+[node name="Master" type="HSlider" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+min_value = -30.0
+max_value = 0.0
+
+[node name="MusicLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Music"
+
+[node name="Music" type="HSlider" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+min_value = -30.0
+max_value = 0.0
+
+[node name="SFXLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "SFX"
+
+[node name="SFX" type="HSlider" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+min_value = -30.0
+max_value = 0.0
+
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
+[connection signal="value_changed" from="VBoxContainer/Master" to="." method="_on_master_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/Music" to="." method="_on_music_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/SFX" to="." method="_on_sfx_value_changed"]
