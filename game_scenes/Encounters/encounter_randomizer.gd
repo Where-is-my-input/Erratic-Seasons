@@ -6,7 +6,7 @@ extends Node2D
 
 var rng = RandomNumberGenerator.new()
 var randomValue := 0.0 as float
-var posArray : Array
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	AddEncounterPos()
@@ -23,7 +23,6 @@ func SpawnRandomEncounter() -> void:
 		rng.randomize()
 		randomValue = rng.randi_range(0, encounterToRandom.size()-1)
 		var newEncounter = encounterToRandom[randomValue].instantiate()
-		#newEncounter.global_position = posArray[posInt].global_position
+		self.call_deferred("add_child", newEncounter)
 		newEncounter.global_position = encounterPositions[posInt].global_position
-		get_tree().root.call_deferred("add_child", newEncounter)
 		posInt += 1
