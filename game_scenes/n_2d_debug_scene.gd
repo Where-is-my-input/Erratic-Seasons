@@ -18,3 +18,7 @@ func _on_button_3_pressed():
 	for c in Global.playerParty:
 		c.HP = 1
 		c.isDead = false
+
+
+func _on_button_4_pressed():
+	get_tree().change_scene_to_file("res://UI/main_menu.tscn")
