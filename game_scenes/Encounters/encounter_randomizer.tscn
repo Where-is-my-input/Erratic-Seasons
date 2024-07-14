@@ -1,0 +1,10 @@
+[gd_scene load_steps=5 format=3 uid="uid://rgqg43yijq67"]
+
+[ext_resource type="Script" path="res://game_scenes/Encounters/encounter_randomizer.gd" id="1_02m4j"]
+[ext_resource type="PackedScene" uid="uid://fvjcpt3k6ej" path="res://game_scenes/Encounters/battleEncounter.tscn" id="2_cy3y2"]
+[ext_resource type="PackedScene" uid="uid://clr7jtuuj3p2" path="res://game_scenes/Encounters/camp_encounter.tscn" id="3_v8h42"]
+[ext_resource type="PackedScene" uid="uid://cu0slxcj8evyf" path="res://game_scenes/Encounters/trade_encounter.tscn" id="4_0b1xy"]
+
+[node name="EncounterRandomizer" type="Node2D"]
+script = ExtResource("1_02m4j")
+encounterToRandom = Array[PackedScene]([ExtResource("2_cy3y2"), ExtResource("3_v8h42"), ExtResource("4_0b1xy")])

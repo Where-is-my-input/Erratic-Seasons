@@ -1,20 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://ymrq80vwk5l8"]
+[gd_scene load_steps=3 format=3 uid="uid://ymrq80vwk5l8"]
 
-[ext_resource type="PackedScene" uid="uid://fvjcpt3k6ej" path="res://game_scenes/Encounters/battleEncounter.tscn" id="1_b7ysv"]
-[ext_resource type="PackedScene" uid="uid://clr7jtuuj3p2" path="res://game_scenes/Encounters/camp_encounter.tscn" id="2_fa4cw"]
-[ext_resource type="PackedScene" uid="uid://cu0slxcj8evyf" path="res://game_scenes/Encounters/trade_encounter.tscn" id="3_lshge"]
 [ext_resource type="PackedScene" uid="uid://chkx3qr4edy" path="res://game_scenes/OverWorld/OWCharacter/over_world_character.tscn" id="4_omhwd"]
+[ext_resource type="PackedScene" uid="uid://rgqg43yijq67" path="res://game_scenes/Encounters/encounter_randomizer.tscn" id="5_7ppo1"]
 
 [node name="OverWorld" type="Node2D"]
 
-[node name="battleEncounter" parent="." instance=ExtResource("1_b7ysv")]
-position = Vector2(539, 61)
-
-[node name="CampEncounter" parent="." instance=ExtResource("2_fa4cw")]
-position = Vector2(539, 154)
-
-[node name="TradeEncounter" parent="." instance=ExtResource("3_lshge")]
-position = Vector2(543, 244)
-
 [node name="OverWorldCharacter" parent="." instance=ExtResource("4_omhwd")]
-position = Vector2(472, 96)
+position = Vector2(172, 90)
+
+[node name="EncounterRandomizer" parent="." instance=ExtResource("5_7ppo1")]
+
+[node name="Markers" type="Node" parent="." groups=["Markers"]]
+
+[node name="EncounterPos1" type="Marker2D" parent="Markers"]
+position = Vector2(559, 81)
+
+[node name="EncounterPos2" type="Marker2D" parent="Markers"]
+position = Vector2(559, 174)
+
+[node name="EncounterPos3" type="Marker2D" parent="Markers"]
+position = Vector2(563, 264)

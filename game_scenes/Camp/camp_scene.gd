@@ -6,7 +6,6 @@ extends Node2D
 func _ready() -> void:
 	transition.play("fadeIn")
 
-
 func _on_gb_bt_pressed() -> void:
 	get_tree().change_scene_to_packed(Global.OwScene)
 
