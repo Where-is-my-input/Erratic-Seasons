@@ -2,12 +2,18 @@
 
 [ext_resource type="Script" path="res://game_scenes/Camp/camp_scene.gd" id="1_5txfa"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_x171v"]
+font_size = 48
+
+[sub_resource type="LabelSettings" id="LabelSettings_2tmd6"]
+font_size = 22
+
 [sub_resource type="Animation" id="Animation_ydali"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Transition/ColorRect:self_modulate")
+tracks/0/path = NodePath("CampUI/Transition/ColorRect:self_modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -19,7 +25,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Transition/ColorRect:visible")
+tracks/1/path = NodePath("CampUI/Transition/ColorRect:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -34,7 +40,7 @@ resource_name = "fadeIn"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Transition/ColorRect:self_modulate")
+tracks/0/path = NodePath("CampUI/Transition/ColorRect:self_modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -46,7 +52,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Transition/ColorRect:visible")
+tracks/1/path = NodePath("CampUI/Transition/ColorRect:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -55,6 +61,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CampUI:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fhb1c"]
 _data = {
@@ -62,28 +80,8 @@ _data = {
 "fadeIn": SubResource("Animation_1yijl")
 }
 
-[sub_resource type="LabelSettings" id="LabelSettings_x171v"]
-font_size = 48
-
-[sub_resource type="LabelSettings" id="LabelSettings_2tmd6"]
-font_size = 22
-
 [node name="CampScene" type="Node2D"]
 script = ExtResource("1_5txfa")
-
-[node name="Transition" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_fhb1c")
-}
-
-[node name="ColorRect" type="ColorRect" parent="Transition"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
-metadata/_edit_use_anchors_ = true
 
 [node name="CampUI" type="CanvasLayer" parent="."]
 
@@ -140,5 +138,20 @@ text = "Sleep(Changes Season)
 [node name="GbBT" type="Button" parent="CampUI/MC/HBoxContainer"]
 layout_mode = 2
 text = "Go Back"
+
+[node name="Transition" type="AnimationPlayer" parent="CampUI"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_fhb1c")
+}
+
+[node name="ColorRect" type="ColorRect" parent="CampUI/Transition"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="CampUI/MC/HBoxContainer/GbBT" to="." method="_on_gb_bt_pressed"]
