@@ -61,7 +61,9 @@ func setTurnDisabled():
 		setDisabledAll(!turnActionAvailable)
 
 func revive():
+	print("UI revive ", character.HP)
 	updateUI(character.HP)
+	turnActionAvailable = true
 	setTurnDisabled()
 
 func dead():

@@ -36,3 +36,4 @@ func getHit(damage = 10):
 func revive(value = 10):
 	HP = value
 	isDead = false
+	revived.emit()
