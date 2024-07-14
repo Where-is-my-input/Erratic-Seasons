@@ -84,6 +84,7 @@ _data = {
 script = ExtResource("1_5txfa")
 
 [node name="CampUI" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="MC" type="MarginContainer" parent="CampUI"]
 anchors_preset = 15
