@@ -35,11 +35,13 @@ func _ready():
 		hp.value = character.HP
 	character.connect("gotHit", updateUI)
 	character.connect("died", dead)
+	character.connect("revived", revive)
 	if character.isDead:
 		setDisabledAll(true)
 
-func updateUI():
-	hp.value = character.HP
+func updateUI(value = 10):
+	#hp.value = character.HP
+	hp.value = value
 
 func setDisabledAll(value = true):
 	setDisabled(v_box_container, value)
@@ -58,9 +60,12 @@ func setTurnDisabled():
 	if !character.isDead:
 		setDisabledAll(!turnActionAvailable)
 
+func revive():
+	updateUI(character.HP)
+	setTurnDisabled()
+
 func dead():
 	pass #show a skull sprite
-
 
 func _on_flee_pressed() -> void:
 	get_tree().change_scene_to_packed(Global.OwScene)

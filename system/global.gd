@@ -6,9 +6,9 @@ enum seasons {SPRING, SUMMER, AUTUMN, WINTER}
 var OwScene : PackedScene = preload("res://game_scenes/OverWorld/over_world.tscn")
 
 var playerParty:Array
-
 var npcParty:Array
 
+signal deathMinigame
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -24,6 +24,7 @@ func _input(event):
 		get_tree().change_scene_to_file("res://game_scenes/n_2d_debug_scene.tscn")
 
 func createRandomNPCParty():
+	npcParty.clear()
 	var amount = randi_range(1,6)
 	for i in amount:
 		Global.npcParty.push_back(preload("res://characters/npc/twin_angels.tscn").instantiate())

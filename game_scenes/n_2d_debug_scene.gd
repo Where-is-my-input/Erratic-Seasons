@@ -18,3 +18,9 @@ func _on_button_pressed():
 
 func _on_button_2_pressed():
 	Global.npcParty.push_back(preload("res://characters/npc/twin_angels.tscn").instantiate())
+
+
+func _on_button_3_pressed():
+	for c in Global.playerParty:
+		c.HP = 1
+		c.isDead = false

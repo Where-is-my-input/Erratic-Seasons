@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://dofnxkn5mwsri"]
+[gd_scene load_steps=7 format=3 uid="uid://dofnxkn5mwsri"]
 
 [ext_resource type="Script" path="res://game_scenes/game_over_minigame/player.gd" id="1_qfqtu"]
+[ext_resource type="Script" path="res://game_scenes/game_over_minigame/game_over_minigame.gd" id="1_urof0"]
 [ext_resource type="Texture2D" uid="uid://cw2ov7o26iosr" path="res://icon.svg" id="2_82w08"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r00bq"]
@@ -12,6 +13,7 @@ size = Vector2(24, 24)
 size = Vector2(8, 410.25)
 
 [node name="gameOverMinigame" type="Node2D"]
+script = ExtResource("1_urof0")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 232.0
@@ -60,3 +62,10 @@ position = Vector2(96, -4)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_h5tbo")
 debug_color = Color(0, 0.476397, 0.491257, 0.42)
+
+[node name="tmrRevive" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="tmrRevive" to="." method="_on_tmr_revive_timeout"]
