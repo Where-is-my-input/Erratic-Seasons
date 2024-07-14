@@ -60,3 +60,7 @@ func setTurnDisabled():
 
 func dead():
 	pass #show a skull sprite
+
+
+func _on_flee_pressed() -> void:
+	get_tree().change_scene_to_packed(Global.OwScene)

@@ -67,3 +67,4 @@ layout_mode = 2
 text = "Equipment"
 
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/attack" to="." method="_on_attack_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/flee" to="." method="_on_flee_pressed"]

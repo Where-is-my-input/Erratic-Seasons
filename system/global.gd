@@ -1,10 +1,14 @@
 extends Node
 
 enum character {CECILIA, GEOVANNA, TWIN_ANGELS}
+enum seasons {SPRING, SUMMER, AUTUMN, WINTER}
+
+var OwScene : PackedScene = preload("res://game_scenes/OverWorld/over_world.tscn")
 
 var playerParty:Array
 
 var npcParty:Array
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

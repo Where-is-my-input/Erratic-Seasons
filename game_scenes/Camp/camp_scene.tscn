@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://1bj38fktu8r6"]
+[gd_scene load_steps=7 format=3 uid="uid://1bj38fktu8r6"]
 
 [ext_resource type="Script" path="res://game_scenes/Camp/camp_scene.gd" id="1_5txfa"]
 
@@ -62,13 +62,14 @@ _data = {
 "fadeIn": SubResource("Animation_1yijl")
 }
 
+[sub_resource type="LabelSettings" id="LabelSettings_x171v"]
+font_size = 48
+
+[sub_resource type="LabelSettings" id="LabelSettings_2tmd6"]
+font_size = 22
+
 [node name="CampScene" type="Node2D"]
 script = ExtResource("1_5txfa")
-
-[node name="Label" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
-text = "CAMP SCENE"
 
 [node name="Transition" type="AnimationPlayer" parent="."]
 libraries = {
@@ -83,3 +84,61 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
+
+[node name="CampUI" type="CanvasLayer" parent="."]
+
+[node name="MC" type="MarginContainer" parent="CampUI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 48
+theme_override_constants/margin_top = 48
+theme_override_constants/margin_right = 48
+
+[node name="Title" type="Label" parent="CampUI/MC"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "CAMP(REST SITE?)"
+label_settings = SubResource("LabelSettings_x171v")
+horizontal_alignment = 1
+
+[node name="SeasonInf" type="Label" parent="CampUI/MC"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+text = "Season"
+label_settings = SubResource("LabelSettings_x171v")
+horizontal_alignment = 1
+
+[node name="InfoText" type="Label" parent="CampUI/MC"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Welcome to the rest site, why don't you take a nap? 
+just remember that if you do it, you will heal your  wounds, however the season will also change!"
+label_settings = SubResource("LabelSettings_2tmd6")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="HBoxContainer" type="VBoxContainer" parent="CampUI/MC"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 48
+
+[node name="SleepBT" type="Button" parent="CampUI/MC/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Sleep(Changes Season)
+"
+
+[node name="GbBT" type="Button" parent="CampUI/MC/HBoxContainer"]
+layout_mode = 2
+text = "Go Back"
+
+[connection signal="pressed" from="CampUI/MC/HBoxContainer/GbBT" to="." method="_on_gb_bt_pressed"]
