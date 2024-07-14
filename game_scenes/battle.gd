@@ -5,9 +5,11 @@ extends Node2D
 @onready var transition = $battleUI/CanvasLayer/Transition
 @onready var battle_ui = $battleUI
 
+var gameOverMinigame = preload("res://game_scenes/game_over_minigame/game_over_minigame.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Global.connect("deathMinigame", deathMinigame)
 	transition.play("fadeIn")
 	#for c in Global.playerParty:
 		#player_party.add_child(c)
@@ -35,5 +37,11 @@ func npcTurn():
 func npcAttack(attacker):
 	var targetId = randi_range(0, Global.playerParty.size() - 1)
 	var target = Global.playerParty[targetId]
-	print(target)
 	target.getHit(attacker.atk)
+
+func deathMinigame(character):
+	print("Minigame signal received")
+	var minigame = gameOverMinigame.instantiate()
+	minigame.character = character
+	add_child(minigame)
+	

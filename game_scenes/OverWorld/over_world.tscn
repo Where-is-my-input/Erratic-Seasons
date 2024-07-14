@@ -6,7 +6,7 @@
 [node name="OverWorld" type="Node2D"]
 
 [node name="OverWorldCharacter" parent="." instance=ExtResource("4_omhwd")]
-position = Vector2(172, 90)
+position = Vector2(448, 115)
 
 [node name="EncounterRandomizer" parent="." instance=ExtResource("5_7ppo1")]
 

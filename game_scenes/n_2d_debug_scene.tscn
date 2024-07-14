@@ -12,11 +12,16 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 472.0
+offset_top = 225.0
+offset_right = 472.0
+offset_bottom = 225.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="BoxContainer" type="BoxContainer" parent="Container"]
 layout_mode = 2
+vertical = true
 
 [node name="Button" type="Button" parent="Container/BoxContainer"]
 layout_mode = 2
@@ -28,6 +33,7 @@ text = "add to NPC party"
 
 [node name="Button3" type="Button" parent="Container/BoxContainer"]
 layout_mode = 2
+text = "Set party to 1 HP"
 
 [node name="Button4" type="Button" parent="Container/BoxContainer"]
 layout_mode = 2
@@ -43,3 +49,4 @@ layout_mode = 2
 
 [connection signal="pressed" from="Container/BoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Container/BoxContainer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Container/BoxContainer/Button3" to="." method="_on_button_3_pressed"]

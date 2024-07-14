@@ -6,15 +6,15 @@ extends Control
 func _ready():
 	button.grab_focus()
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-
 func _on_button_pressed():
 	get_tree().change_scene_to_file("res://game_scenes/OverWorld/over_world.tscn")
 
 
 func _on_button_2_pressed():
 	Global.npcParty.push_back(preload("res://characters/npc/twin_angels.tscn").instantiate())
+
+
+func _on_button_3_pressed():
+	for c in Global.playerParty:
+		c.HP = 1
+		c.isDead = false

@@ -12,6 +12,7 @@ var isDead = false
 
 signal gotHit()
 signal died()
+signal revived()
 
 func _init():
 	HP = maxHP
@@ -27,4 +28,12 @@ func getHit(damage = 10):
 		if isNPC:
 			print("Dead")
 			queue_free()#maybe keep the node "alive" so someone could revive it
-	gotHit.emit()
+		else:
+			print("Death minigame")
+			Global.deathMinigame.emit(self)
+	gotHit.emit(HP)
+
+func revive(value = 10):
+	HP = value
+	isDead = false
+	revived.emit()
