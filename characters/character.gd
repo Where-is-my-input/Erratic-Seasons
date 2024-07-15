@@ -10,7 +10,9 @@ extends Node2D
 @export var level = 1
 var xp = 0
 #equipment
-@export var equipment:Array
+#@export var equipment:Array
+@export var weapon:Node
+@export var armor:Node
 
 var isDead = false
 

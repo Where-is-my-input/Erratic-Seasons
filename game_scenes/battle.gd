@@ -21,7 +21,35 @@ func attack(attacker):
 	var targetId = randi_range(0, npc_party.get_child_count() - 1)
 	var target = npc_party.get_child(targetId)
 	if target == null: return
-	target.getHit(attacker.atk)
+	target.getHit(getDamageDealt(attacker.atk, attacker.weapon, target.armor))
+
+func getDamageDealt(atk, attackerEquip, targetEquip):
+	var attack:int = atk
+	if attackerEquip != null:
+		attack = attackerEquip.atk * 1.5 if attackerEquip.type == Global.currentSeason else attackerEquip.atk
+	var defense:int = 0
+	if targetEquip != null:
+		defense = targetEquip.def * 1.5 if targetEquip.type == Global.currentSeason else targetEquip.def
+	var damageDealt:int = attack - (defense * 0.1)
+	print("Damage dealt: ", damageDealt, " Attack ", attack, " defense ", defense)
+	return damageDealt if damageDealt > 0 else 1
+#I wanted to make an equipment array but man this code looks like shit
+#func getDamageDealt(attackerEquip, targetEquip):
+	#var damageDealt = 0
+	#for equip in attackerEquip:
+		#var equipDamage:int = 0
+		#if equip.atk == 0: continue
+			##damageDealt += equip.atk
+		#if targetEquip.size() > 0:
+			#for e in targetEquip:
+				#if e.def == 0: continue
+				#if equip.type == e.type:
+					#equipDamage += equip.atk * 0.7
+				#equipDamage -= (e.def * 0.1) + 1
+		#else:
+			#equipDamage = equip.atk
+		#damageDealt += equipDamage
+	#return damageDealt if damageDealt > 0 else 0
 
 func npcTurn():
 	var battleOver = true
@@ -37,7 +65,8 @@ func npcTurn():
 func npcAttack(attacker):
 	var targetId = randi_range(0, Global.playerParty.size() - 1)
 	var target = Global.playerParty[targetId]
-	target.getHit(attacker.atk)
+	#target.getHit(attacker.atk)
+	target.getHit(getDamageDealt(attacker.atk, attacker.weapon, target.armor))
 
 func deathMinigame(character):
 	print("Minigame signal received")
