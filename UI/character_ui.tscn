@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://UI/character_ui.gd" id="1_ymnde"]
 [ext_resource type="Theme" uid="uid://bf3mon5s2aex1" path="res://UI/theme.tres" id="2_4fyp8"]
 
-[node name="characterUI" type="BoxContainer" node_paths=PackedStringArray("hp", "lblname")]
+[node name="characterUI" type="BoxContainer" node_paths=PackedStringArray("hp", "lblname", "weapon", "armor")]
 visibility_layer = 2
 anchors_preset = 15
 anchor_right = 1.0
@@ -15,7 +15,9 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("1_ymnde")
 hp = NodePath("HBoxContainer/BoxContainer/HP")
-lblname = NodePath("HBoxContainer/BoxContainer/name")
+lblname = NodePath("HBoxContainer/BoxContainer/HBoxContainer/name")
+weapon = NodePath("HBoxContainer/BoxContainer/HBoxContainer/HBoxContainer/weapon")
+armor = NodePath("HBoxContainer/BoxContainer/HBoxContainer/HBoxContainer/armor")
 
 [node name="HBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
@@ -24,9 +26,27 @@ alignment = 1
 [node name="BoxContainer" type="VBoxContainer" parent="HBoxContainer"]
 layout_mode = 2
 
-[node name="name" type="Label" parent="HBoxContainer/BoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/BoxContainer"]
+layout_mode = 2
+
+[node name="name" type="Label" parent="HBoxContainer/BoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "Cecilia"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/BoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+alignment = 1
+
+[node name="weapon" type="Label" parent="HBoxContainer/BoxContainer/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer/BoxContainer/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "|"
+
+[node name="armor" type="Label" parent="HBoxContainer/BoxContainer/HBoxContainer/HBoxContainer"]
+layout_mode = 2
 
 [node name="HP" type="ProgressBar" parent="HBoxContainer/BoxContainer"]
 custom_minimum_size = Vector2(250, 15)

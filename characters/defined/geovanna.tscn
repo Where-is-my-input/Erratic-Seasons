@@ -1,9 +1,24 @@
-[gd_scene load_steps=2 format=3 uid="uid://052bwrgegrr6"]
+[gd_scene load_steps=3 format=3 uid="uid://052bwrgegrr6"]
 
 [ext_resource type="PackedScene" uid="uid://vrmulrli4eab" path="res://characters/character.tscn" id="1_dv80v"]
+[ext_resource type="PackedScene" uid="uid://dlgyrrbpnqyvg" path="res://equipment/equipment.tscn" id="2_x81yg"]
 
-[node name="character" instance=ExtResource("1_dv80v")]
+[node name="character" node_paths=PackedStringArray("weapon", "armor") instance=ExtResource("1_dv80v")]
 characterType = 1
 maxHP = 250
 atk = 8
 isNPC = false
+weapon = NodePath("equipment")
+armor = NodePath("equipment2")
+
+[node name="equipment2" parent="." index="0" instance=ExtResource("2_x81yg")]
+equipmentName = "Simple Shield"
+type = 2
+atk = 0
+def = 8
+
+[node name="equipment" parent="." index="1" instance=ExtResource("2_x81yg")]
+equipmentName = "Simple Axe"
+type = 3
+atk = 16
+def = 0

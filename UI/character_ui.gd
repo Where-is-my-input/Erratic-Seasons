@@ -2,6 +2,8 @@ extends Control
 
 @export var hp:ProgressBar
 @export var lblname:Label
+@export var weapon:Label
+@export var armor:Label
 
 @onready var v_box_container = $HBoxContainer/VBoxContainer
 @onready var v_box_container_2 = $HBoxContainer/VBoxContainer2
@@ -36,9 +38,14 @@ func _ready():
 	character.connect("gotHit", updateUI)
 	character.connect("died", dead)
 	character.connect("revived", revive)
+	setEquipments(character)
 	if character.isDead:
 		turnActionAvailable = false
 		setDisabledAll(true)
+
+func setEquipments(c):
+	if c.weapon != null: weapon.text = c.weapon.equipmentName
+	if c.armor != null: armor.text = c.armor.equipmentName
 
 func updateUI(value = 10):
 	#hp.value = character.HP

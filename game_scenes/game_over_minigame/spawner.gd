@@ -18,7 +18,6 @@ func _on_timer_timeout():
 	timer.start(randi_range(0, 10 - get_parent().difficulty))
 
 func spawn():
-	print("Spawn called ", global_position)
 	var projectile = MINIGAME_PROJECTILE.instantiate()
 	projectile.movement = Vector2(randi_range(movementFrom.x, movementTo.x), randi_range(movementFrom.y, movementTo.y))
 	add_child(projectile)
