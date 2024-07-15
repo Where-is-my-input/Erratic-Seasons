@@ -7,6 +7,7 @@ var OwScene : PackedScene = preload("res://game_scenes/OverWorld/over_world.tscn
 
 var playerParty:Array
 var npcParty:Array
+var currentSeason = seasons.SPRING
 
 signal deathMinigame
 
