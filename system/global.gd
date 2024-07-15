@@ -2,6 +2,7 @@ extends Node
 
 enum character {CECILIA, GEOVANNA, TWIN_ANGELS}
 enum seasons {SPRING, SUMMER, AUTUMN, WINTER}
+enum type {AIR, FIRE, EARTH, WATER}
 
 var OwScene : PackedScene = preload("res://game_scenes/OverWorld/over_world.tscn")
 

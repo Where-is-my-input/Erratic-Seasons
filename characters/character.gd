@@ -7,6 +7,10 @@ extends Node2D
 @onready var HP = maxHP
 @export var atk = 10
 @export var isNPC = true
+@export var level = 1
+var xp = 0
+#equipment
+@export var equipment:Array
 
 var isDead = false
 
