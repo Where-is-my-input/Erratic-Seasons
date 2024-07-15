@@ -27,6 +27,8 @@ func _input(event):
 
 func createRandomNPCParty():
 	npcParty.clear()
-	var amount = randi_range(1,6)
+	var amount = randi_range(1,8)
 	for i in amount:
-		Global.npcParty.push_back(preload("res://characters/npc/twin_angels.tscn").instantiate())
+		var npc = preload("res://characters/npc/twin_angels.tscn").instantiate()
+		npc._init()
+		Global.npcParty.push_back(npc)
