@@ -7,6 +7,8 @@ extends Node2D
 
 var gameOverMinigame = preload("res://game_scenes/game_over_minigame/game_over_minigame.tscn")
 
+var npcPartyCount = 0
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Global.connect("playerCharacterDied", playerCharacterDied)
@@ -14,7 +16,14 @@ func _ready():
 	#for c in Global.playerParty:
 		#player_party.add_child(c)
 	for c in Global.npcParty:
+		npcPartyCount += 1
+		c.connect("died", npcCharacterDied)
 		npc_party.add_child(c)
+
+func npcCharacterDied():
+	npcPartyCount -= 1
+	if npcPartyCount <= 0:
+		endBattle()
 
 func attack(attacker):
 	print("Battle scene attack called")
@@ -56,11 +65,13 @@ func npcTurn():
 	for c in npc_party.get_children():
 		npcAttack(c)
 		battleOver = false
-	if battleOver:
-		print("Battle ended")
-		Global.npcParty.clear()
-		get_tree().change_scene_to_file("res://game_scenes/OverWorld/over_world.tscn")
 	battle_ui.endNPCTurn()
+
+func endBattle():
+	print("Battle ended")
+	Global.npcParty.clear()
+	get_tree().change_scene_to_file("res://game_scenes/OverWorld/over_world.tscn")
+	
 
 func npcAttack(attacker):
 	var targetId = randi_range(0, Global.playerParty.size() - 1)
@@ -69,7 +80,6 @@ func npcAttack(attacker):
 	target.getHit(getDamageDealt(attacker.atk, attacker.weapon, target.armor))
 
 func playerCharacterDied():
-	print("Player character died")
 	for c in Global.playerParty:
 		if c.HP > 0: return
 	print("Play game over minigame")
