@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dofnxkn5mwsri"]
+[gd_scene load_steps=9 format=3 uid="uid://dofnxkn5mwsri"]
 
 [ext_resource type="Script" path="res://game_scenes/game_over_minigame/player.gd" id="1_qfqtu"]
 [ext_resource type="Script" path="res://game_scenes/game_over_minigame/game_over_minigame.gd" id="1_urof0"]
 [ext_resource type="Texture2D" uid="uid://cw2ov7o26iosr" path="res://icon.svg" id="2_82w08"]
+[ext_resource type="PackedScene" uid="uid://c330gagwai2ik" path="res://game_scenes/game_over_minigame/spawner.tscn" id="4_nf712"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r00bq"]
 size = Vector2(24, 24)
@@ -12,9 +13,11 @@ size = Vector2(24, 24)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h5tbo"]
 size = Vector2(8, 410.25)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g1vfs"]
+size = Vector2(244, 418)
+
 [node name="gameOverMinigame" type="Node2D"]
-z_index = 18
-position = Vector2(456, 96)
+position = Vector2(448, 110)
 script = ExtResource("1_urof0")
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -36,6 +39,8 @@ shape = SubResource("RectangleShape2D_r00bq")
 debug_color = Color(0.154628, 0.51833, 1, 0.42)
 
 [node name="hurtbox" type="Area2D" parent="player"]
+collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player/hurtbox"]
 shape = SubResource("RectangleShape2D_mhuw3")
@@ -70,4 +75,43 @@ wait_time = 2.0
 one_shot = true
 autostart = true
 
+[node name="spawner2" parent="." instance=ExtResource("4_nf712")]
+position = Vector2(190, -7)
+movementFrom = Vector2(-5, 25)
+movementTo = Vector2(-10, 50)
+
+[node name="spawner" parent="." instance=ExtResource("4_nf712")]
+position = Vector2(28, -8)
+
+[node name="spawner3" parent="." instance=ExtResource("4_nf712")]
+position = Vector2(169, 414)
+movementFrom = Vector2(-5, -5)
+movementTo = Vector2(-10, -10)
+
+[node name="spawner4" parent="." instance=ExtResource("4_nf712")]
+position = Vector2(45, 415)
+movementFrom = Vector2(5, -1)
+movementTo = Vector2(10, -5)
+
+[node name="spawner5" parent="." instance=ExtResource("4_nf712")]
+position = Vector2(-20, 11)
+movementFrom = Vector2(1, 0)
+movementTo = Vector2(75, 5)
+
+[node name="spawner6" parent="." instance=ExtResource("4_nf712")]
+position = Vector2(259, 391)
+movementFrom = Vector2(-30, 0)
+movementTo = Vector2(-31, -75)
+yDrift = -50
+
+[node name="despawner" type="Area2D" parent="."]
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="despawner"]
+position = Vector2(117, 204)
+shape = SubResource("RectangleShape2D_g1vfs")
+debug_color = Color(0.838371, 0.812423, 1, 0.42)
+
+[connection signal="body_entered" from="player/hurtbox" to="." method="_on_hurtbox_body_entered"]
 [connection signal="timeout" from="tmrRevive" to="." method="_on_tmr_revive_timeout"]
+[connection signal="body_exited" from="despawner" to="." method="_on_despawner_body_exited"]

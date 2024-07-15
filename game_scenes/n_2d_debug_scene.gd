@@ -22,3 +22,7 @@ func _on_button_3_pressed():
 
 func _on_button_4_pressed():
 	get_tree().change_scene_to_file("res://UI/main_menu.tscn")
+
+
+func _on_button_5_pressed():
+	get_tree().change_scene_to_file("res://game_scenes/game_over_minigame/game_over_minigame.tscn")

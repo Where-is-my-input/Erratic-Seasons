@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://c330gagwai2ik"]
+
+[ext_resource type="Script" path="res://game_scenes/game_over_minigame/spawner.gd" id="1_4g3gq"]
+
+[node name="spawner" type="Node2D"]
+script = ExtResource("1_4g3gq")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
