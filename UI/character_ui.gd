@@ -37,6 +37,7 @@ func _ready():
 	character.connect("died", dead)
 	character.connect("revived", revive)
 	if character.isDead:
+		turnActionAvailable = false
 		setDisabledAll(true)
 
 func updateUI(value = 10):

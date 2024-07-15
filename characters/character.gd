@@ -36,8 +36,8 @@ func getHit(damage = 10):
 			print("Dead")
 			queue_free()#maybe keep the node "alive" so someone could revive it
 		else:
-			print("Death minigame")
-			Global.deathMinigame.emit(self)
+			print("Player character dead")
+			Global.playerCharacterDied.emit()
 	gotHit.emit(HP)
 
 func revive(value = 10):

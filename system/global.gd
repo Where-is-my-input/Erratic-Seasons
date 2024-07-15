@@ -10,7 +10,7 @@ var playerParty:Array
 var npcParty:Array
 var currentSeason = seasons.SPRING
 
-signal deathMinigame
+signal playerCharacterDied
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

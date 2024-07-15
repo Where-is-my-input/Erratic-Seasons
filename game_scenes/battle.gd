@@ -9,7 +9,7 @@ var gameOverMinigame = preload("res://game_scenes/game_over_minigame/game_over_m
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	Global.connect("deathMinigame", deathMinigame)
+	Global.connect("playerCharacterDied", playerCharacterDied)
 	transition.play("fadeIn")
 	#for c in Global.playerParty:
 		#player_party.add_child(c)
@@ -68,9 +68,14 @@ func npcAttack(attacker):
 	#target.getHit(attacker.atk)
 	target.getHit(getDamageDealt(attacker.atk, attacker.weapon, target.armor))
 
-func deathMinigame(character):
-	print("Minigame signal received")
+func playerCharacterDied():
+	print("Player character died")
+	for c in Global.playerParty:
+		if c.HP > 0: return
+	print("Play game over minigame")
+	deathMinigame()
+
+func deathMinigame():
 	var minigame = gameOverMinigame.instantiate()
-	minigame.character = character
 	add_child(minigame)
 	
