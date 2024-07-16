@@ -4,6 +4,7 @@
 
 [node name="broken_shield" instance=ExtResource("1_tpdq1")]
 equipmentName = "Broken Shield"
+equipmentType = 1
 type = 3
 atk = 0
 def = 8

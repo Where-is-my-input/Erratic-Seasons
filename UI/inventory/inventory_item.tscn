@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://nujo4k41qwfw"]
+
+[ext_resource type="Script" path="res://UI/inventory/inventory_item.gd" id="1_6j7ga"]
+
+[node name="inventoryItem" type="HBoxContainer"]
+script = ExtResource("1_6j7ga")
+
+[node name="level" type="Label" parent="."]
+layout_mode = 2
+
+[node name="lblName" type="Label" parent="."]
+layout_mode = 2
+
+[node name="equipType" type="Label" parent="."]
+layout_mode = 2
+
+[node name="value" type="Label" parent="."]
+layout_mode = 2

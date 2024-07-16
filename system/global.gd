@@ -3,6 +3,7 @@ extends Node
 enum character {CECILIA, GEOVANNA, TWIN_ANGELS, GOBLIN}
 enum seasons {SPRING, SUMMER, AUTUMN, WINTER}
 enum type {AIR, FIRE, EARTH, WATER}
+enum equipmentType {WEAPON, ARMOR}
 
 const RANDOM_MOBS:Array = [preload("res://characters/npc/mobs/goblin.tscn")]
 
@@ -12,6 +13,8 @@ var playerParty:Array
 var npcParty:Array
 var currentSeason = seasons.SPRING
 var gameOvers:int = 0
+
+var playerInventory:Array
 #will be the floor variable
 var encountersCounter :int = 0
 
@@ -19,6 +22,8 @@ signal playerCharacterDied
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	playerInventory.push_back(preload("res://equipment/weapon/old_club.tscn").instantiate())
+	playerInventory.push_back(preload("res://equipment/weapon/old_club.tscn").instantiate())
 	var cc = preload("res://characters/defined/cecilia.tscn").instantiate()
 	var geo = preload("res://characters/defined/geovanna.tscn").instantiate()
 	

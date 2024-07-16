@@ -1,10 +1,12 @@
 extends Node
 
 @export var equipmentName = "Simple sword"
+@export var equipmentType:Global.equipmentType
 @export var type:Global.type
 @export var atk:int = 1
 @export var def:int = 1
 @export var level = 1
+@export var sprite:PackedScene
 
 func _init():
 	setStats()

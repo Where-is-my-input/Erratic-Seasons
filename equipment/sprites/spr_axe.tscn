@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c3mdu4bw6oknh"]
+
+[ext_resource type="Texture2D" uid="uid://db01qnl86lmdc" path="res://assets/sprites/weapons/axe.png" id="1_j81pf"]
+
+[node name="sprAxe" type="Sprite2D"]
+texture = ExtResource("1_j81pf")
