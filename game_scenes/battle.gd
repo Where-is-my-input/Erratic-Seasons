@@ -75,6 +75,7 @@ func getDamageDealt(atk, attackerEquip, targetEquip):
 func npcTurn():
 	var battleOver = true
 	for c in npc_party.get_children():
+		await get_tree().create_timer(0.3).timeout
 		if c.isDead: continue
 		npcAttack(c)
 		battleOver = false
@@ -93,6 +94,7 @@ func npcAttack(attacker):
 		if !checkPlayerPartyAlive(): return
 		target = getNextAlivePartyMember(targetId)
 	#target.getHit(attacker.atk)
+	attacker.attack.emit()
 	target.getHit(getDamageDealt(attacker.atk, attacker.weapon, target.armor))
 
 func getNextAlivePartyMember(targetId = 0):
@@ -109,6 +111,7 @@ func checkPlayerPartyAlive():
 func playerCharacterDied():
 	if checkPlayerPartyAlive(): return
 	print("Play game over minigame")
+	await get_tree().create_timer(2).timeout
 	deathMinigame()
 
 func deathMinigame():

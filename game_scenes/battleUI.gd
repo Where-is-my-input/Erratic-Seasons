@@ -16,7 +16,7 @@ func _ready():
 	for c in Global.npcParty:
 		var charUI = preload("res://UI/npc_character_ui.tscn").instantiate()
 		charUI.character = c
-		charUI.connect("attack", attack)
+		#charUI.connect("attack", attack)
 		charUI.connect("attacked", playerAttack)
 		npc_party_container.add_child(charUI)
 

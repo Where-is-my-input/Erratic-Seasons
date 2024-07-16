@@ -35,10 +35,14 @@ func _ready():
 	character.connect("gotHit", getHit)
 	character.connect("died", dead)
 	character.connect("revived", revive)
+	character.connect("attack", attackAnim)
 	setEquipments(character)
 	if character.isDead:
 		turnActionAvailable = false
 		setDisabledAll(true)
+
+func attackAnim():
+	playAnimation("attack")
 
 func setCharacter():
 	match character.characterType:
@@ -59,7 +63,7 @@ func setEquipments(c):
 	if c.armor != null: armor.text = c.armor.equipmentName
 
 func getHit(value = 10):
-	if sprite != null: sprite.get_child(0).play("getHit")
+	playAnimation()
 	updateUI(value)
 
 func updateUI(value = 10):
@@ -102,3 +106,6 @@ func attackButtonVisible(v):
 
 func _on_btn_attack_pressed():
 	attacked.emit(character)
+
+func playAnimation(strAnim = "getHit"):
+	if sprite != null: sprite.get_child(0).play(strAnim)

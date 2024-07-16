@@ -21,6 +21,7 @@ var isDead = false
 signal gotHit()
 signal died()
 signal revived()
+signal attack
 
 func _init(lvl = 1):
 	level += lvl
