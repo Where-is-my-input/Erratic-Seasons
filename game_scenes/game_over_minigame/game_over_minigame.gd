@@ -18,6 +18,8 @@ func _on_tmr_revive_timeout():
 
 func _on_hurtbox_body_entered(body):
 	print("Minigame failed")
+	#Reset encounters with 0
+	Global.ResetEncCounter()
 	queue_free()
 
 func _on_despawner_body_exited(body):

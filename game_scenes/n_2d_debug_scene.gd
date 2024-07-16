@@ -7,6 +7,7 @@ extends Control
 func _ready():
 	SoundManager.PlayClip(audio_stream_player, "characterBackground")
 	button.grab_focus()
+	Global.ResetEncCounter()
 
 func _on_button_pressed():
 	get_tree().change_scene_to_file("res://game_scenes/OverWorld/over_world.tscn")

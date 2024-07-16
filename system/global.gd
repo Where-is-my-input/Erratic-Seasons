@@ -12,6 +12,8 @@ var playerParty:Array
 var npcParty:Array
 var currentSeason = seasons.SPRING
 var gameOvers:int = 0
+#will be the floor variable
+var encountersCounter :int = 0
 
 signal playerCharacterDied
 
@@ -41,3 +43,11 @@ func changeSeason(value = 1):
 	currentSeason += 1
 	if currentSeason > seasons.WINTER:
 		currentSeason -= 4
+
+#Increases everyEncounter
+func IncreaseEncCounter() -> void:
+	encountersCounter += 1
+	
+#Useful to use when the player dies
+func ResetEncCounter() -> void:
+	encountersCounter = 0

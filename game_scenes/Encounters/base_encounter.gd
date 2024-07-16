@@ -25,6 +25,7 @@ func CheckTypes(typeToCheck : String) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	transition.play("fadeOut")
+	Global.IncreaseEncCounter()
 	match(assignedType):
 		"Battle":
 			print("You got attacked by an enemy, engaging battle mode")
