@@ -30,3 +30,5 @@ layout_mode = 2
 visible = false
 layout_mode = 2
 text = "Attack"
+
+[connection signal="pressed" from="HBoxContainer/btnAttack" to="." method="_on_btn_attack_pressed"]

@@ -13,6 +13,7 @@ extends Control
 var character:Node2D
 
 signal attack
+signal attacked
 signal talk
 signal inspect
 signal flee
@@ -84,3 +85,6 @@ func _on_flee_pressed() -> void:
 
 func attackButtonVisible(v):
 	btn_attack.visible = v
+
+func _on_btn_attack_pressed():
+	attacked.emit(character)
