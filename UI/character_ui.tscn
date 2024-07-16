@@ -1,10 +1,60 @@
-[gd_scene load_steps=4 format=3 uid="uid://cmf2x2kufabom"]
+[gd_scene load_steps=9 format=3 uid="uid://cmf2x2kufabom"]
 
 [ext_resource type="Theme" uid="uid://x4cfdm2cfmkg" path="res://UI/helathBarTheme.tres" id="1_7txhk"]
 [ext_resource type="Script" path="res://UI/character_ui.gd" id="1_ymnde"]
 [ext_resource type="Theme" uid="uid://bf3mon5s2aex1" path="res://UI/theme.tres" id="2_4fyp8"]
+[ext_resource type="Texture2D" uid="uid://cojfik3aguct2" path="res://assets/sprites/vfx/slash.png" id="4_4ticp"]
 
-[node name="characterUI" type="BoxContainer" node_paths=PackedStringArray("hp", "lblname", "weapon", "armor", "v_box_container", "v_box_container_2")]
+[sub_resource type="SpriteFrames" id="SpriteFrames_rcutl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_4ticp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_moa5p"]
+resource_name = "getHit"
+length = 0.333335
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.133333, 0.216667, 0.25, 0.333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false, true, false]
+}
+
+[sub_resource type="Animation" id="Animation_8m1vh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kxbbk"]
+_data = {
+"RESET": SubResource("Animation_8m1vh"),
+"getHit": SubResource("Animation_moa5p")
+}
+
+[node name="characterUI" type="BoxContainer" node_paths=PackedStringArray("hp", "lblname", "weapon", "armor", "sprite", "v_box_container", "v_box_container_2")]
 visibility_layer = 2
 anchors_preset = 15
 anchor_right = 1.0
@@ -18,6 +68,7 @@ hp = NodePath("HBoxContainer/BoxContainer/HP")
 lblname = NodePath("HBoxContainer/BoxContainer/HBoxContainer/name")
 weapon = NodePath("HBoxContainer/BoxContainer/HBoxContainer/HBoxContainer/weapon")
 armor = NodePath("HBoxContainer/BoxContainer/HBoxContainer/HBoxContainer/armor")
+sprite = NodePath("AnimatedSprite2D")
 v_box_container = NodePath("HBoxContainer/VBoxContainer")
 v_box_container_2 = NodePath("HBoxContainer/VBoxContainer2")
 
@@ -93,6 +144,16 @@ text = "Items"
 [node name="equipmet" type="Button" parent="HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 text = "Equipment"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(144, 104)
+scale = Vector2(0.317964, 0.317964)
+sprite_frames = SubResource("SpriteFrames_rcutl")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D"]
+libraries = {
+"": SubResource("AnimationLibrary_kxbbk")
+}
 
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/attack" to="." method="_on_attack_pressed"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/flee" to="." method="_on_flee_pressed"]

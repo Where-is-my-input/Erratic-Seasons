@@ -44,8 +44,10 @@ func setCharacter():
 	match character.characterType:
 		0:
 			lblname.text = "Cecilia"
+			sprite.visible = false
 		1:
 			lblname.text = "Geovanna"
+			sprite.visible = false
 		_:
 			lblname.text = character.characterName
 			if character.sprite != null:
