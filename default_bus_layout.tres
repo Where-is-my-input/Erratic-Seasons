@@ -1,7 +1,7 @@
 [gd_resource type="AudioBusLayout" format=3 uid="uid://dw3gmb5soyysq"]
 
 [resource]
-bus/0/send = &"New Bus 3"
+bus/0/volume_db = -30.1465
 bus/1/name = &"SFX"
 bus/1/solo = false
 bus/1/mute = false

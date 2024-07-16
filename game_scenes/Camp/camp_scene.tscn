@@ -155,4 +155,5 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
 
+[connection signal="pressed" from="CampUI/MC/HBoxContainer/SleepBT" to="." method="_on_sleep_bt_pressed"]
 [connection signal="pressed" from="CampUI/MC/HBoxContainer/GbBT" to="." method="_on_gb_bt_pressed"]

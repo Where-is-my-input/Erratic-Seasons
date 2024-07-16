@@ -16,3 +16,6 @@ func HealPlayer() -> void:
 func ChangeSeason() -> void:
 	pass
 	#gonna change the game actual season
+
+func _on_sleep_bt_pressed():
+	Global.changeSeason()

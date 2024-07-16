@@ -1,10 +1,10 @@
 extends Node
 
 # we address the strings to the constants so it's easier to get them from another methods, without the need of type the exactly string
-const SOUND_LASER = "laser"
-const SOUND_CHECKPOINT = "checkpoint"
-const SOUND_DAMAGE = "damage"
-const SOUND_KILL = "kill"
+const SOUNDTRACK_SNOW_SLEDS = "snowSleds"
+const SOUNDTRACK_THEME_PARK = "themePark"
+const SOUNDTRACK_MICHAEL_HOUSE = "michaelHouse"
+const SOUNDTRACK_SNOW_BALL = "snowBall"
 const SOUND_GAMEOVER = "gameover1"
 const SOUND_IMPACT = "impact"
 const SOUND_LAND = "land"
@@ -17,10 +17,10 @@ const SOUND_WIN = "win"
 
 #It's a dictionary, meaning that the left side are the keys and the right side are the values
 var SOUNDS = {
-	#SOUND_CHECKPOINT: preload("res://assets/sound/checkpoint.wav"),
-	#SOUND_DAMAGE: preload("res://assets/sound/damage.wav"),
-	#SOUND_KILL: preload("res://assets/sound/pickup5.ogg"),
-	#SOUND_GAMEOVER: preload("res://assets/sound/game_over.ogg"),
+	SOUNDTRACK_SNOW_SLEDS: preload("res://assets/sound/music/Circlerun - Seasons Forever - Erikas Snow Sleds.mp3"),
+	SOUNDTRACK_THEME_PARK: preload("res://assets/sound/music/Circlerun - Seasons Forever - Nikkis Theme Park.mp3"),
+	SOUNDTRACK_MICHAEL_HOUSE: preload("res://assets/sound/music/Circlerun - Seasons Forever - Michaels House.mp3"),
+	SOUNDTRACK_SNOW_BALL: preload("res://assets/sound/music/Circlerun - Seasons Forever - Snow Ball Fight!!!.mp3"),
 	#SOUND_IMPACT: preload("res://assets/sound/impact.wav"),
 	#SOUND_JUMP: preload("res://assets/sound/jump.wav"),
 	#SOUND_LAND: preload("res://assets/sound/land.wav"),
@@ -33,7 +33,7 @@ var SOUNDS = {
 }
 
 # player -> where the soundPlayer is, clip_key the song that will actually play
-func PlayClip(player: AudioStreamPlayer2D, clip_key: String):
+func PlayClip(player, clip_key: String):
 	#check if the key exist, if not just return
 	if SOUNDS.has(clip_key) == false:
 		return

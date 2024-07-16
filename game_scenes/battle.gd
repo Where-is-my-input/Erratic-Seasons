@@ -4,6 +4,7 @@ extends Node2D
 #@onready var transition: AnimationPlayer = $Transition
 @onready var transition = $battleUI/CanvasLayer/Transition
 @onready var battle_ui = $battleUI
+@onready var battle_soundtrack = $battleSoundtrack
 
 var gameOverMinigame = preload("res://game_scenes/game_over_minigame/game_over_minigame.tscn")
 
@@ -11,6 +12,7 @@ var npcPartyCount = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	setSoundtrack()
 	Global.connect("playerCharacterDied", playerCharacterDied)
 	transition.play("fadeIn")
 	#for c in Global.playerParty:
@@ -19,6 +21,17 @@ func _ready():
 		npcPartyCount += 1
 		c.connect("died", npcCharacterDied)
 		npc_party.add_child(c)
+
+func setSoundtrack():
+	match Global.currentSeason:
+		Global.seasons.WINTER:
+			SoundManager.PlayClip(battle_soundtrack, "snowSleds")
+		Global.seasons.SUMMER:
+			SoundManager.PlayClip(battle_soundtrack, "themePark")
+		Global.seasons.AUTUMN:
+			SoundManager.PlayClip(battle_soundtrack, "michaelHouse")
+		Global.seasons.SPRING:
+			SoundManager.PlayClip(battle_soundtrack, "snowBall")
 
 func npcCharacterDied():
 	npcPartyCount -= 1

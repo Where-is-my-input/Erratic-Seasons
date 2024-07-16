@@ -9,6 +9,7 @@ var OwScene : PackedScene = preload("res://game_scenes/OverWorld/over_world.tscn
 var playerParty:Array
 var npcParty:Array
 var currentSeason = seasons.SPRING
+var gameOvers:int = 0
 
 signal playerCharacterDied
 
@@ -32,3 +33,8 @@ func createRandomNPCParty():
 		var npc = preload("res://characters/npc/twin_angels.tscn").instantiate()
 		npc._init()
 		Global.npcParty.push_back(npc)
+
+func changeSeason(value = 1):
+	currentSeason += 1
+	if currentSeason > seasons.WINTER:
+		currentSeason -= 4
