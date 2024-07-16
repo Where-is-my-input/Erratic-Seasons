@@ -25,3 +25,8 @@ text = "dasdasd"
 
 [node name="hp" type="ProgressBar" parent="HBoxContainer"]
 layout_mode = 2
+
+[node name="btnAttack" type="Button" parent="HBoxContainer"]
+visible = false
+layout_mode = 2
+text = "Attack"

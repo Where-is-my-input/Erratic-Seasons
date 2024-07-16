@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://chkx3qr4edy"]
+[gd_scene load_steps=4 format=3 uid="uid://chkx3qr4edy"]
 
 [ext_resource type="Script" path="res://game_scenes/OverWorld/OWCharacter/over_world_character.gd" id="1_xnxop"]
+[ext_resource type="Texture2D" uid="uid://cfrp182u1bqk7" path="res://assets/sprites/maluca/maluca.png" id="2_ajhtv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tlt26"]
 size = Vector2(40, 40)
@@ -9,8 +10,11 @@ size = Vector2(40, 40)
 script = ExtResource("1_xnxop")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_ajhtv")
 
 [node name="ColorRect" type="ColorRect" parent="Sprite2D"]
+visible = false
 offset_right = 40.0
 offset_bottom = 40.0
 color = Color(0.685154, 0.947166, 0.995803, 1)

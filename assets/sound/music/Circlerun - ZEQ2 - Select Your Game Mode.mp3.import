@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://djclvt07ycbec"
+path="res://.godot/imported/Circlerun - ZEQ2 - Select Your Game Mode.mp3-cac1ead289f5dc0525e2228946fa2be4.mp3str"
+
+[deps]
+
+source_file="res://assets/sound/music/Circlerun - ZEQ2 - Select Your Game Mode.mp3"
+dest_files=["res://.godot/imported/Circlerun - ZEQ2 - Select Your Game Mode.mp3-cac1ead289f5dc0525e2228946fa2be4.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

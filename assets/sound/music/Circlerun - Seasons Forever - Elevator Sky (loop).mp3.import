@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://podwg0o5iq5f"
+path="res://.godot/imported/Circlerun - Seasons Forever - Elevator Sky (loop).mp3-95f9059249b640b466f50199c6d95594.mp3str"
+
+[deps]
+
+source_file="res://assets/sound/music/Circlerun - Seasons Forever - Elevator Sky (loop).mp3"
+dest_files=["res://.godot/imported/Circlerun - Seasons Forever - Elevator Sky (loop).mp3-95f9059249b640b466f50199c6d95594.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bb41c24kvc8sr"
+path="res://.godot/imported/Circlerun - ZEQ 2 - Select Menu (L).mp3-e12728a7fae41dfae2064dbd34f98698.mp3str"
+
+[deps]
+
+source_file="res://assets/sound/music/Circlerun - ZEQ 2 - Select Menu (L).mp3"
+dest_files=["res://.godot/imported/Circlerun - ZEQ 2 - Select Menu (L).mp3-e12728a7fae41dfae2064dbd34f98698.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://6q54lteshali"
+path="res://.godot/imported/Please, answer me my friend.mp3-9812e5912eb0b8e683eaffb6e632eb7d.mp3str"
+
+[deps]
+
+source_file="res://assets/sound/music/Please, answer me my friend.mp3"
+dest_files=["res://.godot/imported/Please, answer me my friend.mp3-9812e5912eb0b8e683eaffb6e632eb7d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

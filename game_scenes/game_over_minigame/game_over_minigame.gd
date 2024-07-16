@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var difficulty:int = 10
+@export var difficulty:int = 0
 @onready var tmr_revive = $tmrRevive
 
 #func _init(dif = 100):

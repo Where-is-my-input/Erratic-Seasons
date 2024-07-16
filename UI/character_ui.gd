@@ -4,6 +4,7 @@ extends Control
 @export var lblname:Label
 @export var weapon:Label
 @export var armor:Label
+@onready var btn_attack = $HBoxContainer/btnAttack
 
 @onready var v_box_container = $HBoxContainer/VBoxContainer
 @onready var v_box_container_2 = $HBoxContainer/VBoxContainer2
@@ -60,6 +61,7 @@ func setDisabled(container, value = true):
 		c.disabled = value
 
 func _on_attack_pressed():
+	if !turnActionAvailable: return
 	turnActionAvailable = false
 	setDisabledAll()
 	attack.emit(character)
@@ -79,3 +81,6 @@ func dead():
 
 func _on_flee_pressed() -> void:
 	get_tree().change_scene_to_packed(Global.OwScene)
+
+func attackButtonVisible(v):
+	btn_attack.visible = v

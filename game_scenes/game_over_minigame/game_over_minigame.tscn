@@ -1,9 +1,24 @@
-[gd_scene load_steps=9 format=3 uid="uid://dofnxkn5mwsri"]
+[gd_scene load_steps=11 format=3 uid="uid://dofnxkn5mwsri"]
 
 [ext_resource type="Script" path="res://game_scenes/game_over_minigame/player.gd" id="1_qfqtu"]
 [ext_resource type="Script" path="res://game_scenes/game_over_minigame/game_over_minigame.gd" id="1_urof0"]
-[ext_resource type="Texture2D" uid="uid://cw2ov7o26iosr" path="res://icon.svg" id="2_82w08"]
+[ext_resource type="Texture2D" uid="uid://c58ot3jkuvk6g" path="res://assets/sprites/heart/heart.png" id="3_yerqe"]
+[ext_resource type="Texture2D" uid="uid://ceblt7glrrky7" path="res://assets/sprites/heart/heart1.png" id="4_5xsh4"]
 [ext_resource type="PackedScene" uid="uid://c330gagwai2ik" path="res://game_scenes/game_over_minigame/spawner.tscn" id="4_nf712"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1nee7"]
+animations = [{
+"frames": [{
+"duration": 10.0,
+"texture": ExtResource("3_yerqe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_5xsh4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r00bq"]
 size = Vector2(24, 24)
@@ -30,9 +45,11 @@ position = Vector2(119, 211)
 motion_mode = 1
 script = ExtResource("1_qfqtu")
 
-[node name="Sprite2D" type="Sprite2D" parent="player"]
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("2_82w08")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="player"]
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_1nee7")
+autoplay = "default"
+frame_progress = 0.0714496
 
 [node name="collBox" type="CollisionShape2D" parent="player"]
 shape = SubResource("RectangleShape2D_r00bq")

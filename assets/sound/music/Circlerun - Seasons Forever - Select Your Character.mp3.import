@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://i0u8wd7vw3rr"
+path="res://.godot/imported/Circlerun - Seasons Forever - Select Your Character.mp3-5ad35908f954528a2a7a50be5d65f4ec.mp3str"
+
+[deps]
+
+source_file="res://assets/sound/music/Circlerun - Seasons Forever - Select Your Character.mp3"
+dest_files=["res://.godot/imported/Circlerun - Seasons Forever - Select Your Character.mp3-5ad35908f954528a2a7a50be5d65f4ec.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
