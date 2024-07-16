@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Global="*res://system/global.gd"
 SoundManager="*res://system/SoundManager.gd"
+Equipment="*res://equipment/EquipmentManager.gd"
 
 [display]
 

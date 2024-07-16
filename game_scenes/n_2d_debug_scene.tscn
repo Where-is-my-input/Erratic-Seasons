@@ -50,6 +50,8 @@ text = "Increase game over count"
 [node name="Button7" type="Button" parent="Container/BoxContainer"]
 layout_mode = 2
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
 [connection signal="pressed" from="Container/BoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Container/BoxContainer/Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="Container/BoxContainer/Button3" to="." method="_on_button_3_pressed"]

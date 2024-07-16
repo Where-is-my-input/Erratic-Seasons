@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://faejgc7e0q0c"]
+
+[ext_resource type="Script" path="res://system/random_encounter/equipment_generator.gd" id="1_714ji"]
+
+[node name="equipmentGenerator" type="Node"]
+script = ExtResource("1_714ji")

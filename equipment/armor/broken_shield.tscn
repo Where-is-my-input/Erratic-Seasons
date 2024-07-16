@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bonwyo1rji7ts"]
+
+[ext_resource type="PackedScene" uid="uid://dlgyrrbpnqyvg" path="res://equipment/equipment.tscn" id="1_tpdq1"]
+
+[node name="broken_shield" instance=ExtResource("1_tpdq1")]
+equipmentName = "Broken Shield"
+type = 3
+atk = 0
+def = 8

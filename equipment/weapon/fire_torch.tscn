@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cuc0iyg0308ef"]
+
+[ext_resource type="PackedScene" uid="uid://dlgyrrbpnqyvg" path="res://equipment/equipment.tscn" id="1_74n7b"]
+
+[node name="fire_torch" instance=ExtResource("1_74n7b")]
+equipmentName = "Fire Torch"
+type = 1
+atk = 3
+def = 0

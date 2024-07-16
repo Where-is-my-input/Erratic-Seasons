@@ -1,11 +1,10 @@
 extends Node
 
-enum character {CECILIA, GEOVANNA, TWIN_ANGELS}
+enum character {CECILIA, GEOVANNA, TWIN_ANGELS, GOBLIN}
 enum seasons {SPRING, SUMMER, AUTUMN, WINTER}
 enum type {AIR, FIRE, EARTH, WATER}
 
-const enemiesNames = ["Godt"]
-const enemiesSprites = ["res://characters/npc/mobs/npc_sprite.tscn"]
+const RANDOM_MOBS:Array = [preload("res://characters/npc/mobs/goblin.tscn")]
 
 var OwScene : PackedScene = preload("res://game_scenes/OverWorld/over_world.tscn")
 
@@ -33,7 +32,8 @@ func createRandomNPCParty():
 	npcParty.clear()
 	var amount = randi_range(1,8)
 	for i in amount:
-		var npc = preload("res://characters/npc/twin_angels.tscn").instantiate()
+		var index = randi_range(0, RANDOM_MOBS.size() - 1)
+		var npc = RANDOM_MOBS[index].instantiate()
 		npc._init()
 		Global.npcParty.push_back(npc)
 

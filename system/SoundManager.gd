@@ -5,15 +5,7 @@ const SOUNDTRACK_SNOW_SLEDS = "snowSleds"
 const SOUNDTRACK_THEME_PARK = "themePark"
 const SOUNDTRACK_MICHAEL_HOUSE = "michaelHouse"
 const SOUNDTRACK_SNOW_BALL = "snowBall"
-const SOUND_GAMEOVER = "gameover1"
-const SOUND_IMPACT = "impact"
-const SOUND_LAND = "land"
-const SOUND_MUSIC1 = "music1"
-const SOUND_MUSIC2 = "music2"
-const SOUND_PICKUP = "pickup"
-const SOUND_BOSS_ARRIVE = "boss_arrive"
-const SOUND_JUMP = "jump"
-const SOUND_WIN = "win"
+const SOUNDTRACK_CHARACTER_BACKGROUND = "characterBackground"
 
 #It's a dictionary, meaning that the left side are the keys and the right side are the values
 var SOUNDS = {
@@ -21,7 +13,7 @@ var SOUNDS = {
 	SOUNDTRACK_THEME_PARK: preload("res://assets/sound/music/Circlerun - Seasons Forever - Nikkis Theme Park.mp3"),
 	SOUNDTRACK_MICHAEL_HOUSE: preload("res://assets/sound/music/Circlerun - Seasons Forever - Michaels House.mp3"),
 	SOUNDTRACK_SNOW_BALL: preload("res://assets/sound/music/Circlerun - Seasons Forever - Snow Ball Fight!!!.mp3"),
-	#SOUND_IMPACT: preload("res://assets/sound/impact.wav"),
+	SOUNDTRACK_CHARACTER_BACKGROUND: preload("res://assets/sound/music/Circlerun - Seasons Forever - Character Background Screen.mp3"),
 	#SOUND_JUMP: preload("res://assets/sound/jump.wav"),
 	#SOUND_LAND: preload("res://assets/sound/land.wav"),
 	#SOUND_LASER: preload("res://assets/sound/laser.wav"),

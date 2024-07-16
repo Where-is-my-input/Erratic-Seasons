@@ -47,9 +47,10 @@ func setCharacter():
 		1:
 			lblname.text = "Geovanna"
 		_:
-			lblname.text = Global.enemiesNames[0]
-			sprite = preload(Global.enemiesSprites[0]).instantiate()
-			add_child(sprite)	
+			lblname.text = character.characterName
+			if character.sprite != null:
+				sprite = character.sprite.instantiate()
+				add_child(sprite)
 
 func setEquipments(c):
 	if c.weapon != null: weapon.text = c.weapon.equipmentName

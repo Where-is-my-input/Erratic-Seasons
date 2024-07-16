@@ -3,16 +3,18 @@ extends Node2D
 @export var characterType:Global.character
 
 #Stats
-@export var maxHP = 100
+@export var characterName = "Character Name"
+@export var maxHP:int = 100
 @onready var HP = maxHP
 @export var atk = 10
 @export var isNPC = true
-@export var level = 1
-var xp = 0
+@export var level = 0
+var xp:int = 0
 #equipment
 #@export var equipment:Array
 @export var weapon:Node
 @export var armor:Node
+@export var sprite:PackedScene
 
 var isDead = false
 
@@ -20,8 +22,27 @@ signal gotHit()
 signal died()
 signal revived()
 
-func _init():
+func _init(lvl = 1):
+	level += lvl
+	scaleStatsToLevel()
 	HP = maxHP
+
+func scaleStatsToLevel():
+	maxHP = (level * 0.25) * maxHP
+	atk = (level * 0.08) * atk
+
+func levelUp():
+	level += 1
+	scaleStatsToLevel()
+	HP = maxHP
+
+func gainXp(value = 0):
+	xp += value
+	var levelUpThreshold:int = (level * (500)) / ((2 * (level * 0.1)) + 1)
+	if xp > levelUpThreshold:
+		xp -= levelUpThreshold
+		levelUp()
+		gainXp()
 
 # Called when the node enters the scene tree for the first time.
 #func _ready():

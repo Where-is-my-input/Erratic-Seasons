@@ -29,7 +29,7 @@ size = Vector2(24, 24)
 size = Vector2(8, 410.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g1vfs"]
-size = Vector2(244, 418)
+size = Vector2(462, 550)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_knur5"]
 size = Vector2(239, 15)
@@ -46,6 +46,7 @@ offset_top = -31.0
 offset_right = 1165.0
 offset_bottom = 659.0
 color = Color(0.103744, 0.103744, 0.103744, 1)
+metadata/_edit_lock_ = true
 
 [node name="ColorRect2" type="ColorRect" parent="CanvasLayer"]
 offset_left = 435.0
@@ -53,6 +54,7 @@ offset_top = 96.0
 offset_right = 470.0
 offset_bottom = 155.0
 scale = Vector2(7.36187, 7.36187)
+metadata/_edit_lock_ = true
 
 [node name="ColorRect3" type="ColorRect" parent="CanvasLayer"]
 offset_left = 448.0
@@ -61,6 +63,7 @@ offset_right = 480.0
 offset_bottom = 165.0
 scale = Vector2(7.36187, 7.36187)
 color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
 
 [node name="ColorRect4" type="ColorRect" parent="CanvasLayer"]
 offset_left = 448.0
@@ -69,6 +72,7 @@ offset_right = 480.0
 offset_bottom = 504.0
 scale = Vector2(7.36187, 7.36187)
 color = Color(0, 1, 0, 1)
+metadata/_edit_lock_ = true
 
 [node name="player" type="CharacterBody2D" parent="CanvasLayer"]
 position = Vector2(564, 132)
@@ -127,30 +131,36 @@ one_shot = true
 position = Vector2(638, 103)
 movementFrom = Vector2(-5, 25)
 movementTo = Vector2(-10, 50)
+metadata/_edit_lock_ = true
 
 [node name="spawner" parent="CanvasLayer" instance=ExtResource("4_nf712")]
 position = Vector2(476, 102)
+metadata/_edit_lock_ = true
 
 [node name="spawner3" parent="CanvasLayer" instance=ExtResource("4_nf712")]
 position = Vector2(617, 524)
 movementFrom = Vector2(-5, -5)
 movementTo = Vector2(-10, -10)
+metadata/_edit_lock_ = true
 
 [node name="spawner4" parent="CanvasLayer" instance=ExtResource("4_nf712")]
 position = Vector2(493, 525)
 movementFrom = Vector2(5, -1)
 movementTo = Vector2(10, -5)
+metadata/_edit_lock_ = true
 
 [node name="spawner5" parent="CanvasLayer" instance=ExtResource("4_nf712")]
 position = Vector2(428, 121)
 movementFrom = Vector2(1, 0)
 movementTo = Vector2(75, 5)
+metadata/_edit_lock_ = true
 
 [node name="spawner6" parent="CanvasLayer" instance=ExtResource("4_nf712")]
 position = Vector2(707, 501)
 movementFrom = Vector2(-30, 0)
 movementTo = Vector2(-31, -75)
 yDrift = -50
+metadata/_edit_lock_ = true
 
 [node name="despawner" type="Area2D" parent="CanvasLayer"]
 position = Vector2(448, 110)
