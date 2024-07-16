@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bhuc23104v20c"]
+[gd_scene load_steps=7 format=3 uid="uid://bhuc23104v20c"]
 
 [ext_resource type="Script" path="res://game_scenes/Trade/trade_scene.gd" id="1_jae5t"]
 
@@ -55,6 +55,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TradeUI:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fhb1c"]
 _data = {
@@ -62,13 +74,14 @@ _data = {
 "fadeIn": SubResource("Animation_1yijl")
 }
 
+[sub_resource type="LabelSettings" id="LabelSettings_5xfvu"]
+font_size = 48
+
+[sub_resource type="LabelSettings" id="LabelSettings_gm68b"]
+font_size = 22
+
 [node name="TradeScene" type="Node2D"]
 script = ExtResource("1_jae5t")
-
-[node name="Label" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
-text = "TRADE SCENE $$"
 
 [node name="Transition" type="AnimationPlayer" parent="."]
 libraries = {
@@ -83,3 +96,76 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
+
+[node name="TradeUI" type="CanvasLayer" parent="."]
+
+[node name="MC" type="MarginContainer" parent="TradeUI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 48
+theme_override_constants/margin_top = 48
+theme_override_constants/margin_right = 48
+
+[node name="Title" type="Label" parent="TradeUI/MC"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "Trade Site"
+label_settings = SubResource("LabelSettings_5xfvu")
+horizontal_alignment = 1
+
+[node name="Money" type="Label" parent="TradeUI/MC"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "Money : $$$"
+label_settings = SubResource("LabelSettings_5xfvu")
+horizontal_alignment = 1
+
+[node name="SeasonInf" type="Label" parent="TradeUI/MC"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+text = "Season"
+label_settings = SubResource("LabelSettings_5xfvu")
+horizontal_alignment = 1
+
+[node name="InfoText" type="Label" parent="TradeUI/MC"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Welcome to the trade site!, here you will be able to sell(?) items and also buy new equipment to your adventure!"
+label_settings = SubResource("LabelSettings_gm68b")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="HBoxContainer" type="VBoxContainer" parent="TradeUI/MC"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 48
+
+[node name="BuyBT" type="Button" parent="TradeUI/MC/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Buy Items/Equipments
+"
+
+[node name="SellBT" type="Button" parent="TradeUI/MC/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Sell Items/Equipments"
+
+[node name="GbBT" type="Button" parent="TradeUI/MC/HBoxContainer"]
+layout_mode = 2
+text = "Go Back"
+
+[connection signal="pressed" from="TradeUI/MC/HBoxContainer/BuyBT" to="." method="_on_buy_bt_pressed"]
+[connection signal="pressed" from="TradeUI/MC/HBoxContainer/SellBT" to="." method="_on_sell_bt_pressed"]
+[connection signal="pressed" from="TradeUI/MC/HBoxContainer/GbBT" to="." method="_on_gb_bt_pressed"]
