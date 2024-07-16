@@ -94,6 +94,7 @@ _data = {
 }
 
 [node name="BaseEncounter" type="Area2D"]
+scale = Vector2(0.5, 0.5)
 script = ExtResource("1_51yf3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

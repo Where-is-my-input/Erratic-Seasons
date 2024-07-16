@@ -1,16 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://chkx3qr4edy"]
+[gd_scene load_steps=5 format=3 uid="uid://chkx3qr4edy"]
 
 [ext_resource type="Script" path="res://game_scenes/OverWorld/OWCharacter/over_world_character.gd" id="1_xnxop"]
 [ext_resource type="Texture2D" uid="uid://cfrp182u1bqk7" path="res://assets/sprites/maluca/maluca.png" id="2_ajhtv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tlt26"]
-size = Vector2(40, 40)
+size = Vector2(21, 44)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j0b0p"]
+size = Vector2(24, 41)
 
 [node name="OverWorldCharacter" type="CharacterBody2D"]
 script = ExtResource("1_xnxop")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.8, 0.8)
+scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_ajhtv")
 
 [node name="ColorRect" type="ColorRect" parent="Sprite2D"]
@@ -19,6 +22,22 @@ offset_right = 40.0
 offset_bottom = 40.0
 color = Color(0.685154, 0.947166, 0.995803, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(20, 20)
+[node name="CharacterShape" type="CollisionShape2D" parent="."]
+position = Vector2(1.5, 3)
 shape = SubResource("RectangleShape2D_tlt26")
+
+[node name="AreaDetector" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDetector"]
+position = Vector2(2, 4.5)
+shape = SubResource("RectangleShape2D_j0b0p")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+limit_left = -50
+limit_top = -100
+limit_right = 1000
+limit_bottom = 600
+limit_smoothed = true
+
+[connection signal="area_entered" from="AreaDetector" to="." method="_on_feet_area_area_entered"]
