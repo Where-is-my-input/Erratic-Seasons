@@ -75,8 +75,8 @@ func getDamageDealt(atk, attackerEquip, targetEquip):
 func npcTurn():
 	var battleOver = true
 	for c in npc_party.get_children():
-		await get_tree().create_timer(0.3).timeout
 		if c.isDead: continue
+		await get_tree().create_timer(0.3).timeout
 		npcAttack(c)
 		battleOver = false
 	battle_ui.endNPCTurn()
