@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dofnxkn5mwsri"]
+[gd_scene load_steps=12 format=3 uid="uid://dofnxkn5mwsri"]
 
 [ext_resource type="Script" path="res://game_scenes/game_over_minigame/player.gd" id="1_qfqtu"]
 [ext_resource type="Script" path="res://game_scenes/game_over_minigame/game_over_minigame.gd" id="1_urof0"]
@@ -31,6 +31,9 @@ size = Vector2(8, 410.25)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g1vfs"]
 size = Vector2(244, 418)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_knur5"]
+size = Vector2(239, 15)
+
 [node name="gameOverMinigame" type="Node2D"]
 position = Vector2(448, 110)
 script = ExtResource("1_urof0")
@@ -59,8 +62,17 @@ offset_bottom = 165.0
 scale = Vector2(7.36187, 7.36187)
 color = Color(0, 0, 0, 1)
 
+[node name="ColorRect4" type="ColorRect" parent="CanvasLayer"]
+offset_left = 448.0
+offset_top = 502.0
+offset_right = 480.0
+offset_bottom = 504.0
+scale = Vector2(7.36187, 7.36187)
+color = Color(0, 1, 0, 1)
+
 [node name="player" type="CharacterBody2D" parent="CanvasLayer"]
-position = Vector2(567, 321)
+position = Vector2(564, 132)
+collision_layer = 9
 motion_mode = 1
 script = ExtResource("1_qfqtu")
 
@@ -149,6 +161,16 @@ position = Vector2(117, 204)
 shape = SubResource("RectangleShape2D_g1vfs")
 debug_color = Color(0.838371, 0.812423, 1, 0.42)
 
+[node name="goal" type="Area2D" parent="CanvasLayer"]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/goal"]
+position = Vector2(566.5, 509.5)
+shape = SubResource("RectangleShape2D_knur5")
+debug_color = Color(1.05888e-06, 0.636143, 0.408563, 0.42)
+
 [connection signal="body_entered" from="CanvasLayer/player/hurtbox" to="." method="_on_hurtbox_body_entered"]
 [connection signal="timeout" from="CanvasLayer/tmrRevive" to="." method="_on_tmr_revive_timeout"]
 [connection signal="body_exited" from="CanvasLayer/despawner" to="." method="_on_despawner_body_exited"]
+[connection signal="body_entered" from="CanvasLayer/goal" to="." method="_on_goal_body_entered"]

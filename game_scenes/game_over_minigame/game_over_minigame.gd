@@ -21,5 +21,10 @@ func _on_hurtbox_body_entered(body):
 	queue_free()
 
 func _on_despawner_body_exited(body):
-	if tmr_revive.is_stopped(): tmr_revive.start(5 + difficulty * 5)
+	#if tmr_revive.is_stopped(): tmr_revive.start(5 + difficulty * 5)
 	body.queue_free()
+
+func _on_goal_body_entered(body):
+	for c in Global.playerParty:
+		c.revive()
+	queue_free()

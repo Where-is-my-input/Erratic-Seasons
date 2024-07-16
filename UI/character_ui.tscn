@@ -58,21 +58,26 @@ show_percentage = false
 
 [node name="VBoxContainer" type="BoxContainer" parent="HBoxContainer"]
 layout_mode = 2
+alignment = 1
 
 [node name="attack" type="Button" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 theme = ExtResource("2_4fyp8")
 text = "Attack"
 
 [node name="talk" type="Button" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 text = "Talk"
 
 [node name="inspect" type="Button" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 text = "Inspect"
 
 [node name="flee" type="Button" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 text = "Flee"
 

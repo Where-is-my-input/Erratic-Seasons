@@ -45,6 +45,7 @@ text = "Minigame"
 
 [node name="Button6" type="Button" parent="Container/BoxContainer"]
 layout_mode = 2
+text = "Increase game over count"
 
 [node name="Button7" type="Button" parent="Container/BoxContainer"]
 layout_mode = 2
@@ -54,3 +55,4 @@ layout_mode = 2
 [connection signal="pressed" from="Container/BoxContainer/Button3" to="." method="_on_button_3_pressed"]
 [connection signal="pressed" from="Container/BoxContainer/Button4" to="." method="_on_button_4_pressed"]
 [connection signal="pressed" from="Container/BoxContainer/Button5" to="." method="_on_button_5_pressed"]
+[connection signal="pressed" from="Container/BoxContainer/Button6" to="." method="_on_button_6_pressed"]

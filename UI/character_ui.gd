@@ -94,6 +94,7 @@ func _on_flee_pressed() -> void:
 	get_tree().change_scene_to_packed(Global.OwScene)
 
 func attackButtonVisible(v):
+	if character.isDead: return
 	btn_attack.visible = v
 
 func _on_btn_attack_pressed():
