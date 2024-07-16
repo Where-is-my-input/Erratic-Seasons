@@ -4,6 +4,7 @@ extends Control
 @export var lblname:Label
 @export var weapon:Label
 @export var armor:Label
+@export var sprite:AnimatedSprite2D
 @onready var btn_attack = $HBoxContainer/btnAttack
 
 @onready var v_box_container = $HBoxContainer/VBoxContainer
@@ -25,19 +26,13 @@ var turnActionAvailable = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	match character.characterType:
-		0:
-			lblname.text = "Cecilia"
-		1:
-			lblname.text = "Geovanna"
-		_:
-			lblname.text = "Something"
+	setCharacter()
 	hp.max_value = character.maxHP
 	if character.HP == null:
 		hp.value = character.maxHP
 	else:
 		hp.value = character.HP
-	character.connect("gotHit", updateUI)
+	character.connect("gotHit", getHit)
 	character.connect("died", dead)
 	character.connect("revived", revive)
 	setEquipments(character)
@@ -45,9 +40,24 @@ func _ready():
 		turnActionAvailable = false
 		setDisabledAll(true)
 
+func setCharacter():
+	match character.characterType:
+		0:
+			lblname.text = "Cecilia"
+		1:
+			lblname.text = "Geovanna"
+		_:
+			lblname.text = Global.enemiesNames[0]
+			sprite = preload(Global.enemiesSprites[0]).instantiate()
+			add_child(sprite)	
+
 func setEquipments(c):
 	if c.weapon != null: weapon.text = c.weapon.equipmentName
 	if c.armor != null: armor.text = c.armor.equipmentName
+
+func getHit(value = 10):
+	if sprite != null: sprite.get_child(0).play("getHit")
+	updateUI(value)
 
 func updateUI(value = 10):
 	#hp.value = character.HP

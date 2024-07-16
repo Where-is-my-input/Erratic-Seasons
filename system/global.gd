@@ -4,6 +4,9 @@ enum character {CECILIA, GEOVANNA, TWIN_ANGELS}
 enum seasons {SPRING, SUMMER, AUTUMN, WINTER}
 enum type {AIR, FIRE, EARTH, WATER}
 
+const enemiesNames = ["Godt"]
+const enemiesSprites = ["res://characters/npc/mobs/npc_sprite.tscn"]
+
 var OwScene : PackedScene = preload("res://game_scenes/OverWorld/over_world.tscn")
 
 var playerParty:Array

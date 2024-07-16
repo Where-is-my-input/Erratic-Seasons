@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://UI/character_ui.gd" id="1_yt7u0"]
 
 [node name="npc_character_ui" type="BoxContainer" node_paths=PackedStringArray("hp", "lblname")]
+custom_minimum_size = Vector2(150, 0)
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -12,6 +13,7 @@ offset_bottom = 23.0
 grow_horizontal = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+alignment = 1
 script = ExtResource("1_yt7u0")
 hp = NodePath("HBoxContainer/hp")
 lblname = NodePath("HBoxContainer/lblName")
