@@ -2,7 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://vrmulrli4eab" path="res://characters/character.tscn" id="1_a56ce"]
 
-[node name="character" instance=ExtResource("1_a56ce")]
+[node name="twin_angels" instance=ExtResource("1_a56ce")]
 characterType = 2
+characterName = "Twin Angels"
 maxHP = 500
 atk = 5

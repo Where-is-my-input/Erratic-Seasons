@@ -5,10 +5,10 @@ extends Control
 @export var weapon:Label
 @export var armor:Label
 @export var sprite:AnimatedSprite2D
-@onready var btn_attack = $HBoxContainer/btnAttack
+@export var btn_attack:Button
 
-@onready var v_box_container = $HBoxContainer/VBoxContainer
-@onready var v_box_container_2 = $HBoxContainer/VBoxContainer2
+@export var v_box_container:BoxContainer
+@export var v_box_container_2:VBoxContainer
 
 
 var character:Node2D
