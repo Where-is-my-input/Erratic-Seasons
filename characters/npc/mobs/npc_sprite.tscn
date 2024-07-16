@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cw2ov7o26iosr" path="res://icon.svg" id="1_2samb"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_j77hc"]
+resource_local_to_scene = true
 animations = [{
 "frames": [{
 "duration": 1.0,

@@ -1,14 +1,14 @@
 [gd_scene load_steps=4 format=3 uid="uid://conowu8imggvt"]
 
 [ext_resource type="PackedScene" uid="uid://vrmulrli4eab" path="res://characters/character.tscn" id="1_7rs0o"]
+[ext_resource type="PackedScene" uid="uid://chym7hqjw6tp3" path="res://characters/npc/mobs/goblind_sprite.tscn" id="2_e34li"]
 [ext_resource type="PackedScene" uid="uid://faejgc7e0q0c" path="res://system/random_encounter/equipment_generator.tscn" id="2_h4plx"]
-[ext_resource type="PackedScene" uid="uid://cec11ffro8y4x" path="res://characters/npc/mobs/npc_sprite.tscn" id="2_rxds4"]
 
 [node name="character" instance=ExtResource("1_7rs0o")]
 characterType = 3
 characterName = "Goblin"
 maxHP = 800
 atk = 50
-sprite = ExtResource("2_rxds4")
+sprite = ExtResource("2_e34li")
 
 [node name="equipmentGenerator" parent="." index="0" instance=ExtResource("2_h4plx")]
