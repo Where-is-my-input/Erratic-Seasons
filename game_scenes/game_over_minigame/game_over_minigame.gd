@@ -1,12 +1,14 @@
 extends Node2D
 
 @export var difficulty:int = 0
-@onready var tmr_revive = $tmrRevive
+@onready var tmr_revive = $CanvasLayer/tmrRevive
+
 
 #func _init(dif = 100):
 	#difficulty = dif
 
 func _ready():
+	difficulty = Global.gameOvers
 	z_index = 20
 
 func _on_tmr_revive_timeout():

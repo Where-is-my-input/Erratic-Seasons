@@ -11,11 +11,11 @@ const MINIGAME_PROJECTILE = preload("res://game_scenes/game_over_minigame/miniga
 
 func _ready():
 	spawn()
-	timer.start(randi_range(0, 10 - get_parent().difficulty))
+	timer.start(randi_range(0, 10 - get_parent().get_parent().difficulty))
 
 func _on_timer_timeout():
 	spawn()
-	timer.start(randi_range(0, 10 - get_parent().difficulty))
+	timer.start(randi_range(0, 10 - get_parent().get_parent().difficulty))
 
 func spawn():
 	var projectile = MINIGAME_PROJECTILE.instantiate()

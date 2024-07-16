@@ -75,6 +75,7 @@ func getDamageDealt(atk, attackerEquip, targetEquip):
 func npcTurn():
 	var battleOver = true
 	for c in npc_party.get_children():
+		if c.isDead: continue
 		npcAttack(c)
 		battleOver = false
 	battle_ui.endNPCTurn()
@@ -98,6 +99,7 @@ func playerCharacterDied():
 	deathMinigame()
 
 func deathMinigame():
+	Global.gameOvers += 1
 	var minigame = gameOverMinigame.instantiate()
 	add_child(minigame)
 	
