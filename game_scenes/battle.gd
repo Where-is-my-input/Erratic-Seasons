@@ -89,12 +89,25 @@ func endBattle():
 func npcAttack(attacker):
 	var targetId = randi_range(0, Global.playerParty.size() - 1)
 	var target = Global.playerParty[targetId]
+	while target.isDead:
+		if !checkPlayerPartyAlive(): return
+		target = getNextAlivePartyMember(targetId)
 	#target.getHit(attacker.atk)
 	target.getHit(getDamageDealt(attacker.atk, attacker.weapon, target.armor))
 
-func playerCharacterDied():
+func getNextAlivePartyMember(targetId = 0):
+	targetId += 1
+	if targetId >= Global.playerParty.size():
+		targetId = 0
+	return Global.playerParty[targetId]
+
+func checkPlayerPartyAlive():
 	for c in Global.playerParty:
-		if c.HP > 0: return
+		if c.HP > 0: return true
+	return false
+
+func playerCharacterDied():
+	if checkPlayerPartyAlive(): return
 	print("Play game over minigame")
 	deathMinigame()
 
