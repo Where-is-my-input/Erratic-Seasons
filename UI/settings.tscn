@@ -55,7 +55,7 @@ grow_vertical = 2
 
 [node name="MasterLabel" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-text = "Music"
+text = "Master"
 
 [node name="Master" type="HSlider" parent="VBoxContainer"]
 layout_mode = 2
