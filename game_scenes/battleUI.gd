@@ -8,6 +8,8 @@ extends Control
 @onready var dialog_outcome = $tabs/dialogOutcome
 @onready var dialog_outcomes_component = $dialogOutcomesComponent
 
+var inspected = false
+
 var playerInAction
 var playerUIInAction
 
@@ -24,6 +26,7 @@ func _ready():
 		charUI.connect("attack", playerAttacking)
 		charUI.connect("equipment", showInventory)
 		charUI.connect("talk", talkPressed)
+		charUI.connect("inspect", tryInspect)
 		player_party_container.add_child(charUI)
 	for c in Global.npcParty:
 		var charUI = preload("res://UI/npc_character_ui.tscn").instantiate()
@@ -32,6 +35,12 @@ func _ready():
 		charUI.connect("attacked", playerAttack)
 		charUI.connect("talkedTo", showTalkControl)
 		npc_party_container.add_child(charUI)
+
+func tryInspect():
+	if inspected: return
+	inspected = true
+	for c in npc_party_container.get_children():
+		c.inspectCharacter()
 
 func dismissDialog():
 	dialog_outcome.visible = false

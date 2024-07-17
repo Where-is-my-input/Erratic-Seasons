@@ -133,3 +133,17 @@ func _on_talk_pressed():
 
 func _on_btn_talk_pressed():
 	talkedTo.emit(self)
+
+func _on_inspect_pressed():
+	inspect.emit()
+
+func inspectCharacter():
+	match randi_range(0,3):
+		0:
+			armor.visible = true
+		1:
+			weapon.visible = true
+		2:
+			weapon.visible = true
+			armor.visible = true
+	setEquipments(character)

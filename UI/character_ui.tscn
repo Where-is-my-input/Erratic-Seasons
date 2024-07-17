@@ -159,5 +159,6 @@ libraries = {
 
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/attack" to="." method="_on_attack_pressed"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/talk" to="." method="_on_talk_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/inspect" to="." method="_on_inspect_pressed"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/flee" to="." method="_on_flee_pressed"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer2/equipmet" to="." method="_on_equipmet_pressed"]
