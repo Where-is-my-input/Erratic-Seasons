@@ -45,7 +45,7 @@ func createRandomNPCParty():
 		Global.npcParty.push_back(npc)
 
 func changeSeason(value = 1):
-	currentSeason += 1
+	currentSeason += value
 	if currentSeason > seasons.WINTER:
 		currentSeason -= 4
 
@@ -56,3 +56,18 @@ func IncreaseEncCounter() -> void:
 #Useful to use when the player dies
 func ResetEncCounter() -> void:
 	encountersCounter = 0
+
+#Retrieves a text so it can be used in the labels
+func GetCurrentSeason() -> String:
+	var textSeason = " ";
+	match(currentSeason):
+		0:
+			textSeason = "Spring"
+		1:
+			textSeason = "Summer"
+		2:
+			textSeason = "Autumn"
+		3:
+			textSeason = "Winter"
+
+	return textSeason

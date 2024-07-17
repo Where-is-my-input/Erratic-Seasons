@@ -12,6 +12,7 @@ func _ready() -> void:
 	AddEncounterPos()
 	SpawnRandomEncounter()
 	print(Global.encountersCounter)
+	print(Global.encountersCounter)
 
 func AddEncounterPos() -> void:
 	var markersParent := get_tree().get_first_node_in_group("Markers")

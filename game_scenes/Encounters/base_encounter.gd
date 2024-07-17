@@ -25,7 +25,6 @@ func CheckTypes(typeToCheck : String) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	transition.play("fadeOut")
-	Global.IncreaseEncCounter()
 	match(assignedType):
 		"Battle":
 			print("You got attacked by an enemy, engaging battle mode")
@@ -39,6 +38,7 @@ func _on_body_entered(body: Node2D) -> void:
 func _on_transition_animation_finished(anim_name: StringName) -> void:
 	match(assignedType):
 		"Battle":
+			Global.IncreaseEncCounter()
 			get_tree().change_scene_to_packed(encountersScenes["BattleScene"])
 		"Camp":
 			get_tree().change_scene_to_packed(encountersScenes["CampScene"])
