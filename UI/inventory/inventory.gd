@@ -11,6 +11,7 @@ func _ready():
 	#color_rect.size = item_list.size
 
 func loadInventory(trading = false):
+	for i in item_list.get_children(): if i is HBoxContainer: i.queue_free()
 	for e in Global.playerInventory:
 		var equip = INVENTORY_ITEM.instantiate()
 		item_list.add_child(equip)
