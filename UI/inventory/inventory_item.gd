@@ -3,8 +3,10 @@ extends HBoxContainer
 @onready var equip_type = $equipType
 @onready var value = $value
 @onready var level = $level
+@onready var price = $price
+@onready var btn_equip = $btnEquip
 
-func init(equipment):
+func init(equipment, trading = false):
 	lbl_name.text = equipment.equipmentName
 	level.text = str(equipment.level)
 	if equipment.equipmentType == Global.equipmentType.ARMOR:
@@ -13,3 +15,7 @@ func init(equipment):
 	else:
 		equip_type.text = "Weapon"
 		value.text = str(equipment.atk)
+	if trading:
+		price.text = str(equipment.cost)
+		price.visible = true
+		btn_equip.visible = false

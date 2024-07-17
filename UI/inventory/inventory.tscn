@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://UI/inventory/inventory.gd" id="1_3575e"]
 
 [node name="inventory" type="Control"]
+z_index = -1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,7 +12,22 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_3575e")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="itemList" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 896.0
+offset_top = 72.0
+offset_right = 936.0
+offset_bottom = 112.0
+
+[node name="btnClose" type="Button" parent="itemList"]
+layout_mode = 2
+text = "Close"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
+color = Color(0.647376, 0.60948, 0.0928069, 1)
+
+[connection signal="pressed" from="itemList/btnClose" to="." method="_on_btn_close_pressed"]

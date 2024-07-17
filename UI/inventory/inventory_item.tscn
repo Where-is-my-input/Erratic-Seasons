@@ -16,3 +16,17 @@ layout_mode = 2
 
 [node name="value" type="Label" parent="."]
 layout_mode = 2
+
+[node name="price" type="Label" parent="."]
+visible = false
+layout_mode = 2
+
+[node name="sell" type="Button" parent="price"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 20.0
+text = "Sell"
+
+[node name="btnEquip" type="Button" parent="."]
+layout_mode = 2
+text = "Equip"

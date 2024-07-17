@@ -3,15 +3,18 @@ extends Control
 @onready var player_party_container = $CanvasLayer/playerPartyUI/playerPartyContainer
 @onready var npc_party_container = $CanvasLayer/npcPartyUI/npcPartyContainer
 @onready var battle = $".."
+@onready var inventory = $tabs/inventory
 
 var playerAttacker
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	inventory.connect("closeInventory", closeInventory)
 	for c in Global.playerParty:
 		var charUI = preload("res://UI/character_ui.tscn").instantiate()
 		charUI.character = c
 		charUI.connect("attack", playerAttacking)
+		charUI.connect("equipment", showInventory)
 		player_party_container.add_child(charUI)
 	for c in Global.npcParty:
 		var charUI = preload("res://UI/npc_character_ui.tscn").instantiate()
@@ -19,6 +22,14 @@ func _ready():
 		#charUI.connect("attack", attack)
 		charUI.connect("attacked", playerAttack)
 		npc_party_container.add_child(charUI)
+
+func showInventory(characterEquiping):
+	player_party_container.set_mouse_filter(2)
+	inventory.visible = true
+
+func closeInventory():
+	player_party_container.set_mouse_filter(0)
+	inventory.visible = false
 
 func playerAttacking(character):
 	playerAttacker = character

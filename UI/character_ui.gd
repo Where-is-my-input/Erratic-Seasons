@@ -109,3 +109,6 @@ func _on_btn_attack_pressed():
 
 func playAnimation(strAnim = "getHit"):
 	if sprite != null: sprite.get_child(0).play(strAnim)
+
+func _on_equipmet_pressed():
+	equipment.emit(character)
