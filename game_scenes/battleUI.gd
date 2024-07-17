@@ -5,32 +5,52 @@ extends Control
 @onready var battle = $".."
 @onready var inventory = $tabs/inventory
 @onready var talk = $tabs/talk
+@onready var dialog_outcome = $tabs/dialogOutcome
+@onready var dialog_outcomes_component = $dialogOutcomesComponent
 
 var playerInAction
 var playerUIInAction
 
+var targetedNPC
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	inventory.connect("closeInventory", closeInventory)
+	talk.connect("response", dialogOutCome)
+	dialog_outcome.connect("dismiss", dismissDialog)
 	for c in Global.playerParty:
 		var charUI = preload("res://UI/character_ui.tscn").instantiate()
 		charUI.character = c
 		charUI.connect("attack", playerAttacking)
 		charUI.connect("equipment", showInventory)
-		charUI.connect("talk", showTalkControl)
+		charUI.connect("talk", talkPressed)
 		player_party_container.add_child(charUI)
 	for c in Global.npcParty:
 		var charUI = preload("res://UI/npc_character_ui.tscn").instantiate()
 		charUI.character = c
 		#charUI.connect("attack", attack)
 		charUI.connect("attacked", playerAttack)
+		charUI.connect("talkedTo", showTalkControl)
 		npc_party_container.add_child(charUI)
 
-func showTalkControl(character):
+func dismissDialog():
+	dialog_outcome.visible = false
+	enablePlayerTurn()
+
+func dialogOutCome(op1 = false, op2 = false):
+	talk.visible = false
+	dialog_outcomes_component.defineOutCome(playerInAction, targetedNPC, op1, op2)
+
+func talkPressed(character):
+	playerInAction = character
 	disablePlayableCharactersActions()
-	talk.setDialogAndOptions()
+	enableTalking()
+
+func showTalkControl(character):
+	targetedNPC = character.character
+	talk.setDialogAndOptions(character)
+	enableTalking(false)
 	talk.visible = true
-	#enablePlayerTurn()
 
 func showInventory(charUI, characterEquiping):
 	playerInAction = characterEquiping
@@ -52,6 +72,10 @@ func closeInventory(equipment = null):
 func playerAttacking(character):
 	playerInAction = character
 	enableTargeting()
+
+func enableTalking(value = true):
+	for c in npc_party_container.get_children():
+		c.talkButtonVisible(value)
 
 func enableTargeting(value = true):
 	for c in npc_party_container.get_children():

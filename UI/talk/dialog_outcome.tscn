@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://5yii44g8jisk"]
+
+[ext_resource type="Script" path="res://UI/talk/dialog_outcome.gd" id="1_mqxrf"]
+
+[node name="dialogOutcome" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mqxrf")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+custom_minimum_size = Vector2(500, 500)
+layout_mode = 0
+offset_left = 364.0
+offset_top = 221.0
+offset_right = 864.0
+offset_bottom = 721.0
+text = "Negocio que quando tu olha uma tierlist de verdade, as coisas são colocadas em perspectiva. É mesmo coisa de tu olha prum lago e um oceano. Sempre vai ser diferente, e em geral o boneco do outro é melhor."

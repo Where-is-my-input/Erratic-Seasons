@@ -6,6 +6,7 @@ extends Control
 @export var armor:Label
 @export var sprite:AnimatedSprite2D
 @export var btn_attack:Button
+@export var btn_talk:Button
 
 @export var v_box_container:BoxContainer
 @export var v_box_container_2:VBoxContainer
@@ -14,13 +15,16 @@ extends Control
 var character:Node2D
 
 signal attack
-signal attacked
 signal talk
 signal inspect
 signal flee
 
 signal items
 signal equipment
+
+#npc signals
+signal attacked
+signal talkedTo
 
 var turnActionAvailable = true
 
@@ -103,6 +107,10 @@ func _on_flee_pressed() -> void:
 func attackButtonVisible(v):
 	if character.isDead: return
 	btn_attack.visible = v
+	
+func talkButtonVisible(v):
+	if character.isDead: return
+	btn_talk.visible = v
 
 func _on_btn_attack_pressed():
 	attacked.emit(character)
@@ -122,3 +130,6 @@ func endTurn():
 func _on_talk_pressed():
 	endTurn()
 	talk.emit(character)
+
+func _on_btn_talk_pressed():
+	talkedTo.emit(self)
