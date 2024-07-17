@@ -138,12 +138,14 @@ func _on_inspect_pressed():
 	inspect.emit()
 
 func inspectCharacter():
+	setEquipments(character)
+	armor.visible = true
+	weapon.visible = true
 	match randi_range(0,3):
 		0:
-			armor.visible = true
+			armor.text = "?"
 		1:
-			weapon.visible = true
+			weapon.text = "?"
 		2:
-			weapon.visible = true
-			armor.visible = true
-	setEquipments(character)
+			weapon.text = "?"
+			armor.text = "?"

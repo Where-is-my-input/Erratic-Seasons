@@ -119,4 +119,6 @@ func deathMinigame():
 	Global.gameOvers += 1
 	var minigame = gameOverMinigame.instantiate()
 	add_child(minigame)
-	
+
+func _on_btn_flee_pressed():
+	get_tree().change_scene_to_packed(Global.OwScene)
