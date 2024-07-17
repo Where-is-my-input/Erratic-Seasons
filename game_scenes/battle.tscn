@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://cpjl5egurf3wn"]
+[gd_scene load_steps=8 format=3 uid="uid://cpjl5egurf3wn"]
 
 [ext_resource type="Script" path="res://game_scenes/battle.gd" id="1_hoa3k"]
 [ext_resource type="Script" path="res://game_scenes/battleUI.gd" id="2_buw81"]
 [ext_resource type="PackedScene" uid="uid://c67a4fn3u347l" path="res://UI/inventory/inventory.tscn" id="3_3cl3r"]
+[ext_resource type="PackedScene" uid="uid://caqbqwo5pnb1p" path="res://UI/talk/talk.tscn" id="4_3q8ph"]
 
 [sub_resource type="Animation" id="Animation_ydali"]
 length = 0.001
@@ -163,5 +164,12 @@ grow_horizontal = 2
 [node name="inventory" parent="battleUI/tabs" instance=ExtResource("3_3cl3r")]
 visible = false
 
+[node name="talk" parent="battleUI/tabs" instance=ExtResource("4_3q8ph")]
+visible = false
+
 [node name="battleSoundtrack" type="AudioStreamPlayer" parent="."]
 bus = &"soundtrack"
+
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
+position = Vector2(593, 612)
+current = true

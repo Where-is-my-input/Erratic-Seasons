@@ -118,3 +118,7 @@ func _on_equipmet_pressed():
 func endTurn():
 	turnActionAvailable = false
 	setTurnDisabled()
+
+func _on_talk_pressed():
+	endTurn()
+	talk.emit(character)

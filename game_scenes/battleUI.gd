@@ -4,6 +4,7 @@ extends Control
 @onready var npc_party_container = $CanvasLayer/npcPartyUI/npcPartyContainer
 @onready var battle = $".."
 @onready var inventory = $tabs/inventory
+@onready var talk = $tabs/talk
 
 var playerInAction
 var playerUIInAction
@@ -16,6 +17,7 @@ func _ready():
 		charUI.character = c
 		charUI.connect("attack", playerAttacking)
 		charUI.connect("equipment", showInventory)
+		charUI.connect("talk", showTalkControl)
 		player_party_container.add_child(charUI)
 	for c in Global.npcParty:
 		var charUI = preload("res://UI/npc_character_ui.tscn").instantiate()
@@ -23,6 +25,12 @@ func _ready():
 		#charUI.connect("attack", attack)
 		charUI.connect("attacked", playerAttack)
 		npc_party_container.add_child(charUI)
+
+func showTalkControl(character):
+	disablePlayableCharactersActions()
+	talk.setDialogAndOptions()
+	talk.visible = true
+	#enablePlayerTurn()
 
 func showInventory(charUI, characterEquiping):
 	playerInAction = characterEquiping
@@ -37,7 +45,7 @@ func closeInventory(equipment = null):
 		playerInAction.equip(equipment)
 		playerUIInAction.setEquipments(playerInAction)
 		inventory.loadInventory()
-	player_party_container.set_mouse_filter(0)
+	#player_party_container.set_mouse_filter(0)
 	inventory.visible = false
 	enablePlayerTurn()
 
