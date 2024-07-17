@@ -6,7 +6,12 @@ extends HBoxContainer
 @onready var price = $price
 @onready var btn_equip = $btnEquip
 
+@onready var equipmentRef
+
+signal equipEquipment
+
 func init(equipment, trading = false):
+	equipmentRef = equipment
 	lbl_name.text = equipment.equipmentName
 	level.text = str(equipment.level)
 	if equipment.equipmentType == Global.equipmentType.ARMOR:
@@ -19,3 +24,6 @@ func init(equipment, trading = false):
 		price.text = str(equipment.cost)
 		price.visible = true
 		btn_equip.visible = false
+
+func _on_btn_equip_pressed():
+	equipEquipment.emit(equipmentRef)

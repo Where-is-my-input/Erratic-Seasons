@@ -5,7 +5,8 @@ extends Control
 @onready var battle = $".."
 @onready var inventory = $tabs/inventory
 
-var playerAttacker
+var playerInAction
+var playerUIInAction
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -23,16 +24,24 @@ func _ready():
 		charUI.connect("attacked", playerAttack)
 		npc_party_container.add_child(charUI)
 
-func showInventory(characterEquiping):
-	player_party_container.set_mouse_filter(2)
+func showInventory(charUI, characterEquiping):
+	playerInAction = characterEquiping
+	playerUIInAction = charUI
+	#player_party_container.set_mouse_filter(2)
+	disablePlayableCharactersActions()
 	inventory.visible = true
 
-func closeInventory():
+func closeInventory(equipment = null):
+	if equipment != null: 
+		playerUIInAction.endTurn()
+		playerInAction.equip(equipment)
+		playerUIInAction.setEquipments(playerInAction)
 	player_party_container.set_mouse_filter(0)
 	inventory.visible = false
+	enablePlayerTurn()
 
 func playerAttacking(character):
-	playerAttacker = character
+	playerInAction = character
 	enableTargeting()
 
 func enableTargeting(value = true):
@@ -41,7 +50,7 @@ func enableTargeting(value = true):
 
 func playerAttack(target):
 	enableTargeting(false)
-	attack(playerAttacker, target)
+	attack(playerInAction, target)
 
 func attack(character, target = null):
 	disablePlayableCharactersActions()

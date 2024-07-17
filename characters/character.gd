@@ -66,3 +66,12 @@ func revive(value = 10):
 	HP = value
 	isDead = false
 	revived.emit()
+
+func equip(equipment):
+	if equipment.equipmentType == Global.equipmentType.ARMOR:
+		Global.playerInventory.push_back(armor)
+		armor = equipment
+	else:
+		Global.playerInventory.push_back(weapon)
+		weapon = equipment
+	Global.playerInventory.erase(equipment)

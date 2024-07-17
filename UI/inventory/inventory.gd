@@ -14,7 +14,11 @@ func loadInventory(trading = false):
 	for e in Global.playerInventory:
 		var equip = INVENTORY_ITEM.instantiate()
 		item_list.add_child(equip)
+		equip.connect("equipEquipment", equipEquipment)
 		equip.init(e, trading)
 
 func _on_btn_close_pressed():
 	closeInventory.emit()
+
+func equipEquipment(equipment):
+	closeInventory.emit(equipment)

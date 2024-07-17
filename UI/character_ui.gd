@@ -111,4 +111,8 @@ func playAnimation(strAnim = "getHit"):
 	if sprite != null: sprite.get_child(0).play(strAnim)
 
 func _on_equipmet_pressed():
-	equipment.emit(character)
+	equipment.emit(self, character)
+
+func endTurn():
+	turnActionAvailable = false
+	setTurnDisabled()

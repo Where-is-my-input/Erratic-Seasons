@@ -30,3 +30,5 @@ text = "Sell"
 [node name="btnEquip" type="Button" parent="."]
 layout_mode = 2
 text = "Equip"
+
+[connection signal="pressed" from="btnEquip" to="." method="_on_btn_equip_pressed"]
