@@ -108,7 +108,9 @@ func _on_btn_attack_pressed():
 	attacked.emit(character)
 
 func playAnimation(strAnim = "getHit"):
-	if sprite != null: sprite.get_child(0).play(strAnim)
+	if sprite != null: 
+		sprite.get_child(0).play(strAnim)
+		SoundManager.PlayClip(sprite.get_child(1), "getHit")
 
 func _on_equipmet_pressed():
 	equipment.emit(self, character)
