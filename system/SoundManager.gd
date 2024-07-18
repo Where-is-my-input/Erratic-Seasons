@@ -7,6 +7,7 @@ const SOUNDTRACK_MICHAEL_HOUSE = "michaelHouse"
 const SOUNDTRACK_SNOW_BALL = "snowBall"
 const SOUNDTRACK_CHARACTER_BACKGROUND = "characterBackground"
 const SFX_GET_HIT = "getHit"
+const SFX_ROLLDICE = "rollDice"
 
 #It's a dictionary, meaning that the left side are the keys and the right side are the values
 var SOUNDS = {
@@ -16,6 +17,7 @@ var SOUNDS = {
 	SOUNDTRACK_SNOW_BALL: preload("res://assets/sound/music/Circlerun - Seasons Forever - Snow Ball Fight!!!.mp3"),
 	SOUNDTRACK_CHARACTER_BACKGROUND: preload("res://assets/sound/music/Circlerun - Seasons Forever - Character Background Screen.mp3"),
 	SFX_GET_HIT: preload("res://assets/sound/sfx/hit01.wav"),
+	SFX_ROLLDICE: preload("res://assets/sound/sfx/shake-and-roll-dice-soundbible.mp3"),
 	#SOUND_LAND: preload("res://assets/sound/land.wav"),
 	#SOUND_LASER: preload("res://assets/sound/laser.wav"),
 	#SOUND_MUSIC1: preload("res://assets/sound/Farm Frolics.ogg"),

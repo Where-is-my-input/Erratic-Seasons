@@ -1,0 +1,175 @@
+[gd_scene load_steps=17 format=3 uid="uid://d4bsvv15svmkm"]
+
+[ext_resource type="Script" path="res://game_scenes/Dice/dice_scene.gd" id="1_eo5jo"]
+[ext_resource type="Texture2D" uid="uid://b1mres0nbrhtl" path="res://assets/dice_cubes_sd_bit.png" id="2_xqwr3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e00xu"]
+atlas = ExtResource("2_xqwr3")
+region = Rect2(18, 0, 74, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g02xg"]
+atlas = ExtResource("2_xqwr3")
+region = Rect2(92, 0, 74, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sioou"]
+atlas = ExtResource("2_xqwr3")
+region = Rect2(166, 0, 74, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k7e7k"]
+atlas = ExtResource("2_xqwr3")
+region = Rect2(18, 64, 74, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ojpj"]
+atlas = ExtResource("2_xqwr3")
+region = Rect2(92, 64, 74, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dwcpv"]
+atlas = ExtResource("2_xqwr3")
+region = Rect2(166, 64, 74, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0a2xy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e00xu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g02xg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sioou")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k7e7k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ojpj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dwcpv")
+}],
+"loop": true,
+"name": &"RollDice",
+"speed": 10.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1hmyt"]
+atlas = ExtResource("2_xqwr3")
+region = Rect2(21, 0, 72, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8n2t2"]
+atlas = ExtResource("2_xqwr3")
+region = Rect2(93, 0, 72, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2tdnl"]
+atlas = ExtResource("2_xqwr3")
+region = Rect2(165, 0, 72, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_glpvh"]
+atlas = ExtResource("2_xqwr3")
+region = Rect2(21, 64, 72, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tfwgp"]
+atlas = ExtResource("2_xqwr3")
+region = Rect2(93, 64, 72, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fjde1"]
+atlas = ExtResource("2_xqwr3")
+region = Rect2(165, 64, 72, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vp3ff"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1hmyt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8n2t2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2tdnl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_glpvh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tfwgp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fjde1")
+}],
+"loop": true,
+"name": &"EnemyAnim",
+"speed": 10.0
+}]
+
+[node name="DiceScene" type="Node2D"]
+script = ExtResource("1_eo5jo")
+
+[node name="PlayerAnim" type="AnimatedSprite2D" parent="."]
+position = Vector2(484, 245)
+rotation = 1.5708
+sprite_frames = SubResource("SpriteFrames_0a2xy")
+animation = &"RollDice"
+frame = 3
+frame_progress = 0.62402
+
+[node name="EnemyAnim" type="AnimatedSprite2D" parent="."]
+position = Vector2(664, 250)
+sprite_frames = SubResource("SpriteFrames_vp3ff")
+animation = &"EnemyAnim"
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="PlayerRollLabel" type="Label" parent="UI"]
+offset_left = 442.0
+offset_top = 169.0
+offset_right = 537.0
+offset_bottom = 192.0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "Player Roll"
+horizontal_alignment = 1
+
+[node name="WinnerLabel" type="Label" parent="UI"]
+offset_left = 534.0
+offset_top = 114.0
+offset_right = 629.0
+offset_bottom = 137.0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "Who Wins?"
+horizontal_alignment = 1
+
+[node name="EnemyRollLabel" type="Label" parent="UI"]
+offset_left = 628.0
+offset_top = 169.0
+offset_right = 714.0
+offset_bottom = 192.0
+text = "Enemy Roll"
+
+[node name="MC" type="MarginContainer" parent="UI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 14
+
+[node name="VBContainer" type="VBoxContainer" parent="UI/MC"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="RollButton" type="Button" parent="UI/MC/VBContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Roll Dice"
+
+[node name="DiceStream" type="AudioStreamPlayer2D" parent="."]
+volume_db = 6.618
+bus = &"SFX"
+
+[connection signal="animation_looped" from="PlayerAnim" to="." method="_on_dice_anim_animation_looped"]
+[connection signal="pressed" from="UI/MC/VBContainer/RollButton" to="." method="_on_button_pressed"]
