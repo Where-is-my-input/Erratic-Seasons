@@ -4,6 +4,7 @@ enum character {CECILIA, GEOVANNA, TWIN_ANGELS, GOBLIN}
 enum seasons {SPRING, SUMMER, AUTUMN, WINTER}
 enum type {AIR, FIRE, EARTH, WATER}
 enum equipmentType {WEAPON, ARMOR}
+enum itemType {heal}
 
 const RANDOM_MOBS:Array = [preload("res://characters/npc/mobs/goblin.tscn")]
 
@@ -15,6 +16,7 @@ var currentSeason = seasons.SPRING
 var gameOvers:int = 0
 
 var playerInventory:Array
+var playerItems:Array
 #will be the floor variable
 var encountersCounter :int = 0
 
@@ -24,6 +26,7 @@ signal playerCharacterDied
 func _ready():
 	playerInventory.push_back(preload("res://equipment/weapon/old_club.tscn").instantiate())
 	playerInventory.push_back(preload("res://equipment/weapon/old_club.tscn").instantiate())
+	playerItems.push_back(preload("res://equipment/items/small_potion.tscn").instantiate())
 	var cc = preload("res://characters/defined/cecilia.tscn").instantiate()
 	var geo = preload("res://characters/defined/geovanna.tscn").instantiate()
 	

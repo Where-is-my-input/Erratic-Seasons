@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cspumu6v28mnq"]
+
+[ext_resource type="PackedScene" uid="uid://ckgnq0pruflxv" path="res://equipment/items/item.tscn" id="1_mky5g"]
+
+[node name="small_potion" instance=ExtResource("1_mky5g")]
+effectValue = 10
