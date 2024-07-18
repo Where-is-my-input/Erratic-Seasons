@@ -4,38 +4,44 @@ extends Node2D
 @onready var roll_button: Button = $UI/MC/VBContainer/RollButton
 @onready var dice_anim: AnimatedSprite2D = $PlayerAnim
 @onready var dice_stream: AudioStreamPlayer2D = $DiceStream
-@onready var enemy_anim: AnimatedSprite2D = $EnemyAnim
-@onready var winner_label: Label = $UI/WinnerLabel
+@onready var max_rerrolLabel: Label = $UI/MC/MaxRerrol
+@onready var reroll_button: Button = $UI/MC/VBContainer/RerollButton
+@onready var enemy_timer: Timer = $EnemyTimer
+@export var isPlayer : bool = false
 
 #Logic variables
 var randomNumber1 = RandomNumberGenerator.new()
-var randomNumber2 = RandomNumberGenerator.new()
 var p1Roll : int = 0
-var pcRoll : int = 0
 var loopCounter = 0
 var maxLoopAmount = 4
+var currentReRoll = 0
+var maxReRoll = 3
 
+
+func _ready() -> void:
+	SetPlayerReRollLabel()
+	CheckEnemy()
+	
 #PlayTheDice -> randomize the number
 func PlayTheDice() -> void:
 	randomNumber1.randomize()
-	randomNumber2.randomize()
 	p1Roll = randomNumber1.randi_range(1, 6)
-	pcRoll = randomNumber2.randi_range(1, 6)
+	dice_anim.play("RollDice")
+	SoundManager.PlayClip(dice_stream, SoundManager.SFX_ROLLDICE)
 
-func CheckRolls() -> void:
-	#Here we will do the code that we need
-	#the way that is here is for visual debug reasons
-	if p1Roll > pcRoll:
-		winner_label.text = "Player Wins"
-	else:
-		winner_label.text = "Computer Wins"
+func SetPlayerReRollLabel() -> void:
+	max_rerrolLabel.text = "Rerrol %d/%d" % [currentReRoll, maxReRoll] 
+
+func CheckEnemy() -> void:
+	if(!isPlayer):
+		roll_button.visible = false
+		reroll_button.visible = false
+		enemy_timer.start()
 
 func _on_button_pressed() -> void:
 	roll_button.disabled = true
-	dice_anim.play("RollDice")
-	enemy_anim.play("EnemyAnim")
+	#enemy_anim.play("EnemyAnim")
 	PlayTheDice()
-	SoundManager.PlayClip(dice_stream, SoundManager.SFX_ROLLDICE)
 
 func _on_dice_anim_animation_looped() -> void:
 	#here the dice loops 4 times, after it finishes its execution
@@ -45,6 +51,14 @@ func _on_dice_anim_animation_looped() -> void:
 		maxLoopAmount:
 				dice_anim.stop()
 				dice_anim.frame = p1Roll - 1
-				enemy_anim.stop()
-				enemy_anim.frame = pcRoll - 1
-				CheckRolls()
+				loopCounter = 0
+
+func _on_reroll_button_pressed() -> void:
+	currentReRoll += 1
+	PlayTheDice()
+	SetPlayerReRollLabel()
+	if(currentReRoll == maxReRoll):
+		reroll_button.disabled = true
+
+func _on_enemy_timer_timeout() -> void:
+	PlayTheDice()
