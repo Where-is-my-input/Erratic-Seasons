@@ -1,4 +1,5 @@
 extends Node2D
+class_name BattleClass
 #@onready var player_party = $playerParty
 @onready var npc_party = $NPCParty
 #@onready var transition: AnimationPlayer = $Transition
