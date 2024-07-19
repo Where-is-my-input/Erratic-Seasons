@@ -70,11 +70,11 @@ func setEquipments(c):
 
 func getHit(value = 10):
 	playAnimation()
-	updateUI(value)
+	updateUI()
 
-func updateUI(value = 10):
-	#hp.value = character.HP
-	hp.value = value
+func updateUI():
+	hp.value = character.HP
+	#hp.value = value
 
 func setDisabledAll(value = true):
 	setDisabled(v_box_container, value)
@@ -96,7 +96,7 @@ func setTurnDisabled():
 
 func revive():
 	print("UI revive ", character.HP)
-	updateUI(character.HP)
+	updateUI()
 	turnActionAvailable = true
 	setTurnDisabled()
 
@@ -156,3 +156,6 @@ func inspectCharacter():
 		2:
 			weapon.text = "?"
 			armor.text = "?"
+
+func _on_items_pressed():
+	items.emit(self, character)

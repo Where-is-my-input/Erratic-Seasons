@@ -7,6 +7,7 @@ extends Control
 @onready var talk = $tabs/talk
 @onready var dialog_outcome = $tabs/dialogOutcome
 @onready var dialog_outcomes_component = $dialogOutcomesComponent
+@onready var item_inventory = $tabs/item_inventory
 
 var inspected = false
 
@@ -18,6 +19,7 @@ var targetedNPC
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	inventory.connect("closeInventory", closeInventory)
+	item_inventory.connect("closeItemInventory", closeItemInventory)
 	talk.connect("response", dialogOutCome)
 	dialog_outcome.connect("dismiss", dismissDialog)
 	for c in Global.playerParty:
@@ -25,6 +27,7 @@ func _ready():
 		charUI.character = c
 		charUI.connect("attack", playerAttacking)
 		charUI.connect("equipment", showInventory)
+		charUI.connect("items", showItemInventory)
 		charUI.connect("talk", talkPressed)
 		charUI.connect("inspect", tryInspect)
 		player_party_container.add_child(charUI)
@@ -61,6 +64,13 @@ func showTalkControl(character):
 	enableTalking(false)
 	talk.visible = true
 
+func showItemInventory(charUI, characterEquiping):
+	playerInAction = characterEquiping
+	playerUIInAction = charUI
+	#player_party_container.set_mouse_filter(2)
+	disablePlayableCharactersActions()
+	item_inventory.visible = true
+
 func showInventory(charUI, characterEquiping):
 	playerInAction = characterEquiping
 	playerUIInAction = charUI
@@ -76,6 +86,16 @@ func closeInventory(equipment = null):
 		inventory.loadInventory()
 	#player_party_container.set_mouse_filter(0)
 	inventory.visible = false
+	enablePlayerTurn()
+	
+func closeItemInventory(itemUsed = null):
+	if itemUsed != null: 
+		playerUIInAction.endTurn()
+		playerInAction.useItem(itemUsed)
+		playerUIInAction.updateUI()
+		#inventory.loadInventory()
+	#player_party_container.set_mouse_filter(0)
+	item_inventory.visible = false
 	enablePlayerTurn()
 
 func playerAttacking(character):

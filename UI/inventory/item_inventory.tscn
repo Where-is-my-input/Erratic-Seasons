@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://byv4frcvxk5od"]
+
+[ext_resource type="Script" path="res://UI/inventory/item_inventory.gd" id="1_sjorw"]
+
+[node name="item_inventory" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sjorw")
+
+[node name="itemList" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="btnClose" type="Button" parent="itemList"]
+layout_mode = 2
+text = "Close"
+
+[connection signal="pressed" from="itemList/btnClose" to="." method="_on_btn_close_pressed"]

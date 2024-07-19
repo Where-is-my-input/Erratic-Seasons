@@ -4,7 +4,7 @@ enum character {CECILIA, GEOVANNA, TWIN_ANGELS, GOBLIN}
 enum seasons {SPRING, SUMMER, AUTUMN, WINTER}
 enum type {AIR, FIRE, EARTH, WATER}
 enum equipmentType {WEAPON, ARMOR}
-enum itemType {heal}
+enum itemType {HEAL}
 
 const RANDOM_MOBS:Array = [preload("res://characters/npc/mobs/goblin.tscn")]
 

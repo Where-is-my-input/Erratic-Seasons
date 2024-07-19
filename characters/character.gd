@@ -75,3 +75,14 @@ func equip(equipment):
 		Global.playerInventory.push_back(weapon)
 		weapon = equipment
 	Global.playerInventory.erase(equipment)
+
+func useItem(item:itemClass):
+	match item.type:
+		Global.itemType.HEAL:
+			heal(item.effectValue)
+	Global.playerItems.erase(item)
+
+func heal(value):
+	HP += value
+	if HP > maxHP:
+		HP = maxHP

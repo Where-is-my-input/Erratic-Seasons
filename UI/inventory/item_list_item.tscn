@@ -1,0 +1,36 @@
+[gd_scene load_steps=2 format=3 uid="uid://djcr4vx5yiwyn"]
+
+[ext_resource type="Script" path="res://UI/inventory/item_list_item.gd" id="1_2vguv"]
+
+[node name="item_list_item" type="HBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_2vguv")
+
+[node name="lblName" type="Label" parent="."]
+layout_mode = 2
+text = "Potion"
+
+[node name="lblValue" type="Label" parent="."]
+layout_mode = 2
+text = "10"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+text = " | "
+
+[node name="price" type="Label" parent="."]
+visible = false
+layout_mode = 2
+
+[node name="btnSell" type="Button" parent="price"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 20.0
+text = "Sell"
+
+[node name="btnUse" type="Button" parent="."]
+layout_mode = 2
+text = "Use"
+
+[connection signal="pressed" from="btnUse" to="." method="_on_btn_use_pressed"]
