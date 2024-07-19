@@ -209,5 +209,10 @@ bus = &"soundtrack"
 position = Vector2(593, 612)
 current = true
 
+[node name="MarkersHolder" type="Node" parent="."]
+
+[node name="playerDicePos" type="Marker2D" parent="MarkersHolder"]
+position = Vector2(1070, 435)
+
 [connection signal="pressed" from="battleUI/partyUI/HBoxContainer/btnInspect" to="battleUI" method="tryInspect"]
 [connection signal="pressed" from="battleUI/partyUI/HBoxContainer/btnFlee" to="." method="_on_btn_flee_pressed"]

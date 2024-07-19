@@ -12,7 +12,9 @@ extends Control
 @export var v_box_container_2:VBoxContainer
 
 
+
 var character:Node2D
+
 
 signal attack
 signal talk
@@ -101,9 +103,14 @@ func revive():
 func dead():
 	pass #show a skull sprite
 
-func _on_flee_pressed() -> void:
-	get_tree().change_scene_to_packed(Global.OwScene)
 
+
+#func _on_flee_pressed() -> void:
+	#InstatiateDice()
+	#pseudo code - if player dice value is higher than
+	#the enemy dice value, we can flee
+	#get_tree().change_scene_to_packed(Global.OwScene) 
+	
 func attackButtonVisible(v):
 	if character.isDead: return
 	btn_attack.visible = v

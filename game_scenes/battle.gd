@@ -5,10 +5,16 @@ extends Node2D
 @onready var transition = $battleUI/CanvasLayer/Transition
 @onready var battle_ui = $battleUI
 @onready var battle_soundtrack = $battleSoundtrack
+@onready var diceScene : PackedScene = preload("res://game_scenes/Dice/dice_scene.tscn")
+@onready var player_dice_pos: Marker2D = $MarkersHolder/playerDicePos
+
 
 var gameOverMinigame = preload("res://game_scenes/game_over_minigame/game_over_minigame.tscn")
 
 var npcPartyCount = 0
+var playerRollNumber = 0
+var enemyRollNumber = 0
+var isPlayerRoll : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -120,5 +126,36 @@ func deathMinigame():
 	var minigame = gameOverMinigame.instantiate()
 	add_child(minigame)
 
+#Instaciating the Enemydice, it is not being called yet
+func InstatiateEnemyDice() -> void:
+	var myDice = diceScene.instantiate()
+	#Setting is player in the dice_scene to false
+	myDice.IsPlayerDice(false)
+	#getting the isPlayer into a global variable in the battle.gd
+	isPlayerRoll = myDice.GetIsPlayer()
+	#connecting the signal to the OnDicePlayed Method
+	myDice.on_dice_played.connect(OnDicePlayed)
+	add_child(myDice)
+
+#Here we instatiate the PlayerDice, works similar as the enemyDice method
+func InstatiatePlayerDice() -> void:
+	var myDice = diceScene.instantiate()
+	myDice.IsPlayerDice(true)
+	isPlayerRoll = myDice.GetIsPlayer()
+	myDice.on_dice_played.connect(OnDicePlayed)
+	add_child(myDice)
+
+#Method that is called when the signal emits
+func OnDicePlayed(diceNumber : int)  -> void:
+	if(isPlayerRoll):
+		playerRollNumber = diceNumber
+	else:
+		enemyRollNumber = diceNumber
+		
+	print(playerRollNumber)
+	print(enemyRollNumber)
+	
 func _on_btn_flee_pressed():
-	get_tree().change_scene_to_packed(Global.OwScene)
+	InstatiatePlayerDice()
+	#get_tree().change_scene_to_packed(Global.OwScene)
+	pass

@@ -55,10 +55,9 @@ animations = [{
 
 [node name="DiceScene" type="Node2D"]
 script = ExtResource("1_eo5jo")
-isPlayer = true
 
 [node name="PlayerAnim" type="AnimatedSprite2D" parent="."]
-position = Vector2(581, 246)
+position = Vector2(1060, 355)
 rotation = 1.5708
 sprite_frames = SubResource("SpriteFrames_0a2xy")
 animation = &"RollDice"
@@ -73,13 +72,20 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 14
-theme_override_constants/margin_top = 14
+theme_override_constants/margin_left = 48
+theme_override_constants/margin_top = 280
+theme_override_constants/margin_right = 48
 
 [node name="VBContainer" type="VBoxContainer" parent="UI/MC"]
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 8
 size_flags_vertical = 4
+
+[node name="MaxRerrol" type="Label" parent="UI/MC/VBContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "Rerrol 0 / 2"
 
 [node name="RollButton" type="Button" parent="UI/MC/VBContainer"]
 layout_mode = 2
@@ -90,12 +96,6 @@ text = "Roll Dice"
 [node name="RerollButton" type="Button" parent="UI/MC/VBContainer"]
 layout_mode = 2
 text = "ReRoll"
-
-[node name="MaxRerrol" type="Label" parent="UI/MC"]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-text = "Rerrol 0 / 2"
 
 [node name="DiceStream" type="AudioStreamPlayer2D" parent="."]
 volume_db = 6.618
