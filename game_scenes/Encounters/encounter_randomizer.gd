@@ -1,11 +1,11 @@
 extends Node2D
 
 @export var encounterToRandom : Array[PackedScene]
-
 @onready var encounterPositions : Array[Marker2D]
 
 var rng = RandomNumberGenerator.new()
 var randomValue := 0.0 as float
+var isRandomized : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

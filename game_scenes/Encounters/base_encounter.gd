@@ -24,15 +24,16 @@ func CheckTypes(typeToCheck : String) -> void:
 			assignedType = "Trade"
 
 func _on_body_entered(body: Node2D) -> void:
-	transition.play("fadeOut")
-	match(assignedType):
-		"Battle":
-			print("You got attacked by an enemy, engaging battle mode")
-			Global.createRandomNPCParty()
-		"Camp":
-			print("Time for a little rest, nobody is made of iron")
-		"Trade":
-			print("What do you think about trading that precious coins for my precious items?")
+	if(body.is_in_group("Player")):
+		transition.play("fadeOut")
+		match(assignedType):
+			"Battle":
+				print("You got attacked by an enemy, engaging battle mode")
+				Global.createRandomNPCParty()
+			"Camp":
+				print("Time for a little rest, nobody is made of iron")
+			"Trade":
+				print("What do you think about trading that precious coins for my precious items?")
 
 
 func _on_transition_animation_finished(anim_name: StringName) -> void:
