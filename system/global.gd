@@ -1,6 +1,6 @@
 extends Node
 
-enum character {CECILIA, GEOVANNA, TWIN_ANGELS, GOBLIN}
+enum character {CECILIA, GEOVANNA, TWIN_ANGELS, ALYA, YAEL, ALEXANDRA, RENI, GOBLIN}
 enum seasons {SPRING, SUMMER, AUTUMN, WINTER}
 enum type {AIR, FIRE, EARTH, WATER}
 enum equipmentType {WEAPON, ARMOR}

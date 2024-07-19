@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://dl61kwkdkp2gt"]
+
+[ext_resource type="PackedScene" uid="uid://vrmulrli4eab" path="res://characters/character.tscn" id="1_2lf1m"]
+[ext_resource type="PackedScene" uid="uid://cfeu8lynkgorl" path="res://characters/npc/bosses/spr_reni.tscn" id="2_dlysn"]
+[ext_resource type="PackedScene" uid="uid://dlgyrrbpnqyvg" path="res://equipment/equipment.tscn" id="2_kc28f"]
+
+[node name="reni" node_paths=PackedStringArray("weapon", "armor") instance=ExtResource("1_2lf1m")]
+characterType = 4
+characterName = "Reni"
+maxHP = 666
+atk = 315
+level = 25
+weapon = NodePath("equipment")
+armor = NodePath("equipment2")
+sprite = ExtResource("2_dlysn")
+
+[node name="equipment" parent="." index="0" instance=ExtResource("2_kc28f")]
+equipmentName = "Rounding Spear"
+type = 2
+atk = 2500
+level = 30
+cost = 7850
+
+[node name="equipment2" parent="." index="1" instance=ExtResource("2_kc28f")]
+equipmentName = "Random Clothes"
+equipmentType = 1
+type = 3
+def = 3500
+level = 55
+cost = 9500

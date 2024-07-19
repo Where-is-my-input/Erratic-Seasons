@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://c2oe38jfkwq0k"]
+
+[ext_resource type="PackedScene" uid="uid://vrmulrli4eab" path="res://characters/character.tscn" id="1_u5to8"]
+[ext_resource type="PackedScene" uid="uid://ih52nhrmublv" path="res://characters/npc/bosses/spr_twin_angels.tscn" id="2_6ao60"]
+[ext_resource type="PackedScene" uid="uid://dlgyrrbpnqyvg" path="res://equipment/equipment.tscn" id="3_ht8y5"]
+
+[node name="Alya_and_Yael" node_paths=PackedStringArray("weapon", "armor") instance=ExtResource("1_u5to8")]
+characterType = 2
+characterName = "Alya & Yael"
+maxHP = 10000
+atk = 350
+level = 50
+weapon = NodePath("equipment")
+armor = NodePath("equipment2")
+sprite = ExtResource("2_6ao60")
+
+[node name="equipment" parent="." index="0" instance=ExtResource("3_ht8y5")]
+
+[node name="equipment2" parent="." index="1" instance=ExtResource("3_ht8y5")]
+equipmentType = 1

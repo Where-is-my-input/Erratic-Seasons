@@ -33,3 +33,16 @@ func _on_button_5_pressed():
 
 func _on_button_6_pressed():
 	Global.gameOvers += 1
+
+
+func _on_button_7_pressed():
+	var npc = preload("res://characters/npc/bosses/alexandra.tscn").instantiate()
+	npc._init()
+	Global.npcParty.push_back(npc)
+	get_tree().change_scene_to_file("res://game_scenes/battle.tscn")
+
+func _on_button_8_pressed():
+	var npc = preload("res://characters/npc/bosses/reni.tscn").instantiate()
+	npc._init()
+	Global.npcParty.push_back(npc)
+	get_tree().change_scene_to_file("res://game_scenes/battle.tscn")

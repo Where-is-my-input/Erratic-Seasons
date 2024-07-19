@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://8xhdnc7frygh"]
+
+[ext_resource type="PackedScene" uid="uid://cec11ffro8y4x" path="res://characters/npc/mobs/npc_sprite.tscn" id="1_dtp0v"]
+[ext_resource type="Texture2D" uid="uid://gna4abp3j4yw" path="res://assets/sprites/bosses/boss_2.png" id="2_x2in2"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b8sqv"]
+resource_local_to_scene = true
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_x2in2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="sprAlexandra" instance=ExtResource("1_dtp0v")]
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_b8sqv")

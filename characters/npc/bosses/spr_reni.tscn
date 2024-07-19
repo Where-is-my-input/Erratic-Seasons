@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cfeu8lynkgorl"]
+
+[ext_resource type="PackedScene" uid="uid://cec11ffro8y4x" path="res://characters/npc/mobs/npc_sprite.tscn" id="1_clxeo"]
+[ext_resource type="Texture2D" uid="uid://pdfhj5axjcgd" path="res://assets/sprites/bosses/boss_3.png" id="2_222jp"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rk2n6"]
+resource_local_to_scene = true
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_222jp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="sprReni" instance=ExtResource("1_clxeo")]
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_rk2n6")

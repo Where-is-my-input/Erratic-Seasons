@@ -12,10 +12,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 472.0
-offset_top = 225.0
-offset_right = 472.0
-offset_bottom = 225.0
+offset_left = 460.0
+offset_top = 41.0
+offset_right = 460.0
+offset_bottom = 41.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -50,6 +50,11 @@ text = "Increase game over count"
 
 [node name="Button7" type="Button" parent="Container/BoxContainer"]
 layout_mode = 2
+text = "Boss Battle"
+
+[node name="Button8" type="Button" parent="Container/BoxContainer"]
+layout_mode = 2
+text = "Reni"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
@@ -59,3 +64,5 @@ layout_mode = 2
 [connection signal="pressed" from="Container/BoxContainer/Button4" to="." method="_on_button_4_pressed"]
 [connection signal="pressed" from="Container/BoxContainer/Button5" to="." method="_on_button_5_pressed"]
 [connection signal="pressed" from="Container/BoxContainer/Button6" to="." method="_on_button_6_pressed"]
+[connection signal="pressed" from="Container/BoxContainer/Button7" to="." method="_on_button_7_pressed"]
+[connection signal="pressed" from="Container/BoxContainer/Button8" to="." method="_on_button_8_pressed"]

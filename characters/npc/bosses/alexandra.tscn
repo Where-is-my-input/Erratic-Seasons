@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://ppce682bxsbv"]
+
+[ext_resource type="PackedScene" uid="uid://vrmulrli4eab" path="res://characters/character.tscn" id="1_8qyiq"]
+[ext_resource type="PackedScene" uid="uid://8xhdnc7frygh" path="res://characters/npc/bosses/spr_alexandra.tscn" id="2_5lpsf"]
+[ext_resource type="PackedScene" uid="uid://dlgyrrbpnqyvg" path="res://equipment/equipment.tscn" id="3_266ba"]
+
+[node name="Alexandra" node_paths=PackedStringArray("weapon", "armor") instance=ExtResource("1_8qyiq")]
+characterType = 3
+characterName = "Alexandra"
+maxHP = 5000
+atk = 333
+weapon = NodePath("equipment")
+armor = NodePath("equipment2")
+sprite = ExtResource("2_5lpsf")
+
+[node name="equipment" parent="." index="0" instance=ExtResource("3_266ba")]
+equipmentName = "Storm Sabre"
+atk = 500
+def = 0
+level = 15
+cost = 5350
+
+[node name="equipment2" parent="." index="1" instance=ExtResource("3_266ba")]
+equipmentName = "Muleta"
+equipmentType = 1
+type = 1
+def = 350
+level = 10

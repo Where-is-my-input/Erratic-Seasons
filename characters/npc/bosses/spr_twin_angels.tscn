@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://ih52nhrmublv"]
+
+[ext_resource type="PackedScene" uid="uid://cec11ffro8y4x" path="res://characters/npc/mobs/npc_sprite.tscn" id="1_gg0tg"]
+[ext_resource type="Texture2D" uid="uid://dyr8lgcc646w1" path="res://assets/sprites/bosses/boss_1.2.png" id="2_bqiv4"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_185ww"]
+resource_local_to_scene = true
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_bqiv4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="sprTwinAngels" instance=ExtResource("1_gg0tg")]
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_185ww")

@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://gboumre0wsw5"]
+
+[ext_resource type="PackedScene" uid="uid://cec11ffro8y4x" path="res://characters/npc/mobs/npc_sprite.tscn" id="1_hb6xp"]
+[ext_resource type="Texture2D" uid="uid://crs7eyyioi18a" path="res://assets/sprites/bosses/anja_final_solo.png" id="2_g8sqk"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xxp4i"]
+resource_local_to_scene = true
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_g8sqk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="sprAlya" instance=ExtResource("1_hb6xp")]
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_xxp4i")
