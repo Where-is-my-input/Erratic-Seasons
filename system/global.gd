@@ -55,8 +55,10 @@ func newGame(ccNewGame = true):
 	changeSeason(randi_range(0,3))
 	
 	if ccNewGame:
+		mainCharacter = character.CECILIA
 		cc.levelUp(5)
 	else:
+		mainCharacter = character.GEOVANNA
 		geo.levelUp(5)
 	get_tree().change_scene_to_file("res://game_scenes/OverWorld/over_world.tscn")
 

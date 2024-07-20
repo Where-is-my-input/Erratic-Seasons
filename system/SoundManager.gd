@@ -11,6 +11,7 @@ const SFX_ROLLDICE = "rollDice"
 const SOUNDTRACK_PLEASE_ANSWEAR_ME = "pleaseAnswearMe"
 const SOUNDTRACK_LAST_ENCOUTER = "lastEncounter"
 const SOUNDTRACK_SELECT_GAME_MODE = "selectGameMode"
+const SOUNDTRACK_I_KNOW_YOUR_SECRET = "IKnowYourSecret"
 
 #It's a dictionary, meaning that the left side are the keys and the right side are the values
 var SOUNDS = {
@@ -24,7 +25,7 @@ var SOUNDS = {
 	SOUNDTRACK_PLEASE_ANSWEAR_ME: preload("res://assets/sound/music/Please, answer me my friend.mp3"),
 	SOUNDTRACK_LAST_ENCOUTER: preload("res://assets/sound/music/The Last Encounter (90s RPG Version) Full Loop.wav"),
 	SOUNDTRACK_SELECT_GAME_MODE: preload("res://assets/sound/music/Circlerun - ZEQ2 - Select Your Game Mode.mp3"),
-	#SOUND_MUSIC2: preload("res://assets/sound/Flowing Rocks.ogg"),
+	SOUNDTRACK_I_KNOW_YOUR_SECRET: preload("res://assets/sound/music/I know your secret.mp3"),
 	#SOUND_PICKUP: preload("res://assets/sound/pickup5.ogg"),
 	#SOUND_BOSS_ARRIVE: preload("res://assets/sound/boss_arrive.wav"),
 	#SOUND_WIN: preload("res://assets/sound/you_win.ogg")

@@ -2,6 +2,8 @@ extends Control
 @onready var play = $VBoxContainer/Play
 @onready var audio_stream_player = $AudioStreamPlayer
 
+var debugCount = 0
+
 func _ready():
 	SoundManager.PlayClip(audio_stream_player, "selectGameMode")
 	play.grab_focus()
@@ -10,7 +12,13 @@ func _ready():
 func _on_exit_pressed():
 	get_tree().quit()
 
-
+func _input(event):
+	if event.get_action_strength("reset"):
+		debugCount += 1
+		if debugCount > 500:
+			get_tree().change_scene_to_file("res://game_scenes/n_2d_debug_scene.tscn")
+	else:
+		debugCount = 0
 func _on_settings_pressed():
 	get_tree().change_scene_to_file("res://UI/settings.tscn")
 

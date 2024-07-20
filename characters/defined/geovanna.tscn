@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://052bwrgegrr6"]
+[gd_scene load_steps=4 format=3 uid="uid://052bwrgegrr6"]
 
 [ext_resource type="PackedScene" uid="uid://vrmulrli4eab" path="res://characters/character.tscn" id="1_dv80v"]
+[ext_resource type="PackedScene" uid="uid://nk712i6pxrqn" path="res://characters/npc/bosses/spr_geovanna.tscn" id="2_2fuxv"]
 [ext_resource type="PackedScene" uid="uid://dlgyrrbpnqyvg" path="res://equipment/equipment.tscn" id="2_x81yg"]
 
 [node name="character" node_paths=PackedStringArray("weapon", "armor") instance=ExtResource("1_dv80v")]
@@ -11,6 +12,7 @@ atk = 8
 isNPC = false
 weapon = NodePath("equipment")
 armor = NodePath("equipment2")
+sprite = ExtResource("2_2fuxv")
 
 [node name="equipment2" parent="." index="0" instance=ExtResource("2_x81yg")]
 equipmentName = "Earth Shield"
