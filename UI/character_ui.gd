@@ -104,7 +104,10 @@ func revive():
 	setTurnDisabled()
 
 func dead():
-	pass #show a skull sprite
+	playAnimation("death")
+	if sprite != null:
+		await sprite.get_child(0).animation_finished
+	queue_free()
 
 #func _on_flee_pressed() -> void:
 	#InstatiateDice()
@@ -120,6 +123,7 @@ func attackButtonVisible(v):
 func talkButtonVisible(v):
 	if character.isDead: return
 	btn_talk.visible = v
+	btn_talk.grab_focus()
 
 func _on_btn_attack_pressed():
 	attacked.emit(character)

@@ -17,6 +17,7 @@ var playerInAction
 var playerUIInAction
 
 var targetedNPC
+var targetedNPCUI
 
 var playerFocus = false
 
@@ -66,7 +67,7 @@ func dismissDialog():
 
 func dialogOutCome(op1 = false, op2 = false):
 	talk.visible = false
-	dialog_outcomes_component.defineOutCome(playerInAction, targetedNPC, op1, op2)
+	dialog_outcomes_component.defineOutCome(playerInAction, targetedNPC, op1, op2, targetedNPCUI)
 
 func talkPressed(character):
 	playerInAction = character
@@ -75,9 +76,11 @@ func talkPressed(character):
 
 func showTalkControl(character):
 	targetedNPC = character.character
+	targetedNPCUI = character
 	talk.setDialogAndOptions(character)
 	enableTalking(false)
 	talk.visible = true
+	talk.grabFocus()
 
 func showItemInventory(charUI, characterEquiping):
 	playerInAction = characterEquiping

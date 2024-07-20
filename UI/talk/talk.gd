@@ -34,10 +34,11 @@ func setTexts(dialog, op1, op2):
 	btn_op_1.text = op1
 	btn_op_2.text = op2
 
+func grabFocus():
+	btn_op_1.grab_focus()
 
 func _on_btn_op_1_pressed():
 	response.emit(true, false)
-
 
 func _on_btn_op_2_pressed():
 	response.emit(false, true)

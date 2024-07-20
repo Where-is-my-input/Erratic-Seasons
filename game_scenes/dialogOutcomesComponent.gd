@@ -2,7 +2,7 @@ extends Node
 @onready var dialog_outcome = $"../tabs/dialogOutcome"
 @onready var battle = $"../.."
 
-func defineOutCome(player, target, op1, op2):
+func defineOutCome(player, target, op1, op2, targetUI = null):
 	match target.characterType:
 		Global.character.RENI:
 			if op1:
@@ -45,6 +45,7 @@ func defineOutCome(player, target, op1, op2):
 					target.isNPC = false
 					target.sprite = null
 					battle.npcCharacterDied()
+					targetUI.dead()
 				else:
 					dialog_outcome.setText("Nobody seemed to hear you")
 	dialog_outcome.visible = true

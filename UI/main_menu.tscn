@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bfu7htt3k0wng"]
+[gd_scene load_steps=3 format=3 uid="uid://bfu7htt3k0wng"]
 
 [ext_resource type="Script" path="res://UI/main_menu.gd" id="1_hugeg"]
+[ext_resource type="Texture2D" uid="uid://r8ylh4capr63" path="res://assets/backgrounds/cenario.png" id="2_kerge"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -44,6 +45,14 @@ layout_mode = 2
 text = "Exit"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -15
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+texture = ExtResource("2_kerge")
 
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="VBoxContainer/Settings" to="." method="_on_settings_pressed"]

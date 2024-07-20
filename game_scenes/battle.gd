@@ -84,7 +84,8 @@ func npcTurn():
 	var battleOver = true
 	for c in npc_party.get_children():
 		if c.isDead: continue
-		await get_tree().create_timer(0.3).timeout
+		if get_tree() != null:
+			await get_tree().create_timer(0.3).timeout
 		npcAttack(c)
 		battleOver = false
 	battle_ui.endNPCTurn()

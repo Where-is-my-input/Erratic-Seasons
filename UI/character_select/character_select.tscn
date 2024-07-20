@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://b325jtyut8wqf"]
+[gd_scene load_steps=5 format=3 uid="uid://b325jtyut8wqf"]
 
 [ext_resource type="PackedScene" uid="uid://baf0sx5awnlut" path="res://characters/defined/spr_cecilia_overworld.tscn" id="1_6os3u"]
 [ext_resource type="Script" path="res://UI/character_select/character_select.gd" id="1_lo7ie"]
 [ext_resource type="PackedScene" uid="uid://v7qm5akajbav" path="res://characters/defined/spr_geovanna_overwolrd.tscn" id="2_rln2m"]
+[ext_resource type="Texture2D" uid="uid://r8ylh4capr63" path="res://assets/backgrounds/cenario.png" id="4_hwt4r"]
 
 [node name="character_select" type="Control"]
 layout_mode = 3
@@ -77,6 +78,14 @@ offset_bottom = 613.0
 text = "Chosen character will start with more levels"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -15
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+texture = ExtResource("4_hwt4r")
 
 [connection signal="pressed" from="HBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/Button2" to="." method="_on_button_2_pressed"]
