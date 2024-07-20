@@ -11,10 +11,12 @@ weapon = NodePath("equipment2")
 armor = NodePath("equipment")
 
 [node name="equipment" parent="." index="0" instance=ExtResource("2_g7b8h")]
-equipmentName = "Robe"
+equipmentName = "Wind Robe"
 atk = 0
 def = 5
 
 [node name="equipment2" parent="." index="1" instance=ExtResource("2_g7b8h")]
+equipmentName = "Fire sword"
+type = 1
 atk = 3
 def = 0

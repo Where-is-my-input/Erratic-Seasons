@@ -34,7 +34,10 @@ func _on_body_entered(body: Node2D) -> void:
 				print("Time for a little rest, nobody is made of iron")
 			"Trade":
 				print("What do you think about trading that precious coins for my precious items?")
-
+			_:
+				var npc = preload("res://characters/npc/bosses/alexandra.tscn").instantiate()
+				npc._init()
+				Global.npcParty.push_back(npc)
 
 func _on_transition_animation_finished(anim_name: StringName) -> void:
 	match(assignedType):
@@ -45,3 +48,6 @@ func _on_transition_animation_finished(anim_name: StringName) -> void:
 			get_tree().change_scene_to_packed(encountersScenes["CampScene"])
 		"Trade":
 			get_tree().change_scene_to_packed(encountersScenes["TradeScene"])
+		_:
+			Global.IncreaseEncCounter()
+			get_tree().change_scene_to_packed(encountersScenes["BattleScene"])

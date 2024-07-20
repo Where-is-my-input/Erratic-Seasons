@@ -29,7 +29,7 @@ signal playerCharacterDied
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	playerInventory.push_back(preload("res://equipment/weapon/old_club.tscn").instantiate())
-	playerInventory.push_back(preload("res://equipment/weapon/old_club.tscn").instantiate())
+	playerInventory.push_back(preload("res://equipment/weapon/earth_dagger.tscn").instantiate())
 	playerItems.push_back(preload("res://equipment/items/small_potion.tscn").instantiate())
 	var cc = preload("res://characters/defined/cecilia.tscn").instantiate()
 	var geo = preload("res://characters/defined/geovanna.tscn").instantiate()
@@ -39,6 +39,8 @@ func _ready():
 	
 	playerParty.push_back(cc)
 	playerParty.push_back(geo)
+	
+	changeSeason(randi_range(0,3))
 
 func _input(event):
 	if event.is_action_pressed("reset"):

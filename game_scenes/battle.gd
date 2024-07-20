@@ -53,10 +53,10 @@ func attack(attacker, target = null):
 func getDamageDealt(atk, attackerEquip, targetEquip):
 	var attack:int = atk
 	if attackerEquip != null:
-		attack += attackerEquip.atk * 1.5 if attackerEquip.type == Global.currentSeason else attackerEquip.atk
+		attack += attackerEquip.atk * 2.5 if attackerEquip.type == Global.currentSeason else attackerEquip.atk
 	var defense:int = 0
 	if targetEquip != null:
-		defense = targetEquip.def * 1.5 if targetEquip.type == Global.currentSeason else targetEquip.def
+		defense = targetEquip.def * 2.5 if targetEquip.type == Global.currentSeason else targetEquip.def
 	var damageDealt:int = attack - (defense * 0.1)
 	print("Damage dealt: ", damageDealt, " Attack ", attack, " defense ", defense)
 	return damageDealt if damageDealt > 0 else 1

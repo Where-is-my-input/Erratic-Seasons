@@ -12,13 +12,13 @@ weapon = NodePath("equipment")
 armor = NodePath("equipment2")
 
 [node name="equipment2" parent="." index="0" instance=ExtResource("2_x81yg")]
-equipmentName = "Simple Shield"
+equipmentName = "Earth Shield"
 type = 2
 atk = 0
 def = 8
 
 [node name="equipment" parent="." index="1" instance=ExtResource("2_x81yg")]
-equipmentName = "Simple Axe"
+equipmentName = "Water Axe"
 type = 3
 atk = 16
 def = 0

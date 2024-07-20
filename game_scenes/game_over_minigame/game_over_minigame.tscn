@@ -127,16 +127,6 @@ debug_color = Color(0, 0.476397, 0.491257, 0.42)
 wait_time = 2.0
 one_shot = true
 
-[node name="spawner2" parent="CanvasLayer" instance=ExtResource("4_nf712")]
-position = Vector2(638, 103)
-movementFrom = Vector2(-5, 25)
-movementTo = Vector2(-10, 50)
-metadata/_edit_lock_ = true
-
-[node name="spawner" parent="CanvasLayer" instance=ExtResource("4_nf712")]
-position = Vector2(476, 102)
-metadata/_edit_lock_ = true
-
 [node name="spawner3" parent="CanvasLayer" instance=ExtResource("4_nf712")]
 position = Vector2(617, 524)
 movementFrom = Vector2(-5, -5)
@@ -146,21 +136,23 @@ metadata/_edit_lock_ = true
 [node name="spawner4" parent="CanvasLayer" instance=ExtResource("4_nf712")]
 position = Vector2(493, 525)
 movementFrom = Vector2(5, -1)
-movementTo = Vector2(10, -5)
+movementTo = Vector2(10, -50)
 metadata/_edit_lock_ = true
 
 [node name="spawner5" parent="CanvasLayer" instance=ExtResource("4_nf712")]
-position = Vector2(428, 121)
-movementFrom = Vector2(1, 0)
-movementTo = Vector2(75, 5)
-metadata/_edit_lock_ = true
+position = Vector2(532, 526)
+movementFrom = Vector2(5, -1)
+movementTo = Vector2(10, -50)
 
 [node name="spawner6" parent="CanvasLayer" instance=ExtResource("4_nf712")]
-position = Vector2(707, 501)
-movementFrom = Vector2(-30, 0)
-movementTo = Vector2(-31, -75)
-yDrift = -50
-metadata/_edit_lock_ = true
+position = Vector2(587, 525)
+movementFrom = Vector2(5, -1)
+movementTo = Vector2(10, -50)
+
+[node name="spawner7" parent="CanvasLayer" instance=ExtResource("4_nf712")]
+position = Vector2(564, 573)
+movementFrom = Vector2(5, -1)
+movementTo = Vector2(10, -50)
 
 [node name="despawner" type="Area2D" parent="CanvasLayer"]
 position = Vector2(448, 110)
@@ -179,6 +171,22 @@ collision_mask = 8
 position = Vector2(566.5, 509.5)
 shape = SubResource("RectangleShape2D_knur5")
 debug_color = Color(1.05888e-06, 0.636143, 0.408563, 0.42)
+
+[node name="game" type="Label" parent="CanvasLayer"]
+offset_left = 84.0
+offset_top = 253.0
+offset_right = 130.0
+offset_bottom = 276.0
+scale = Vector2(3.47014, 3.6833)
+text = "Game"
+
+[node name="over" type="Label" parent="CanvasLayer"]
+offset_left = 866.0
+offset_top = 230.0
+offset_right = 906.0
+offset_bottom = 253.0
+scale = Vector2(5.36012, 5.36012)
+text = "Over"
 
 [connection signal="body_entered" from="CanvasLayer/player/hurtbox" to="." method="_on_hurtbox_body_entered"]
 [connection signal="timeout" from="CanvasLayer/tmrRevive" to="." method="_on_tmr_revive_timeout"]

@@ -7,22 +7,22 @@
 [node name="Alexandra" node_paths=PackedStringArray("weapon", "armor") instance=ExtResource("1_8qyiq")]
 characterType = 3
 characterName = "Alexandra"
-maxHP = 5000
-atk = 333
+maxHP = 250
+atk = 13
 weapon = NodePath("equipment")
 armor = NodePath("equipment2")
 sprite = ExtResource("2_5lpsf")
 
 [node name="equipment" parent="." index="0" instance=ExtResource("3_266ba")]
 equipmentName = "Storm Sabre"
-atk = 500
+atk = 25
 def = 0
 level = 15
 cost = 5350
 
 [node name="equipment2" parent="." index="1" instance=ExtResource("3_266ba")]
-equipmentName = "Muleta"
+equipmentName = "Fiery Muleta"
 equipmentType = 1
 type = 1
-def = 350
+def = 35
 level = 10

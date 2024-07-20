@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dp4kqi18suc1s"]
+
+[ext_resource type="PackedScene" uid="uid://dlgyrrbpnqyvg" path="res://equipment/equipment.tscn" id="1_gs23a"]
+
+[node name="earth_dagger" instance=ExtResource("1_gs23a")]
+equipmentName = "Earth Dagger"
+type = 2
+atk = 11
+cost = 130
