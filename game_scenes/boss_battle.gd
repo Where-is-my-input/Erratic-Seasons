@@ -6,6 +6,15 @@ extends BattleClass
 func setSoundtrack():
 	SoundManager.PlayClip(battle_soundtrack, "pleaseAnswearMe")
 
+func npcCharacterDied():
+	for c in Global.npcParty:
+		if c.isDead:
+			match c.characterType:
+				Global.character.ALYA:
+					get_tree().change_scene_to_file("res://UI/final_boss/final_boss_transition_2.tscn")
+				Global.character.YAEL:
+					get_tree().change_scene_to_file("res://UI/final_boss/final_boss_transition.tscn")
+
 #func attack(attacker, target = null):
 	#var dmgDealt = super(attacker, target)
 	#match attacker.weapon.type:
