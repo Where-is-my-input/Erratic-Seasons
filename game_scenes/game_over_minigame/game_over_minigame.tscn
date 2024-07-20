@@ -188,7 +188,16 @@ offset_bottom = 253.0
 scale = Vector2(5.36012, 5.36012)
 text = "Over"
 
+[node name="btnMainMenu" type="Button" parent="CanvasLayer"]
+z_index = 15
+offset_left = 1037.0
+offset_top = 588.0
+offset_right = 1146.0
+offset_bottom = 636.0
+text = "Main Menu"
+
 [connection signal="body_entered" from="CanvasLayer/player/hurtbox" to="." method="_on_hurtbox_body_entered"]
 [connection signal="timeout" from="CanvasLayer/tmrRevive" to="." method="_on_tmr_revive_timeout"]
 [connection signal="body_exited" from="CanvasLayer/despawner" to="." method="_on_despawner_body_exited"]
 [connection signal="body_entered" from="CanvasLayer/goal" to="." method="_on_goal_body_entered"]
+[connection signal="pressed" from="CanvasLayer/btnMainMenu" to="." method="_on_btn_main_menu_pressed"]

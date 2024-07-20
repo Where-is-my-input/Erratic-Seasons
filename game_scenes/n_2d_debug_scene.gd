@@ -10,7 +10,8 @@ func _ready():
 	Global.ResetEncCounter()
 
 func _on_button_pressed():
-	get_tree().change_scene_to_file("res://game_scenes/OverWorld/over_world.tscn")
+	Global.newGame()
+	#get_tree().change_scene_to_file("res://game_scenes/OverWorld/over_world.tscn")
 
 
 func _on_button_2_pressed():

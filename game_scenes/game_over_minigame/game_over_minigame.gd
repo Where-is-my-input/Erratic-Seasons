@@ -29,5 +29,8 @@ func _on_despawner_body_exited(body):
 
 func _on_goal_body_entered(body):
 	for c in Global.playerParty:
-		c.revive()
+		c.revive(100)
 	queue_free()
+
+func _on_btn_main_menu_pressed():
+	get_tree().change_scene_to_file("res://UI/main_menu.tscn")

@@ -3,7 +3,7 @@ extends Control
 @onready var audio_stream_player = $AudioStreamPlayer
 
 func _ready():
-	SoundManager.PlayClip(audio_stream_player, "characterBackground")
+	SoundManager.PlayClip(audio_stream_player, "selectGameMode")
 	play.grab_focus()
 	Global.ResetEncCounter()
 
@@ -16,7 +16,7 @@ func _on_settings_pressed():
 
 
 func _on_play_pressed():
-	get_tree().change_scene_to_file("res://game_scenes/OverWorld/over_world.tscn")
+	get_tree().change_scene_to_file("res://UI/character_select/character_select.tscn")
 
 
 func _on_credits_pressed():

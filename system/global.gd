@@ -6,6 +6,8 @@ enum type {AIR, FIRE, EARTH, WATER}
 enum equipmentType {WEAPON, ARMOR}
 enum itemType {HEAL}
 
+var mainCharacter:Global.character
+
 const RANDOM_MOBS:Array = [preload("res://characters/npc/mobs/goblin.tscn"), preload("res://characters/npc/mobs/red_goblin.tscn"), preload("res://characters/npc/mobs/blue_goblin.tscn")]
 
 var OwScene : PackedScene = preload("res://game_scenes/OverWorld/over_world.tscn")
@@ -27,20 +29,21 @@ var isRandomized : bool = false
 signal playerCharacterDied
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
-	newGame()
+#func _ready():
+	#newGame()
 
-func newGame():
+func newGame(ccNewGame = true):
 	playerMoney = 500
 	for c in playerParty:
 		c.queue_free()
+	playerParty.clear()
 	for c in playerInventory:
 		c.queue_free()
-	playerParty.clear()
 	playerInventory.clear()
 	playerInventory.push_back(preload("res://equipment/weapon/old_club.tscn").instantiate())
 	playerInventory.push_back(preload("res://equipment/weapon/earth_dagger.tscn").instantiate())
 	playerItems.push_back(preload("res://equipment/items/small_potion.tscn").instantiate())
+
 	var cc = preload("res://characters/defined/cecilia.tscn").instantiate()
 	var geo = preload("res://characters/defined/geovanna.tscn").instantiate()
 	
@@ -50,6 +53,12 @@ func newGame():
 	playerParty.push_back(cc)
 	playerParty.push_back(geo)
 	changeSeason(randi_range(0,3))
+	
+	if ccNewGame:
+		cc.levelUp(5)
+	else:
+		geo.levelUp(5)
+	get_tree().change_scene_to_file("res://game_scenes/OverWorld/over_world.tscn")
 
 func _input(event):
 	if event.is_action_pressed("reset"):

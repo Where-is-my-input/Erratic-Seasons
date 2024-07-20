@@ -35,8 +35,8 @@ func scaleStatsToLevel():
 	maxHP += (level * 0.025) * maxHP
 	atk += (level * 0.008) * atk
 
-func levelUp():
-	level += 1
+func levelUp(levels = 1):
+	level += levels
 	scaleStatsToLevel()
 	HP = maxHP
 

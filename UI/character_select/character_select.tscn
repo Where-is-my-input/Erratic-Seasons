@@ -1,0 +1,82 @@
+[gd_scene load_steps=4 format=3 uid="uid://b325jtyut8wqf"]
+
+[ext_resource type="PackedScene" uid="uid://baf0sx5awnlut" path="res://characters/defined/spr_cecilia_overworld.tscn" id="1_6os3u"]
+[ext_resource type="Script" path="res://UI/character_select/character_select.gd" id="1_lo7ie"]
+[ext_resource type="PackedScene" uid="uid://v7qm5akajbav" path="res://characters/defined/spr_geovanna_overwolrd.tscn" id="2_rln2m"]
+
+[node name="character_select" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lo7ie")
+
+[node name="lblMainCharacter" type="Label" parent="."]
+layout_mode = 0
+offset_left = 298.0
+offset_top = 1.0
+offset_right = 516.0
+offset_bottom = 24.0
+scale = Vector2(2.73166, 2.73166)
+text = "Choose your main character"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -502.0
+offset_top = -250.0
+offset_right = 502.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(500, 500)
+layout_mode = 2
+
+[node name="Button2" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(500, 500)
+layout_mode = 2
+
+[node name="sprCecilia" parent="." instance=ExtResource("1_6os3u")]
+position = Vector2(322, 312)
+scale = Vector2(1, 1)
+
+[node name="sprGeovanna" parent="." instance=ExtResource("2_rln2m")]
+position = Vector2(831, 312)
+scale = Vector2(1, 1)
+
+[node name="lblCecilia" type="Label" parent="."]
+layout_mode = 0
+offset_left = 296.0
+offset_top = 145.0
+offset_right = 346.0
+offset_bottom = 168.0
+text = "Cecilia"
+
+[node name="lblGeovanna" type="Label" parent="."]
+layout_mode = 0
+offset_left = 785.0
+offset_top = 145.0
+offset_right = 877.0
+offset_bottom = 168.0
+text = "Geovanna"
+
+[node name="lblNotice" type="Label" parent="."]
+layout_mode = 0
+offset_left = 396.0
+offset_top = 590.0
+offset_right = 735.0
+offset_bottom = 613.0
+text = "Chosen character will start with more levels"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[connection signal="pressed" from="HBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/Button2" to="." method="_on_button_2_pressed"]
