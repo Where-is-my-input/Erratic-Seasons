@@ -1,11 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://db8wosw30dqi3"]
+[gd_scene load_steps=4 format=3 uid="uid://db8wosw30dqi3"]
 
 [ext_resource type="PackedScene" uid="uid://vrmulrli4eab" path="res://characters/character.tscn" id="1_a56ce"]
 [ext_resource type="PackedScene" uid="uid://ih52nhrmublv" path="res://characters/npc/bosses/spr_twin_angels.tscn" id="2_sdvep"]
+[ext_resource type="PackedScene" uid="uid://dlgyrrbpnqyvg" path="res://equipment/equipment.tscn" id="3_576wq"]
 
-[node name="twin_angels" instance=ExtResource("1_a56ce")]
+[node name="twin_angels" node_paths=PackedStringArray("weapon", "armor") instance=ExtResource("1_a56ce")]
 characterType = 2
 characterName = "Twin Angels"
 maxHP = 500
 atk = 5
+weapon = NodePath("equipment2")
+armor = NodePath("equipment")
 sprite = ExtResource("2_sdvep")
+
+[node name="equipment2" parent="." index="0" instance=ExtResource("3_576wq")]
+equipmentName = "Dark Will"
+type = 2
+atk = 53
+cost = 530
+
+[node name="equipment" parent="." index="1" instance=ExtResource("3_576wq")]
+equipmentName = "Bright Anger"
+equipmentType = 1
+def = 62
