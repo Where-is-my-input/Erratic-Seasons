@@ -229,12 +229,13 @@ size = Vector2(24, 41)
 script = ExtResource("1_xnxop")
 
 [node name="sprCecilia" type="AnimatedSprite2D" parent="."]
+position = Vector2(-8, 0)
 scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_ja6hb")
 animation = &"up"
 
 [node name="sprGeovanna" type="AnimatedSprite2D" parent="."]
-position = Vector2(6, 0)
+position = Vector2(10, 0)
 scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_fmjxv")
 animation = &"down"
