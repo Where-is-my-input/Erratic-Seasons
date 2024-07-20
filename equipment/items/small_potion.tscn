@@ -4,4 +4,4 @@
 
 [node name="small_potion" instance=ExtResource("1_mky5g")]
 itemName = "Small Potion"
-effectValue = 10
+effectValue = 50
