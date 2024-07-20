@@ -18,6 +18,7 @@ var gameOvers:int = 0
 var playerInventory:Array
 var playerItems:Array
 #will be the floor variable
+var encountersCounter : int = 0
 var encounterStored : Array[int]
 var playerLastPos : Vector2 = Vector2.ZERO
 var playerMoney : float = 0.0
