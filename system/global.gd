@@ -6,7 +6,7 @@ enum type {AIR, FIRE, EARTH, WATER}
 enum equipmentType {WEAPON, ARMOR}
 enum itemType {HEAL}
 
-const RANDOM_MOBS:Array = [preload("res://characters/npc/mobs/goblin.tscn")]
+const RANDOM_MOBS:Array = [preload("res://characters/npc/mobs/goblin.tscn"), preload("res://characters/npc/mobs/red_goblin.tscn"), preload("res://characters/npc/mobs/blue_goblin.tscn")]
 
 var OwScene : PackedScene = preload("res://game_scenes/OverWorld/over_world.tscn")
 

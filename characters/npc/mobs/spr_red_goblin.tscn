@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cg64k1motsio"]
+
+[ext_resource type="PackedScene" uid="uid://cec11ffro8y4x" path="res://characters/npc/mobs/npc_sprite.tscn" id="1_oeatu"]
+[ext_resource type="Texture2D" uid="uid://cbjt4ikti5e8o" path="res://assets/sprites/mobs/orc2.png" id="2_m1mr3"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gacfy"]
+resource_local_to_scene = true
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_m1mr3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="sprRedGoblin" instance=ExtResource("1_oeatu")]
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_gacfy")
