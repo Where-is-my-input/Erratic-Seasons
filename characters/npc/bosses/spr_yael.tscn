@@ -16,5 +16,6 @@ animations = [{
 }]
 
 [node name="sprYael" instance=ExtResource("1_syk1e")]
-scale = Vector2(0.1, 0.1)
+z_index = -5
+scale = Vector2(0.15, 0.15)
 sprite_frames = SubResource("SpriteFrames_gleq8")

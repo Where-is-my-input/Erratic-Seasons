@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://tnscw41x0kjg"]
+
+[ext_resource type="PackedScene" uid="uid://c6lu2sgitnidg" path="res://UI/final_boss/final_boss_transition.tscn" id="1_u0ry7"]
+[ext_resource type="Script" path="res://UI/final_boss/final_boss_transition_2.gd" id="2_1gvm4"]
+
+[node name="finalBossTransition" instance=ExtResource("1_u0ry7")]
+script = ExtResource("2_1gvm4")
+
+[node name="Label" parent="." index="0"]
+text = "I couldn't give this power to a weakling like you!"

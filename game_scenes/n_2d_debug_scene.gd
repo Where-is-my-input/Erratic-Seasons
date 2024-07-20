@@ -46,3 +46,10 @@ func _on_button_8_pressed():
 	npc._init()
 	Global.npcParty.push_back(npc)
 	get_tree().change_scene_to_file("res://game_scenes/battle.tscn")
+
+
+func _on_button_9_pressed():
+	var npc = preload("res://characters/npc/twin_angels.tscn").instantiate()
+	npc._init()
+	Global.npcParty.push_back(npc)
+	get_tree().change_scene_to_file("res://game_scenes/boss_battle.tscn")

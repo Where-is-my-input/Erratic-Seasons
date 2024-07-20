@@ -56,6 +56,10 @@ text = "Boss Battle"
 layout_mode = 2
 text = "Reni"
 
+[node name="Button9" type="Button" parent="Container/BoxContainer"]
+layout_mode = 2
+text = "Final Boss"
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
 [connection signal="pressed" from="Container/BoxContainer/Button" to="." method="_on_button_pressed"]
@@ -66,3 +70,4 @@ text = "Reni"
 [connection signal="pressed" from="Container/BoxContainer/Button6" to="." method="_on_button_6_pressed"]
 [connection signal="pressed" from="Container/BoxContainer/Button7" to="." method="_on_button_7_pressed"]
 [connection signal="pressed" from="Container/BoxContainer/Button8" to="." method="_on_button_8_pressed"]
+[connection signal="pressed" from="Container/BoxContainer/Button9" to="." method="_on_button_9_pressed"]

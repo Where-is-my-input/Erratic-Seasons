@@ -48,7 +48,9 @@ func attack(attacker, target = null):
 	print("Battle scene attack called")
 	var attackTarget = target if target != null else npc_party.get_child(randi_range(0, npc_party.get_child_count() - 1))
 	if target == null: return
-	attackTarget.getHit(getDamageDealt(attacker.atk, attacker.weapon, attackTarget.armor))
+	var damageDealt = getDamageDealt(attacker.atk, attacker.weapon, attackTarget.armor)
+	attackTarget.getHit(damageDealt)
+	return damageDealt
 
 func getDamageDealt(atk, attackerEquip, targetEquip):
 	var attack:int = atk

@@ -203,12 +203,18 @@ grow_vertical = 0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="battleUI/partyUI"]
 layout_mode = 0
-offset_right = 40.0
+offset_left = -57.0
+offset_top = -8.0
+offset_right = 100.0
 offset_bottom = 40.0
 
 [node name="btnInspect" type="Button" parent="battleUI/partyUI/HBoxContainer"]
 layout_mode = 2
 text = "Inspect"
+
+[node name="Label" type="Label" parent="battleUI/partyUI/HBoxContainer"]
+layout_mode = 2
+text = "         "
 
 [node name="btnFlee" type="Button" parent="battleUI/partyUI/HBoxContainer"]
 layout_mode = 2

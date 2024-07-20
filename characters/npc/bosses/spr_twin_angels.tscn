@@ -16,5 +16,6 @@ animations = [{
 }]
 
 [node name="sprTwinAngels" instance=ExtResource("1_gg0tg")]
-scale = Vector2(0.1, 0.1)
+z_index = -5
+scale = Vector2(0.15, 0.15)
 sprite_frames = SubResource("SpriteFrames_185ww")

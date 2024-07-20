@@ -5,6 +5,7 @@
 
 [node name="character" node_paths=PackedStringArray("weapon", "armor") instance=ExtResource("1_dv80v")]
 characterType = 1
+characterName = "Geovanna"
 maxHP = 250
 atk = 8
 isNPC = false

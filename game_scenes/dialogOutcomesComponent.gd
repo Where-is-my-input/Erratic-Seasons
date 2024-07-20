@@ -29,6 +29,7 @@ func defineOutCome(player, target, op1, op2):
 					target.get_parent().remove_child(target)
 					Global.playerParty.push_back(target)
 					target.isNPC = false
+					target.sprite = null
 				else:
 					dialog_outcome.setText("Nobody seemed to hear you")
 	dialog_outcome.visible = true

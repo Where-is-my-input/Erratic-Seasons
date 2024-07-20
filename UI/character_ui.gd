@@ -51,18 +51,13 @@ func attackAnim():
 	playAnimation("attack")
 
 func setCharacter():
-	match character.characterType:
-		0:
-			lblname.text = "Cecilia"
-			sprite.visible = false
-		1:
-			lblname.text = "Geovanna"
-			sprite.visible = false
-		_:
-			lblname.text = character.characterName
-			if character.sprite != null:
-				sprite = character.sprite.instantiate()
-				add_child(sprite)
+	lblname.text = character.characterName
+	if !character.isNPC:
+		sprite.visible = false
+	else:
+		if character.sprite != null:
+			sprite = character.sprite.instantiate()
+			add_child(sprite)
 
 func setEquipments(c):
 	if c.weapon != null: weapon.text = c.weapon.equipmentName

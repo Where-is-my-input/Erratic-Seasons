@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://bsl0nuyvwiu0"]
+
+[ext_resource type="PackedScene" uid="uid://cpjl5egurf3wn" path="res://game_scenes/battle.tscn" id="1_k22xf"]
+[ext_resource type="Script" path="res://game_scenes/final_boss/final_boss_battle.gd" id="2_vepu3"]
+
+[node name="final_boss_battle" instance=ExtResource("1_k22xf")]
+script = ExtResource("2_vepu3")
