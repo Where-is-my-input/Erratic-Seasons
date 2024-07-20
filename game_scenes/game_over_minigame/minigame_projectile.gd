@@ -4,7 +4,7 @@ extends CharacterBody2D
 
 func _physics_process(delta):
 	velocity = movement
-	velocity += Vector2(get_parent().xDrift, get_parent().yDrift)
+	movement += Vector2(get_parent().xDrift, get_parent().yDrift)
 	move_and_slide()
 
 

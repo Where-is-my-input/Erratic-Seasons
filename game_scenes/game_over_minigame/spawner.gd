@@ -15,7 +15,7 @@ func _ready():
 
 func _on_timer_timeout():
 	spawn()
-	timer.start(randi_range(0, 10 - get_parent().get_parent().difficulty) + 0.1)
+	timer.start(randf_range(0, 2 - get_parent().get_parent().difficulty) + 0.1)
 
 func spawn():
 	var projectile = MINIGAME_PROJECTILE.instantiate()

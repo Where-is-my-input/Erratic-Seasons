@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://cpg875o31sei8"]
+
+[ext_resource type="PackedScene" uid="uid://vrmulrli4eab" path="res://characters/character.tscn" id="1_62b6c"]
+[ext_resource type="PackedScene" uid="uid://dlgyrrbpnqyvg" path="res://equipment/equipment.tscn" id="2_k7fo6"]
+[ext_resource type="PackedScene" uid="uid://vpxks6fejfre" path="res://characters/npc/bosses/spr_yael_phase_1.tscn" id="2_p74w8"]
+
+[node name="YaelPhase1" node_paths=PackedStringArray("weapon", "armor") instance=ExtResource("1_62b6c")]
+characterType = 4
+characterName = "Yael"
+maxHP = 530
+atk = 26
+weapon = NodePath("equipment")
+armor = NodePath("equipment2")
+sprite = ExtResource("2_p74w8")
+
+[node name="equipment" parent="." index="0" instance=ExtResource("2_k7fo6")]
+equipmentName = "Dark Void"
+type = 2
+atk = 65
+cost = 652
+
+[node name="equipment2" parent="." index="1" instance=ExtResource("2_k7fo6")]
+equipmentName = "Hidden Body"
+equipmentType = 1
+type = 3
+def = 85
+cost = 456

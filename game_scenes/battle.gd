@@ -111,7 +111,10 @@ func getNextAlivePartyMember(targetId = 0):
 	targetId += 1
 	if targetId >= Global.playerParty.size():
 		targetId = 0
-	return Global.playerParty[targetId]
+	if !Global.playerParty[targetId].isDead:
+		return Global.playerParty[targetId]
+	else:
+		return getNextAlivePartyMember(targetId)
 
 func checkPlayerPartyAlive():
 	for c in Global.playerParty:
