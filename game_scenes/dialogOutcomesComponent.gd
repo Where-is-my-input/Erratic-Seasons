@@ -1,5 +1,6 @@
 extends Node
 @onready var dialog_outcome = $"../tabs/dialogOutcome"
+@onready var battle = $"../.."
 
 func defineOutCome(player, target, op1, op2):
 	match target.characterType:
@@ -43,6 +44,7 @@ func defineOutCome(player, target, op1, op2):
 					Global.playerParty.push_back(target)
 					target.isNPC = false
 					target.sprite = null
+					battle.npcCharacterDied()
 				else:
 					dialog_outcome.setText("Nobody seemed to hear you")
 	dialog_outcome.visible = true

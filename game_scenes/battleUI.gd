@@ -123,7 +123,9 @@ func attack(character, target = null):
 func enablePlayerTurn():
 	var turnOver = true
 	for c in player_party_container.get_children():
-		if c.turnActionAvailable: turnOver = false
+		if c.turnActionAvailable: 
+			turnOver = false
+			c.grabFocus()
 		c.setTurnDisabled()
 	if turnOver:
 		print("Turn ended")
@@ -134,6 +136,7 @@ func endNPCTurn():
 		if !c.character.isDead:
 			c.turnActionAvailable = true
 			c.setDisabledAll(false)
+			c.grabFocus()
 	print("NPC turn ended")
 
 func disablePlayableCharactersActions():

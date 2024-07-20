@@ -46,6 +46,8 @@ func _ready():
 	if character.isDead:
 		turnActionAvailable = false
 		setDisabledAll(true)
+	if !character.isNPC:
+		grabFocus()
 
 func attackAnim():
 	playAnimation("attack")
@@ -98,8 +100,6 @@ func revive():
 func dead():
 	pass #show a skull sprite
 
-
-
 #func _on_flee_pressed() -> void:
 	#InstatiateDice()
 	#pseudo code - if player dice value is higher than
@@ -108,6 +108,7 @@ func dead():
 	
 func attackButtonVisible(v):
 	if character.isDead: return
+	btn_attack.grab_focus()
 	btn_attack.visible = v
 	
 func talkButtonVisible(v):
@@ -154,3 +155,6 @@ func inspectCharacter():
 
 func _on_items_pressed():
 	items.emit(self, character)
+
+func grabFocus():
+	btn_attack.grab_focus()

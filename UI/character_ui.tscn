@@ -54,7 +54,7 @@ _data = {
 "getHit": SubResource("Animation_moa5p")
 }
 
-[node name="characterUI" type="BoxContainer" node_paths=PackedStringArray("hp", "lblname", "weapon", "armor", "sprite", "v_box_container", "v_box_container_2")]
+[node name="characterUI" type="BoxContainer" node_paths=PackedStringArray("hp", "lblname", "weapon", "armor", "sprite", "btn_attack", "btn_talk", "v_box_container", "v_box_container_2")]
 visibility_layer = 2
 anchors_preset = 15
 anchor_right = 1.0
@@ -69,6 +69,8 @@ lblname = NodePath("HBoxContainer/BoxContainer/HBoxContainer/name")
 weapon = NodePath("HBoxContainer/BoxContainer/HBoxContainer/HBoxContainer/weapon")
 armor = NodePath("HBoxContainer/BoxContainer/HBoxContainer/HBoxContainer/armor")
 sprite = NodePath("AnimatedSprite2D")
+btn_attack = NodePath("HBoxContainer/VBoxContainer/attack")
+btn_talk = NodePath("HBoxContainer/VBoxContainer/talk")
 v_box_container = NodePath("HBoxContainer/VBoxContainer")
 v_box_container_2 = NodePath("HBoxContainer/VBoxContainer2")
 
