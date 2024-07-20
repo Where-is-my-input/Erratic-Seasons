@@ -8,6 +8,8 @@ extends Control
 @onready var dialog_outcome = $tabs/dialogOutcome
 @onready var dialog_outcomes_component = $dialogOutcomesComponent
 @onready var item_inventory = $tabs/item_inventory
+@onready var btn_inspect = $partyUI/HBoxContainer/btnInspect
+@onready var btn_flee = $partyUI/HBoxContainer/btnFlee
 
 var inspected = false
 
@@ -15,6 +17,8 @@ var playerInAction
 var playerUIInAction
 
 var targetedNPC
+
+var playerFocus = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -31,6 +35,7 @@ func _ready():
 		charUI.connect("talk", talkPressed)
 		charUI.connect("inspect", tryInspect)
 		player_party_container.add_child(charUI)
+		charUI.grabFocus()
 	for c in Global.npcParty:
 		var charUI = preload("res://UI/npc_character_ui.tscn").instantiate()
 		charUI.character = c
@@ -38,6 +43,16 @@ func _ready():
 		charUI.connect("attacked", playerAttack)
 		charUI.connect("talkedTo", showTalkControl)
 		npc_party_container.add_child(charUI)
+
+func _input(event):
+	if event.is_action_pressed("tab"):
+		playerFocus = !playerFocus
+		if playerFocus:
+			for c in player_party_container.get_children():
+				c.grabFocus()
+				return
+		else:
+			btn_flee.grab_focus()
 
 func tryInspect():
 	if inspected: return
