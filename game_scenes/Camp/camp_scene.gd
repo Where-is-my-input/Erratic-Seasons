@@ -15,7 +15,8 @@ func _on_gb_bt_pressed() -> void:
 	get_tree().change_scene_to_packed(Global.OwScene)
 
 func HealPlayer() -> void:
-	pass
+	for c in Global.playerParty:
+		c.revive(500)
 	#well, it's gonna heal the player
 	
 func SetSeasonLabel() -> void:

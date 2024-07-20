@@ -66,7 +66,7 @@ func getHit(damage = 10):
 	gotHit.emit(HP)
 
 func revive(value = 10):
-	HP = value
+	heal(value)
 	isDead = false
 	revived.emit()
 

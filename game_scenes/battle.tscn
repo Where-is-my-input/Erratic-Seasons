@@ -163,6 +163,9 @@ anchor_left = 0.5
 anchor_right = 0.5
 grow_horizontal = 2
 
+[node name="background" parent="battleUI" instance=ExtResource("8_eb6cr")]
+layout_mode = 1
+
 [node name="tabs" type="CanvasLayer" parent="battleUI"]
 
 [node name="inventory" parent="battleUI/tabs" instance=ExtResource("3_3cl3r")]
@@ -210,9 +213,6 @@ text = "Inspect"
 [node name="btnFlee" type="Button" parent="battleUI/partyUI/HBoxContainer"]
 layout_mode = 2
 text = "Flee"
-
-[node name="background" parent="battleUI" instance=ExtResource("8_eb6cr")]
-layout_mode = 1
 
 [node name="battleSoundtrack" type="AudioStreamPlayer" parent="."]
 bus = &"soundtrack"
