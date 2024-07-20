@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://UI/character_ui.gd" id="1_yt7u0"]
 [ext_resource type="Theme" uid="uid://x4cfdm2cfmkg" path="res://UI/helathBarTheme.tres" id="2_sbv4h"]
 
-[node name="npc_character_ui" type="BoxContainer" node_paths=PackedStringArray("hp", "lblname", "weapon", "armor", "btn_attack", "btn_talk")]
+[node name="npc_character_ui" type="BoxContainer" node_paths=PackedStringArray("hp", "lblname", "weapon", "armor", "btn_attack", "btn_talk", "v_box_container", "v_box_container_2", "weapon_Atk", "armor_Def")]
 custom_minimum_size = Vector2(150, 0)
 anchors_preset = 5
 anchor_left = 0.5
@@ -18,10 +18,14 @@ alignment = 1
 script = ExtResource("1_yt7u0")
 hp = NodePath("HBoxContainer/hp")
 lblname = NodePath("HBoxContainer/lblName")
-weapon = NodePath("HBoxContainer/weapon")
-armor = NodePath("HBoxContainer/armor")
+weapon = NodePath("HBoxContainer/weaponContainer/weapon")
+armor = NodePath("HBoxContainer/armorContainer/armor")
 btn_attack = NodePath("HBoxContainer/btnAttack")
 btn_talk = NodePath("HBoxContainer/btnTalk")
+v_box_container = NodePath("HBoxContainer/weaponContainer")
+v_box_container_2 = NodePath("HBoxContainer/armorContainer")
+weapon_Atk = NodePath("HBoxContainer/weaponContainer/weaponAtk")
+armor_Def = NodePath("HBoxContainer/armorContainer/armorDef")
 
 [node name="HBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
@@ -47,14 +51,26 @@ visible = false
 layout_mode = 2
 text = "Talk"
 
-[node name="weapon" type="Label" parent="HBoxContainer"]
+[node name="weaponContainer" type="HBoxContainer" parent="HBoxContainer"]
 visible = false
+layout_mode = 2
+
+[node name="weapon" type="Label" parent="HBoxContainer/weaponContainer"]
 z_index = 5
 layout_mode = 2
 
-[node name="armor" type="Label" parent="HBoxContainer"]
+[node name="weaponAtk" type="Label" parent="HBoxContainer/weaponContainer"]
+layout_mode = 2
+
+[node name="armorContainer" type="HBoxContainer" parent="HBoxContainer"]
 visible = false
+layout_mode = 2
+
+[node name="armor" type="Label" parent="HBoxContainer/armorContainer"]
 z_index = 5
+layout_mode = 2
+
+[node name="armorDef" type="Label" parent="HBoxContainer/armorContainer"]
 layout_mode = 2
 
 [connection signal="pressed" from="HBoxContainer/btnAttack" to="." method="_on_btn_attack_pressed"]

@@ -9,9 +9,10 @@ extends Control
 @export var btn_talk:Button
 
 @export var v_box_container:BoxContainer
-@export var v_box_container_2:VBoxContainer
+@export var v_box_container_2:BoxContainer
 
-
+@export var weapon_Atk:Label
+@export var armor_Def:Label
 
 var character:Node2D
 
@@ -62,12 +63,17 @@ func setCharacter():
 			add_child(sprite)
 
 func setEquipments(c):
-	if c.weapon != null: weapon.text = c.weapon.equipmentName
-	if c.armor != null: armor.text = c.armor.equipmentName
+	if c.weapon != null: 
+		weapon.text = c.weapon.equipmentName
+		weapon_Atk.text = str(c.weapon.atk)
+	if c.armor != null: 
+		armor.text = c.armor.equipmentName
+		armor_Def.text = str(c.armor.def)
 
 func getHit(value = 10):
 	playAnimation()
 	updateUI()
+	#await get_tree().create_timer(1).timeout
 
 func updateUI():
 	hp.value = character.HP
@@ -142,16 +148,20 @@ func _on_inspect_pressed():
 
 func inspectCharacter():
 	setEquipments(character)
-	armor.visible = true
-	weapon.visible = true
+	v_box_container.visible = true
+	v_box_container_2.visible = true
 	match randi_range(0,3):
 		0:
 			armor.text = "?"
+			armor_Def.text = "?"
 		1:
 			weapon.text = "?"
+			weapon_Atk.text = "?"
 		2:
 			weapon.text = "?"
 			armor.text = "?"
+			weapon_Atk.text = "?"
+			armor_Def.text = "?"
 
 func _on_items_pressed():
 	items.emit(self, character)

@@ -54,7 +54,7 @@ _data = {
 "getHit": SubResource("Animation_moa5p")
 }
 
-[node name="characterUI" type="BoxContainer" node_paths=PackedStringArray("hp", "lblname", "weapon", "armor", "sprite", "btn_attack", "btn_talk", "v_box_container", "v_box_container_2")]
+[node name="characterUI" type="BoxContainer" node_paths=PackedStringArray("hp", "lblname", "weapon", "armor", "sprite", "btn_attack", "btn_talk", "v_box_container", "v_box_container_2", "weapon_Atk", "armor_Def")]
 visibility_layer = 2
 anchors_preset = 15
 anchor_right = 1.0
@@ -73,6 +73,8 @@ btn_attack = NodePath("HBoxContainer/VBoxContainer/attack")
 btn_talk = NodePath("HBoxContainer/VBoxContainer/talk")
 v_box_container = NodePath("HBoxContainer/VBoxContainer")
 v_box_container_2 = NodePath("HBoxContainer/VBoxContainer2")
+weapon_Atk = NodePath("HBoxContainer/BoxContainer/HBoxContainer/HBoxContainer/weaponAtk")
+armor_Def = NodePath("HBoxContainer/BoxContainer/HBoxContainer/HBoxContainer/armorDef")
 
 [node name="HBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
@@ -96,11 +98,17 @@ alignment = 1
 [node name="weapon" type="Label" parent="HBoxContainer/BoxContainer/HBoxContainer/HBoxContainer"]
 layout_mode = 2
 
+[node name="weaponAtk" type="Label" parent="HBoxContainer/BoxContainer/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+
 [node name="Label" type="Label" parent="HBoxContainer/BoxContainer/HBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "|"
 
 [node name="armor" type="Label" parent="HBoxContainer/BoxContainer/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="armorDef" type="Label" parent="HBoxContainer/BoxContainer/HBoxContainer/HBoxContainer"]
 layout_mode = 2
 
 [node name="HP" type="ProgressBar" parent="HBoxContainer/BoxContainer"]
