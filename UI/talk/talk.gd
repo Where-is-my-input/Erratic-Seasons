@@ -12,6 +12,14 @@ func setDialogAndOptions(npc = null):
 			setTexts("The Goblin doesn't look like he can understand you.",
 			"English, do you understand?",
 			"Oh look, an airplane!")
+		Global.character.ALEXANDRA:
+			setTexts("Alexandra looks like she has the greatest will of the world",
+			"What if we solve this peacefully?",
+			"You know you don't have a chance")
+		Global.character.RENI:
+			setTexts("This feels awkward",
+			"Lets hang out some time",
+			"T pose her")
 		_:
 			lbl_dialog.text = "The Goblin doesn't look like he can understand you."
 			btn_op_1.text = "English, do you understand?"

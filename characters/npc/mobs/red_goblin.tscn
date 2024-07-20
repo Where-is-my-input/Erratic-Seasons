@@ -1,12 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://nkph555nps7e"]
+[gd_scene load_steps=4 format=3 uid="uid://nkph555nps7e"]
 
 [ext_resource type="PackedScene" uid="uid://vrmulrli4eab" path="res://characters/character.tscn" id="1_5mddg"]
 [ext_resource type="PackedScene" uid="uid://faejgc7e0q0c" path="res://system/random_encounter/equipment_generator.tscn" id="2_acdi4"]
+[ext_resource type="PackedScene" uid="uid://cg64k1motsio" path="res://characters/npc/mobs/spr_red_goblin.tscn" id="2_bcscb"]
 
 [node name="red_goblin" instance=ExtResource("1_5mddg")]
 characterType = 7
 characterName = "Red Goblin"
 maxHP = 35
-sprite = null
+sprite = ExtResource("2_bcscb")
 
 [node name="equipmentGenerator" parent="." index="0" instance=ExtResource("2_acdi4")]

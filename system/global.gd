@@ -21,13 +21,23 @@ var playerItems:Array
 var encountersCounter : int = 0
 var encounterStored : Array[int]
 var playerLastPos : Vector2 = Vector2.ZERO
-var playerMoney : float = 0.0
+var playerMoney : int = 500
 var isRandomized : bool = false
 
 signal playerCharacterDied
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	newGame()
+
+func newGame():
+	playerMoney = 500
+	for c in playerParty:
+		c.queue_free()
+	for c in playerInventory:
+		c.queue_free()
+	playerParty.clear()
+	playerInventory.clear()
 	playerInventory.push_back(preload("res://equipment/weapon/old_club.tscn").instantiate())
 	playerInventory.push_back(preload("res://equipment/weapon/earth_dagger.tscn").instantiate())
 	playerItems.push_back(preload("res://equipment/items/small_potion.tscn").instantiate())
@@ -39,7 +49,6 @@ func _ready():
 	
 	playerParty.push_back(cc)
 	playerParty.push_back(geo)
-	
 	changeSeason(randi_range(0,3))
 
 func _input(event):
@@ -47,9 +56,9 @@ func _input(event):
 		npcParty.clear()
 		get_tree().change_scene_to_file("res://game_scenes/n_2d_debug_scene.tscn")
 
-func createRandomNPCParty():
+func createRandomNPCParty(partySize = 4):
 	npcParty.clear()
-	var amount = randi_range(1,8)
+	var amount = randi_range(1,partySize)
 	for i in amount:
 		var index = randi_range(0, RANDOM_MOBS.size() - 1)
 		var npc = RANDOM_MOBS[index].instantiate()
