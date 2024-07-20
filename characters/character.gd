@@ -24,20 +24,20 @@ signal revived()
 signal attack
 
 func _init(lvl = 1):
-	#level += lvl
-	#scaleStatsToLevel()
+	level += lvl
+	scaleStatsToLevel()
 	HP = maxHP
 
 #func _ready():
 	#HP = maxHP
 
 func scaleStatsToLevel():
-	maxHP = (level * 0.25) * maxHP
-	atk = (level * 0.08) * atk
+	maxHP += (level * 0.025) * maxHP
+	atk += (level * 0.008) * atk
 
 func levelUp():
 	level += 1
-	#scaleStatsToLevel()
+	scaleStatsToLevel()
 	HP = maxHP
 
 func gainXp(value = 0):

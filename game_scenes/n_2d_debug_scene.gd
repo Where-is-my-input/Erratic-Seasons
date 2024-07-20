@@ -53,3 +53,8 @@ func _on_button_9_pressed():
 	npc._init()
 	Global.npcParty.push_back(npc)
 	get_tree().change_scene_to_file("res://game_scenes/boss_battle.tscn")
+
+
+func _on_button_10_pressed():
+	for c in Global.playerParty:
+		c.levelUp()
