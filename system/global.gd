@@ -34,6 +34,9 @@ func _ready():
 	var cc = preload("res://characters/defined/cecilia.tscn").instantiate()
 	var geo = preload("res://characters/defined/geovanna.tscn").instantiate()
 	
+	cc.heal(500)
+	geo.heal(500)
+	
 	playerParty.push_back(cc)
 	playerParty.push_back(geo)
 

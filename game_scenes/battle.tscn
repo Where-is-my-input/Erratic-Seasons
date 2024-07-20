@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cpjl5egurf3wn"]
+[gd_scene load_steps=12 format=3 uid="uid://cpjl5egurf3wn"]
 
 [ext_resource type="Script" path="res://game_scenes/battle.gd" id="1_hoa3k"]
 [ext_resource type="Script" path="res://game_scenes/battleUI.gd" id="2_buw81"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://5yii44g8jisk" path="res://UI/talk/dialog_outcome.tscn" id="5_iilly"]
 [ext_resource type="PackedScene" uid="uid://byv4frcvxk5od" path="res://UI/inventory/item_inventory.tscn" id="6_5jjpk"]
 [ext_resource type="Script" path="res://game_scenes/dialogOutcomesComponent.gd" id="6_g8log"]
+[ext_resource type="PackedScene" uid="uid://csxxxxaay013h" path="res://UI/backgrounds/background.tscn" id="8_eb6cr"]
 
 [sub_resource type="Animation" id="Animation_ydali"]
 length = 0.001
@@ -209,6 +210,9 @@ text = "Inspect"
 [node name="btnFlee" type="Button" parent="battleUI/partyUI/HBoxContainer"]
 layout_mode = 2
 text = "Flee"
+
+[node name="background" parent="battleUI" instance=ExtResource("8_eb6cr")]
+layout_mode = 1
 
 [node name="battleSoundtrack" type="AudioStreamPlayer" parent="."]
 bus = &"soundtrack"
