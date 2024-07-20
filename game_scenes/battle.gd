@@ -7,7 +7,6 @@ class_name BattleClass
 @onready var battle_ui = $battleUI
 @onready var battle_soundtrack = $battleSoundtrack
 @onready var diceScene : PackedScene = preload("res://game_scenes/Dice/dice_scene.tscn")
-@onready var player_dice_pos: Marker2D = $MarkersHolder/playerDicePos
 
 
 var gameOverMinigame = preload("res://game_scenes/game_over_minigame/game_over_minigame.tscn")

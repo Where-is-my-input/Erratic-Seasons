@@ -1,6 +1,6 @@
 extends Area2D
 
-@export_enum("Battle", "Camp", "Trade") var encounterTypes : String
+@export_enum("Battle", "Camp", "Trade", "Boss") var encounterTypes : String
 @onready var transition: AnimationPlayer = $Transition
 
 var encountersScenes = {

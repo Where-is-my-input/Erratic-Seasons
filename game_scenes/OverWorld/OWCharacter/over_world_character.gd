@@ -5,7 +5,7 @@ var playerAxis = Vector2.ZERO as Vector2
 var playerSpeed = 200 as float
 var _stopped = false as bool
 var spawnPos : Vector2 = Vector2(404,296)
-var xOffset : float = 50
+var xOffset : float = 100
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
