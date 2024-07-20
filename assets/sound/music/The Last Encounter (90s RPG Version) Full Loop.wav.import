@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://y71y2qpalf2g"
+path="res://.godot/imported/The Last Encounter (90s RPG Version) Full Loop.wav-90948b35f1e3cd21702f0e6b91382d26.sample"
+
+[deps]
+
+source_file="res://assets/sound/music/The Last Encounter (90s RPG Version) Full Loop.wav"
+dest_files=["res://.godot/imported/The Last Encounter (90s RPG Version) Full Loop.wav-90948b35f1e3cd21702f0e6b91382d26.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

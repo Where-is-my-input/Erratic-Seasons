@@ -7,7 +7,7 @@ signal response
 @onready var btn_op_2 = $VBoxContainer/HBoxContainer2/btnOp2
 
 func setDialogAndOptions(npc = null):
-	match npc:
+	match npc.character.characterType:
 		Global.character.GOBLIN:
 			setTexts("The Goblin doesn't look like he can understand you.",
 			"English, do you understand?",
@@ -20,6 +20,10 @@ func setDialogAndOptions(npc = null):
 			setTexts("This feels awkward",
 			"Lets hang out some time",
 			"T pose her")
+		Global.character.TWIN_ANGELS:
+			setTexts("I don't know about this",
+			"Ask who is cuter",
+			"This is boring, can we please move on?")
 		_:
 			lbl_dialog.text = "The Goblin doesn't look like he can understand you."
 			btn_op_1.text = "English, do you understand?"

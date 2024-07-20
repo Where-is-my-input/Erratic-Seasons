@@ -10,6 +10,19 @@ func defineOutCome(player, target, op1, op2):
 			else:
 				dialog_outcome.setText("She T poses you back")
 				player.getHit(15)
+		Global.character.TWIN_ANGELS:
+			if op1:
+				dialog_outcome.setText("We are equally cute")
+				player.heal(15)
+			else:
+				if randi_range(0,8) == 8:
+					dialog_outcome.setText("Sure")
+					if randi_range(0,1) == 1:
+						get_tree().change_scene_to_file("res://UI/final_boss/final_boss_transition_2.tscn")
+					else:
+						get_tree().change_scene_to_file("res://UI/final_boss/final_boss_transition.tscn")
+				else:
+					dialog_outcome.setText("You have 1 in 8 chance to win")
 		Global.character.ALEXANDRA:
 			if op1:
 				dialog_outcome.setText("She ignores you")
@@ -17,7 +30,7 @@ func defineOutCome(player, target, op1, op2):
 				if randi_range(0,1) == 1:
 					dialog_outcome.setText("Nah I'd win")
 				else:
-					dialog_outcome.setText("If I don't try then I wouldn't get a chance")
+					dialog_outcome.setText("If I don't try then I wouldn't have a chance")
 					target.heal(10)
 		_:
 			if op1:

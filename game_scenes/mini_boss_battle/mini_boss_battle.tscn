@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://wx2km616q44v"]
+
+[ext_resource type="PackedScene" uid="uid://cpjl5egurf3wn" path="res://game_scenes/battle.tscn" id="1_dd7ui"]
+[ext_resource type="Script" path="res://game_scenes/mini_boss_battle/mini_boss_battle.gd" id="2_kymyq"]
+
+[node name="mini_boss_battle" instance=ExtResource("1_dd7ui")]
+script = ExtResource("2_kymyq")

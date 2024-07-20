@@ -9,6 +9,7 @@ const SOUNDTRACK_CHARACTER_BACKGROUND = "characterBackground"
 const SFX_GET_HIT = "getHit"
 const SFX_ROLLDICE = "rollDice"
 const SOUNDTRACK_PLEASE_ANSWEAR_ME = "pleaseAnswearMe"
+const SOUNDTRACK_LAST_ENCOUTER = "lastEncounter"
 
 #It's a dictionary, meaning that the left side are the keys and the right side are the values
 var SOUNDS = {
@@ -20,7 +21,7 @@ var SOUNDS = {
 	SFX_GET_HIT: preload("res://assets/sound/sfx/hit01.wav"),
 	SFX_ROLLDICE: preload("res://assets/sound/sfx/shake-and-roll-dice-soundbible.mp3"),
 	SOUNDTRACK_PLEASE_ANSWEAR_ME: preload("res://assets/sound/music/Please, answer me my friend.mp3"),
-	#SOUND_LASER: preload("res://assets/sound/laser.wav"),
+	SOUNDTRACK_LAST_ENCOUTER: preload("res://assets/sound/music/The Last Encounter (90s RPG Version) Full Loop.wav"),
 	#SOUND_MUSIC1: preload("res://assets/sound/Farm Frolics.ogg"),
 	#SOUND_MUSIC2: preload("res://assets/sound/Flowing Rocks.ogg"),
 	#SOUND_PICKUP: preload("res://assets/sound/pickup5.ogg"),
@@ -35,4 +36,5 @@ func PlayClip(player, clip_key: String):
 		return
 	# if it do exist, then we change it to the correctly SoundPlayer and play it 
 	player.stream = SOUNDS[clip_key]
+	#player.set_loop_mode(1)
 	player.play()

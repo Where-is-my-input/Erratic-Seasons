@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dlgyrrbpnqyvg" path="res://equipment/equipment.tscn" id="3_266ba"]
 
 [node name="Alexandra" node_paths=PackedStringArray("weapon", "armor") instance=ExtResource("1_8qyiq")]
-characterType = 3
+characterType = 5
 characterName = "Alexandra"
 maxHP = 250
 atk = 13
