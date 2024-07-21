@@ -1,12 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://cu0slxcj8evyf"]
+[gd_scene load_steps=3 format=3 uid="uid://cu0slxcj8evyf"]
 
 [ext_resource type="PackedScene" uid="uid://c0mnwb281wdlk" path="res://game_scenes/Encounters/base_encounter.tscn" id="1_qur35"]
+[ext_resource type="Texture2D" uid="uid://drcy1ewf8k6si" path="res://assets/sprites/shop/shop.png" id="2_k3auv"]
 
 [node name="TradeEncounter" instance=ExtResource("1_qur35")]
 encounterTypes = "Trade"
 
-[node name="ColorRect" parent="Sprite2D" index="0"]
-color = Color(0.588963, 0.74423, 0.317165, 1)
+[node name="Sprite2D" parent="." index="0"]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_k3auv")
 
 [node name="CollisionShape2D" parent="." index="1"]
 debug_color = Color(0, 0.6, 0.701961, 0)

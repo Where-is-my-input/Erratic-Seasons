@@ -4,7 +4,7 @@ extends CharacterBody2D
 var playerAxis = Vector2.ZERO as Vector2
 var playerSpeed = 200 as float
 var _stopped = false as bool
-var spawnPos : Vector2 = Vector2(404,296)
+var spawnPos : Vector2 = Vector2(395,350)
 var xOffset : float = 100
 @onready var spr_cecilia = $sprCecilia
 @onready var spr_geovanna = $sprGeovanna

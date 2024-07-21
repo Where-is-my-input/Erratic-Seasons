@@ -99,11 +99,6 @@ script = ExtResource("1_51yf3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
-[node name="ColorRect" type="ColorRect" parent="Sprite2D"]
-offset_right = 40.0
-offset_bottom = 40.0
-color = Color(0.92361, 0.592643, 0.309522, 1)
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(20, 20)
 shape = SubResource("RectangleShape2D_sjna8")

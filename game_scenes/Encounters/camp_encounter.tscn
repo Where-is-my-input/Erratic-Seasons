@@ -1,12 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://clr7jtuuj3p2"]
+[gd_scene load_steps=3 format=3 uid="uid://clr7jtuuj3p2"]
 
 [ext_resource type="PackedScene" uid="uid://c0mnwb281wdlk" path="res://game_scenes/Encounters/base_encounter.tscn" id="1_w36gs"]
+[ext_resource type="Texture2D" uid="uid://dnsl1n1fgshyb" path="res://assets/sprites/campsite/bonfire.png" id="2_wxkj3"]
 
 [node name="CampEncounter" instance=ExtResource("1_w36gs")]
 encounterTypes = "Camp"
 
-[node name="ColorRect" parent="Sprite2D" index="0"]
-color = Color(0.795245, 0.659079, 0.417007, 1)
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(20, 18)
+scale = Vector2(0.5, 0.411)
+texture = ExtResource("2_wxkj3")
 
 [node name="CollisionShape2D" parent="." index="1"]
 debug_color = Color(0, 0.6, 0.701961, 0)
