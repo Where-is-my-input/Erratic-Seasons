@@ -8,6 +8,8 @@ class_name BattleClass
 @onready var battle_soundtrack = $battleSoundtrack
 @onready var diceScene : PackedScene = preload("res://game_scenes/Dice/dice_scene.tscn")
 @onready var btn_flee: Button = $battleUI/partyUI/HBoxContainer/btnFlee
+@onready var season_text: Label = $battleUI/CanvasLayer/SeasonText
+@onready var season_icon: TextureRect = $battleUI/CanvasLayer/SeasonIcon
 
 
 var gameOverMinigame = preload("res://game_scenes/game_over_minigame/game_over_minigame.tscn")
@@ -23,6 +25,8 @@ signal on_flee_dice_deleted(diceToDelete)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	SetSeasonLabel()
+	SetTextureIcon()
 	setSoundtrack()
 	Global.connect("playerCharacterDied", playerCharacterDied)
 	transition.play("fadeIn")
@@ -34,6 +38,14 @@ func _ready():
 		npc_party.add_child(c)
 	if Global.hasFled:
 		btn_flee.disabled = true
+
+func SetTextureIcon() -> void:
+	var iconSeason = Global.GetCurrentIconSeason()
+	season_icon.texture = iconSeason
+	season_icon.expand_mode = TextureRect.EXPAND_FIT_WIDTH
+	
+func SetSeasonLabel() -> void:
+	season_text.text = Global.GetCurrentSeason()
 
 func setSoundtrack():
 	match Global.currentSeason:

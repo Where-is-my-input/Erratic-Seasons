@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://ymrq80vwk5l8"]
+[gd_scene load_steps=18 format=3 uid="uid://ymrq80vwk5l8"]
 
 [ext_resource type="Texture2D" uid="uid://dbleu6wrunhe4" path="res://assets/floor/ground_tiles.png" id="1_2ij1e"]
+[ext_resource type="Script" path="res://game_scenes/OverWorld/over_world.gd" id="1_h2n48"]
 [ext_resource type="PackedScene" uid="uid://fvjcpt3k6ej" path="res://game_scenes/Encounters/battleEncounter.tscn" id="4_mmqro"]
 [ext_resource type="PackedScene" uid="uid://chkx3qr4edy" path="res://game_scenes/OverWorld/OWCharacter/over_world_character.tscn" id="4_omhwd"]
 [ext_resource type="PackedScene" uid="uid://rgqg43yijq67" path="res://game_scenes/Encounters/encounter_randomizer.tscn" id="5_7ppo1"]
@@ -443,7 +444,55 @@ size = Vector2(20, 326)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1jqa3"]
 size = Vector2(20, 346)
 
+[sub_resource type="LabelSettings" id="LabelSettings_8wuqo"]
+font_size = 36
+
+[sub_resource type="Animation" id="Animation_rjbp5"]
+resource_name = "HUD_FADEOUT"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SeasonIcon:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MC/Seasonlabel:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_87f6j"]
+_data = {
+"HUD_FADEOUT": SubResource("Animation_rjbp5")
+}
+
 [node name="OverWorld" type="Node2D"]
+script = ExtResource("1_h2n48")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_rmh16")
@@ -519,3 +568,33 @@ shape = SubResource("RectangleShape2D_1jqa3")
 
 [node name="Boss Encounter" parent="." instance=ExtResource("7_l3uer")]
 position = Vector2(874, 299)
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="MC" type="MarginContainer" parent="HUD"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 48
+theme_override_constants/margin_top = 48
+theme_override_constants/margin_right = 48
+
+[node name="Seasonlabel" type="Label" parent="HUD/MC"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "Spring"
+label_settings = SubResource("LabelSettings_8wuqo")
+
+[node name="SeasonIcon" type="TextureRect" parent="HUD"]
+offset_left = 84.0
+offset_top = 100.0
+offset_right = 124.0
+offset_bottom = 142.0
+
+[node name="OverWorldAnimator" type="AnimationPlayer" parent="HUD" groups=["OwAnim"]]
+libraries = {
+"": SubResource("AnimationLibrary_87f6j")
+}

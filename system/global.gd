@@ -27,6 +27,13 @@ var playerMoney : int = 500
 var isRandomized : bool = false
 var hasFled : bool = false
 
+var iconsDict = {
+	"Spring" : preload("res://assets/sprites/seasons/hairymnstr_seasons_spring.svg"),
+	"Summer" : preload("res://assets/sprites/seasons/hairymnstr_seasons_summer.svg"),
+	"Autumn" : preload("res://assets/sprites/seasons/hairymnstr_seasons_autumn.svg"),
+	"Winter" : preload("res://assets/sprites/seasons/hairymnstr_seasons_winter.svg")
+}
+
 signal playerCharacterDied
 
 # Called when the node enters the scene tree for the first time.
@@ -114,3 +121,16 @@ func GetCurrentSeason() -> String:
 			textSeason = "Winter"
 
 	return textSeason
+
+func GetCurrentIconSeason() -> Object:
+	var currentIcon
+	match(currentSeason):
+		0:
+			currentIcon = iconsDict["Spring"]
+		1:
+			currentIcon = iconsDict["Summer"]
+		2:
+			currentIcon = iconsDict["Autumn"]
+		3:
+			currentIcon = iconsDict["Winter"]
+	return currentIcon

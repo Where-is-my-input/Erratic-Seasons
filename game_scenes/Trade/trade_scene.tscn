@@ -85,6 +85,12 @@ script = ExtResource("1_jae5t")
 
 [node name="TradeUI" type="CanvasLayer" parent="."]
 
+[node name="SeasonIcon" type="TextureRect" parent="TradeUI"]
+offset_left = 993.0
+offset_top = 115.0
+offset_right = 1048.0
+offset_bottom = 168.0
+
 [node name="MC" type="MarginContainer" parent="TradeUI"]
 anchors_preset = 15
 anchor_right = 1.0

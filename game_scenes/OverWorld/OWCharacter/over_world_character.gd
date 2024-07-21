@@ -9,6 +9,7 @@ var xOffset : float = 100
 @onready var spr_cecilia = $sprCecilia
 @onready var spr_geovanna = $sprGeovanna
 
+signal on_encounter_found()
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	global_position = Global.playerLastPos
@@ -49,6 +50,6 @@ func stopAnimation():
 
 func _on_feet_area_area_entered(area: Area2D) -> void:
 	_stopped = true
-	
+	on_encounter_found.emit()
 	global_position = area.global_position
 	Global.playerLastPos = Vector2(global_position.x + xOffset, global_position.y)
