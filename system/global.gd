@@ -87,7 +87,7 @@ func newGame(ccNewGame = true):
 
 
 func _input(event):
-	if event.is_action_pressed("reset"):
+	if event.is_action_pressed("reset") && OS.is_debug_build():
 		npcParty.clear()
 		get_tree().change_scene_to_file("res://game_scenes/n_2d_debug_scene.tscn")
 

@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://faejgc7e0q0c" path="res://system/random_encounter/equipment_generator.tscn" id="2_h4plx"]
 
 [node name="character" instance=ExtResource("1_7rs0o")]
-characterType = 3
+characterType = 7
 baseHP = 35
 baseAtk = 5
 baseDef = 5

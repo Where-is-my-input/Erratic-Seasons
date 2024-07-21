@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Erratic Seasons"
-run/main_scene="res://game_scenes/n_2d_debug_scene.tscn"
+run/main_scene="res://UI/main_menu.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://assets/logo/logo.png"
 
