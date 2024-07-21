@@ -11,6 +11,7 @@ extends HBoxContainer
 signal equipEquipment
 
 func init(equipment, trading = false):
+	if equipment == null: return
 	equipmentRef = equipment
 	lbl_name.text = equipment.equipmentName
 	level.text = str(equipment.level)
