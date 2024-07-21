@@ -72,7 +72,7 @@ func getHit(damage = 10):
 	if HP <= 0 && !isDead:
 		isDead = true
 		if isNPC:
-			died.emit()
+			died.emit(self)
 		else:
 			print("Player character dead")
 			Global.playerCharacterDied.emit()

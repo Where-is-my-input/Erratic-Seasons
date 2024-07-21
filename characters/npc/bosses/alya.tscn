@@ -16,5 +16,13 @@ armor = NodePath("equipment2")
 sprite = ExtResource("2_s5u6x")
 
 [node name="equipment" parent="." index="0" instance=ExtResource("3_40u8r")]
+equipmentName = "Dark Sphere"
+type = 3
+atk = 50
+cost = 5000
 
 [node name="equipment2" parent="." index="1" instance=ExtResource("3_40u8r")]
+equipmentName = "Razor Feathers"
+equipmentType = 1
+def = 50
+cost = 5000

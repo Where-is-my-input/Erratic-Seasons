@@ -18,12 +18,12 @@ sprite = ExtResource("2_p74w8")
 [node name="equipment" parent="." index="0" instance=ExtResource("2_k7fo6")]
 equipmentName = "Dark Void"
 type = 2
-atk = 65
+atk = 25
 cost = 652
 
 [node name="equipment2" parent="." index="1" instance=ExtResource("2_k7fo6")]
 equipmentName = "Hidden Body"
 equipmentType = 1
 type = 3
-def = 85
+def = 30
 cost = 456

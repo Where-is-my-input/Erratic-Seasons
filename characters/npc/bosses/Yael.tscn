@@ -16,5 +16,14 @@ armor = NodePath("equipment2")
 sprite = ExtResource("2_fs2ul")
 
 [node name="equipment" parent="." index="0" instance=ExtResource("3_doirp")]
+equipmentName = "Bright Sphere"
+type = 1
+atk = 45
+cost = 5000
 
 [node name="equipment2" parent="." index="1" instance=ExtResource("3_doirp")]
+equipmentName = "Void Feathers"
+equipmentType = 1
+type = 2
+def = 50
+cost = 5000

@@ -107,7 +107,7 @@ func revive():
 	turnActionAvailable = true
 	setTurnDisabled()
 
-func dead():
+func dead(deadCharacter = null):
 	playAnimation("death")
 	if sprite != null:
 		await sprite.get_child(0).animation_finished

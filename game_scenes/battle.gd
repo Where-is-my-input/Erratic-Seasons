@@ -58,10 +58,31 @@ func setSoundtrack():
 		Global.seasons.SPRING:
 			SoundManager.PlayClip(battle_soundtrack, "snowBall")
 
-func npcCharacterDied():
+func npcCharacterDied(deadTarget = null):
+	dropEquipment(deadTarget)
 	npcPartyCount -= 1
 	if npcPartyCount <= 0:
 		endBattle()
+
+func dropEquipment(target):
+	if target == null: return
+	if Global.playerInventory.size() > 5: return
+	if randi_range(0,8) > - 1:
+		var drop = null
+		if target.weapon != null && target.armor != null:
+			if randi_range(0,1) == 0:
+				drop = target.weapon
+				target.weapon = null
+			else:
+				drop = target.armor
+				target.armor = null
+		elif target.weapon != null:
+			drop = target.weapon
+			target.weapon = null
+		elif target.armor != null:
+			drop = target.armor
+			target.armor = null
+		if drop != null: Global.playerInventory.push_back(drop)
 
 func attack(attacker, target = null):
 	var attackTarget = target if target != null else npc_party.get_child(randi_range(0, npc_party.get_child_count() - 1))
