@@ -41,6 +41,7 @@ func _ready():
 		var charUI = preload("res://UI/npc_character_ui.tscn").instantiate()
 		charUI.character = c
 		#charUI.connect("attack", attack)
+		#TODO -> rodar dado
 		charUI.connect("attacked", playerAttack)
 		charUI.connect("talkedTo", showTalkControl)
 		npc_party_container.add_child(charUI)
@@ -130,6 +131,7 @@ func enableTargeting(value = true):
 
 func playerAttack(target):
 	enableTargeting(false)
+	#rodar o dado aqui
 	attack(playerInAction, target)
 
 func attack(character, target = null):

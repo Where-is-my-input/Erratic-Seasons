@@ -7,14 +7,19 @@ class_name BattleClass
 @onready var battle_ui = $battleUI
 @onready var battle_soundtrack = $battleSoundtrack
 @onready var diceScene : PackedScene = preload("res://game_scenes/Dice/dice_scene.tscn")
+@onready var btn_flee: Button = $battleUI/partyUI/HBoxContainer/btnFlee
 
 
 var gameOverMinigame = preload("res://game_scenes/game_over_minigame/game_over_minigame.tscn")
 
 var npcPartyCount = 0
-var playerRollNumber = 0
-var enemyRollNumber = 0
 var isPlayerRoll : bool = false
+var callState : Array[String] = ["Flee", "Battle"]
+var diceState : String
+var playerRoll : int
+var enemyRoll : int
+
+signal on_flee_dice_deleted(diceToDelete)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -27,6 +32,8 @@ func _ready():
 		npcPartyCount += 1
 		c.connect("died", npcCharacterDied)
 		npc_party.add_child(c)
+	if Global.hasFled:
+		btn_flee.disabled = true
 
 func setSoundtrack():
 	match Global.currentSeason:
@@ -139,8 +146,8 @@ func InstatiateEnemyDice() -> void:
 	myDice.IsPlayerDice(false)
 	#getting the isPlayer into a global variable in the battle.gd
 	isPlayerRoll = myDice.GetIsPlayer()
-	#connecting the signal to the OnDicePlayed Method
-	myDice.on_dice_played.connect(OnDicePlayed)
+	#connecting the signal to the OnEnemyDicePlayed Method
+	myDice.on_enemy_dice_played.connect(OnEnemyDicePlayed)
 	add_child(myDice)
 
 #Here we instatiate the PlayerDice, works similar as the enemyDice method
@@ -148,20 +155,48 @@ func InstatiatePlayerDice() -> void:
 	var myDice = diceScene.instantiate()
 	myDice.IsPlayerDice(true)
 	isPlayerRoll = myDice.GetIsPlayer()
-	myDice.on_dice_played.connect(OnDicePlayed)
+	diceState = callState[0]
+	myDice.on_player_dice_played.connect(OnPlayerDicePlayed)
+	myDice.on_dice_finished.connect(CheckFleeWinner)
 	add_child(myDice)
 
 #Method that is called when the signal emits
-func OnDicePlayed(diceNumber : int)  -> void:
-	if(isPlayerRoll):
-		playerRollNumber = diceNumber
-	else:
-		enemyRollNumber = diceNumber
-		
-	print(playerRollNumber)
-	print(enemyRollNumber)
+func OnPlayerDicePlayed(diceNumber : int)  -> void:
+	playerRoll = diceNumber
+	if(diceState != callState[0]):
+		match(playerRoll):
+			1:
+				print("miss")
+			6:
+				print("CriticalDamage")
+			_:
+				print("Normal damage")
 	
+func OnEnemyDicePlayed(diceNumber : int) -> void:
+	enemyRoll = diceNumber
+	print(enemyRoll)
+	
+func CheckFleeWinner() -> void:
+	var fleeDices = get_tree().get_nodes_in_group("Dice")
+	var cRolls = fleeDices[1].GetCurrentReRoll()
+	var mRerroll = fleeDices[1].GetMaxReRoll()
+	match(diceState):
+		"Flee":
+			if(playerRoll >= enemyRoll):
+				await get_tree().create_timer(1.0).timeout
+				get_tree().change_scene_to_packed(Global.OwScene)
+			else:
+				await get_tree().create_timer(1.0).timeout
+				if(cRolls >= mRerroll):
+					for dice in fleeDices:
+						dice.queue_free()
+						
+			btn_flee.disabled = true
+				
+
 func _on_btn_flee_pressed():
+	Global.hasFled = true
+	InstatiateEnemyDice()
 	InstatiatePlayerDice()
 	#get_tree().change_scene_to_packed(Global.OwScene)
 	pass

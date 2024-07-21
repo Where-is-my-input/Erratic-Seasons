@@ -53,7 +53,7 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="DiceScene" type="Node2D"]
+[node name="DiceScene" type="Node2D" groups=["Dice"]]
 script = ExtResource("1_eo5jo")
 
 [node name="PlayerAnim" type="AnimatedSprite2D" parent="."]

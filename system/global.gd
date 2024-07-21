@@ -25,6 +25,7 @@ var encounterStored : Array[int]
 var playerLastPos : Vector2 = Vector2.ZERO
 var playerMoney : int = 500
 var isRandomized : bool = false
+var hasFled : bool = false
 
 signal playerCharacterDied
 
@@ -53,6 +54,7 @@ func newGame(ccNewGame = true):
 	playerParty.push_back(cc)
 	playerParty.push_back(geo)
 	changeSeason(randi_range(0,3))
+	ResetEncCounter()
 	
 	if ccNewGame:
 		mainCharacter = character.CECILIA
@@ -61,6 +63,7 @@ func newGame(ccNewGame = true):
 		mainCharacter = character.GEOVANNA
 		geo.levelUp(5)
 	get_tree().change_scene_to_file("res://game_scenes/OverWorld/over_world.tscn")
+
 
 func _input(event):
 	if event.is_action_pressed("reset"):
@@ -85,9 +88,13 @@ func changeSeason(value = 1):
 func IncreaseEncCounter() -> void:
 	encountersCounter += 1
 	
-#Useful to use when the player dies
+#Useful to use when the player dies and the game starts
 func ResetEncCounter() -> void:
 	encountersCounter = 0
+	isRandomized = false
+	encounterStored.clear()
+	playerLastPos = Vector2.ZERO
+	hasFled = false
 
 #Retrieves a text so it can be used in the labels
 func GetCurrentSeason() -> String:
