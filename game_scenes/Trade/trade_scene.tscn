@@ -1,7 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://bhuc23104v20c"]
+[gd_scene load_steps=10 format=3 uid="uid://bhuc23104v20c"]
 
 [ext_resource type="Script" path="res://game_scenes/Trade/trade_scene.gd" id="1_jae5t"]
 [ext_resource type="Texture2D" uid="uid://u147825pd8al" path="res://assets/backgrounds/shop/trade.png" id="2_7pt5y"]
+[ext_resource type="PackedScene" uid="uid://dp5qma1rkvmcn" path="res://game_scenes/Trade/buy_menu.tscn" id="3_jtyqc"]
+[ext_resource type="PackedScene" uid="uid://b1nd4ha1x048y" path="res://game_scenes/Trade/sell_menu.tscn" id="4_qntsp"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_5xfvu"]
 font_size = 48
@@ -81,16 +83,10 @@ _data = {
 "fadeIn": SubResource("Animation_1yijl")
 }
 
-[node name="TradeScene" type="Node2D"]
+[node name="TradeScene" type="Node2D" groups=["TradeMenu"]]
 script = ExtResource("1_jae5t")
 
 [node name="TradeUI" type="CanvasLayer" parent="."]
-
-[node name="SeasonIcon" type="TextureRect" parent="TradeUI"]
-offset_left = 993.0
-offset_top = 115.0
-offset_right = 1048.0
-offset_bottom = 168.0
 
 [node name="ShopBG" type="TextureRect" parent="TradeUI"]
 anchors_preset = 15
@@ -99,6 +95,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_7pt5y")
+
+[node name="SeasonIcon" type="TextureRect" parent="TradeUI"]
+offset_left = 1004.0
+offset_top = 115.0
+offset_right = 1044.0
+offset_bottom = 155.0
 
 [node name="MC" type="MarginContainer" parent="TradeUI"]
 anchors_preset = 15
@@ -181,6 +183,10 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
+
+[node name="BuyMenu" parent="TradeUI" instance=ExtResource("3_jtyqc")]
+
+[node name="SellMenu" parent="TradeUI" instance=ExtResource("4_qntsp")]
 
 [connection signal="pressed" from="TradeUI/MC/HBoxContainer/BuyBT" to="." method="_on_buy_bt_pressed"]
 [connection signal="pressed" from="TradeUI/MC/HBoxContainer/SellBT" to="." method="_on_sell_bt_pressed"]

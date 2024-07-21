@@ -1,0 +1,95 @@
+[gd_scene load_steps=2 format=3 uid="uid://dp5qma1rkvmcn"]
+
+[ext_resource type="Script" path="res://game_scenes/Trade/buy_menu.gd" id="1_1ayk3"]
+
+[node name="BuyMenu" type="CanvasLayer"]
+script = ExtResource("1_1ayk3")
+
+[node name="ItemsPanel" type="Panel" parent="."]
+offset_top = 113.0
+offset_right = 364.0
+offset_bottom = 646.0
+
+[node name="MarginContainer" type="MarginContainer" parent="ItemsPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+
+[node name="MenuLabel" type="Label" parent="ItemsPanel/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "BuyStore(Items)
+"
+horizontal_alignment = 1
+
+[node name="NxtButton" type="Button" parent="ItemsPanel/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+text = "Next"
+
+[node name="ZeroMoneyWarning" type="Label" parent="ItemsPanel/MarginContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 8
+text = "You don't have more money!!!"
+horizontal_alignment = 1
+
+[node name="VboxItemInfo" type="VBoxContainer" parent="ItemsPanel/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="ItemInfo" type="Label" parent="ItemsPanel/MarginContainer/VboxItemInfo"]
+layout_mode = 2
+text = "HealPotion x1 100$"
+horizontal_alignment = 1
+
+[node name="VBoxBuyButtons" type="VBoxContainer" parent="ItemsPanel/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="BuyPotionButton" type="Button" parent="ItemsPanel/MarginContainer/VBoxBuyButtons" groups=["BuyButton"]]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 6
+text = "Buy"
+
+[node name="EquipmentsMenu" type="Panel" parent="."]
+visible = false
+offset_top = 113.0
+offset_right = 364.0
+offset_bottom = 646.0
+
+[node name="MarginContainer" type="MarginContainer" parent="EquipmentsMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+
+[node name="MenuLabel" type="Label" parent="EquipmentsMenu/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "BuyStore(Equipments)
+"
+horizontal_alignment = 1
+
+[node name="BackButton" type="Button" parent="EquipmentsMenu/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "Back"
+
+[connection signal="pressed" from="ItemsPanel/MarginContainer/NxtButton" to="." method="_on_nxt_button_pressed"]
+[connection signal="pressed" from="ItemsPanel/MarginContainer/VBoxBuyButtons/BuyPotionButton" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="EquipmentsMenu/MarginContainer/BackButton" to="." method="_on_back_button_pressed"]

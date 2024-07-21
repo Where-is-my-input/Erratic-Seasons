@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://b1nd4ha1x048y"]
+
+[node name="SellMenu" type="CanvasLayer"]
+
+[node name="Panel" type="Panel" parent="."]
+offset_top = 113.0
+offset_right = 364.0
+offset_bottom = 646.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 24
+
+[node name="Label" type="Label" parent="Panel/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "SellStore(Items)"
+horizontal_alignment = 1
