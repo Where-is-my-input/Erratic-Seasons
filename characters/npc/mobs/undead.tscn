@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://cee8jtpiatatj"]
+
+[ext_resource type="PackedScene" uid="uid://vrmulrli4eab" path="res://characters/character.tscn" id="1_5ktkt"]
+[ext_resource type="PackedScene" uid="uid://djoir31eub8oi" path="res://characters/npc/mobs/spr_undead.tscn" id="2_ho8iw"]
+[ext_resource type="PackedScene" uid="uid://faejgc7e0q0c" path="res://system/random_encounter/equipment_generator.tscn" id="3_6th78"]
+
+[node name="undead" instance=ExtResource("1_5ktkt")]
+characterType = 9
+baseHP = 15
+baseAtk = 5
+baseDef = 2
+characterName = "Undead"
+sprite = ExtResource("2_ho8iw")
+
+[node name="equipmentGenerator" parent="." index="0" instance=ExtResource("3_6th78")]

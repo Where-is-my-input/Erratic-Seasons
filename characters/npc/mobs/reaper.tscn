@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://wiwmhfghchxg"]
+
+[ext_resource type="PackedScene" uid="uid://vrmulrli4eab" path="res://characters/character.tscn" id="1_bglps"]
+[ext_resource type="PackedScene" uid="uid://ctng0ialal106" path="res://characters/npc/mobs/spr_reaper.tscn" id="2_au5au"]
+
+[node name="reaper" instance=ExtResource("1_bglps")]
+characterType = 10
+baseHP = 66
+baseAtk = 19
+baseDef = 5
+characterName = "Reaper"
+sprite = ExtResource("2_au5au")

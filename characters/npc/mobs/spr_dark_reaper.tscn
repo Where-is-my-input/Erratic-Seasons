@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://csdw2g2xjmoce"]
+
+[ext_resource type="PackedScene" uid="uid://cec11ffro8y4x" path="res://characters/npc/mobs/npc_sprite.tscn" id="1_dm0dj"]
+[ext_resource type="Texture2D" uid="uid://vwjd8po1wvfu" path="res://assets/sprites/mobs/samara3.png" id="2_6sj4y"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7104l"]
+resource_local_to_scene = true
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_6sj4y")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="sprDarkReaper" instance=ExtResource("1_dm0dj")]
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_7104l")

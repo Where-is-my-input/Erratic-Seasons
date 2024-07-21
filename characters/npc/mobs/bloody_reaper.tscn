@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://ccga7gjcsvgwi"]
+
+[ext_resource type="PackedScene" uid="uid://vrmulrli4eab" path="res://characters/character.tscn" id="1_1fmd5"]
+[ext_resource type="PackedScene" uid="uid://yt8uia4oj6vw" path="res://characters/npc/mobs/spr_bloody_reaper.tscn" id="2_vel8t"]
+
+[node name="Bloody Reaper" instance=ExtResource("1_1fmd5")]
+characterType = 10
+baseHP = 89
+baseAtk = 25
+baseDef = -15
+characterName = "Bloody Reaper"
+sprite = ExtResource("2_vel8t")

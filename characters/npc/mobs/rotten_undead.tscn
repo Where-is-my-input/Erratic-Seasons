@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://mni4udqrx3my"]
+
+[ext_resource type="PackedScene" uid="uid://vrmulrli4eab" path="res://characters/character.tscn" id="1_f3yuh"]
+[ext_resource type="PackedScene" uid="uid://2yfiwmlgyk20" path="res://characters/npc/mobs/spr_rotten_undead.tscn" id="2_uvqvq"]
+[ext_resource type="PackedScene" uid="uid://faejgc7e0q0c" path="res://system/random_encounter/equipment_generator.tscn" id="3_weo73"]
+
+[node name="rottenUndead" instance=ExtResource("1_f3yuh")]
+characterType = 9
+baseHP = 75
+baseAtk = 9
+characterName = "Rotten Undead"
+sprite = ExtResource("2_uvqvq")
+
+[node name="equipmentGenerator" parent="." index="0" instance=ExtResource("3_weo73")]

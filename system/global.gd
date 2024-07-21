@@ -13,7 +13,13 @@ preload("res://characters/npc/mobs/red_goblin.tscn"),
 preload("res://characters/npc/mobs/blue_goblin.tscn"),
 preload("res://characters/npc/mobs/green_ghost_wolf.tscn"),
 preload("res://characters/npc/mobs/purple_ghost_wolf.tscn"),
-preload("res://characters/npc/mobs/red_ghost_wolf.tscn")]
+preload("res://characters/npc/mobs/red_ghost_wolf.tscn"),
+preload("res://characters/npc/mobs/old_undead.tscn"),
+preload("res://characters/npc/mobs/rotten_undead.tscn"),
+preload("res://characters/npc/mobs/undead.tscn"),
+preload("res://characters/npc/mobs/reaper.tscn"),
+preload("res://characters/npc/mobs/dark_reaper.tscn"),
+preload("res://characters/npc/mobs/bloody_reaper.tscn")]
 
 var OwScene : PackedScene = preload("res://game_scenes/OverWorld/over_world.tscn")
 
