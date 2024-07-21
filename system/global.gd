@@ -80,6 +80,7 @@ func createRandomNPCParty(partySize = 4):
 		var index = randi_range(0, RANDOM_MOBS.size() - 1)
 		var npc = RANDOM_MOBS[index].instantiate()
 		#npc._init()
+		npc._ready()
 		Global.npcParty.push_back(npc)
 
 func changeSeason(value = 1):
