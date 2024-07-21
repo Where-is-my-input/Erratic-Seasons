@@ -6,7 +6,7 @@
 
 [node name="character" instance=ExtResource("1_7rs0o")]
 characterType = 3
-baseHP = 50
+baseHP = 35
 baseAtk = 5
 baseDef = 5
 characterName = "Goblin"

@@ -24,6 +24,14 @@ func setDialogAndOptions(npc = null):
 			setTexts("I don't know about this",
 			"Ask who is cuter",
 			"This is boring, can we please move on?")
+		Global.character.ALYA:
+			setTexts("She mumbles about how good her fused power feels",
+			"Is this getting us closer to the heat death of the universe?",
+			"Does this feel better?")
+		Global.character.YAEL:
+			setTexts("You could never surpass my POWER",
+			"Skill issue",
+			"I don't have to")
 		_:
 			lbl_dialog.text = "The Goblin doesn't look like he can understand you."
 			btn_op_1.text = "English, do you understand?"

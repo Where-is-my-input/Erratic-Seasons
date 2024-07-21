@@ -72,7 +72,6 @@ func getHit(damage = 10):
 		isDead = true
 		if isNPC:
 			died.emit()
-			#queue_free()#maybe keep the node "alive" so someone could revive it
 		else:
 			print("Player character dead")
 			Global.playerCharacterDied.emit()

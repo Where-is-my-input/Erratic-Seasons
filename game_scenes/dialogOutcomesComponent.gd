@@ -11,6 +11,19 @@ func defineOutCome(player, target, op1, op2, targetUI = null):
 			else:
 				dialog_outcome.setText("She T poses you back")
 				player.getHit(15)
+		Global.character.ALYA:
+			if op1:
+				dialog_outcome.setText("Perhaps, but it isn't something that concerns me.")
+				player.getHit(1)
+			else:
+				dialog_outcome.setText("You are the next one to die.")
+				target.heal(25)
+		Global.character.YAEL:
+			if op1:
+				dialog_outcome.setText("UUUUUUUUUUH SHUT UP YOU SCRUB")
+				target.getHit(randi_range(1,100))
+			else:
+				dialog_outcome.setText("Then die!")
 		Global.character.TWIN_ANGELS:
 			if op1:
 				dialog_outcome.setText("We are equally cute")
