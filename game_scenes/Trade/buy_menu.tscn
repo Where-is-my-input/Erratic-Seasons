@@ -6,10 +6,15 @@
 script = ExtResource("1_1ayk3")
 
 [node name="ItemsPanel" type="Panel" parent="."]
-visible = false
 offset_top = 113.0
 offset_right = 364.0
 offset_bottom = 646.0
+
+[node name="NotEnoughItemM" type="Label" parent="ItemsPanel"]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
 
 [node name="MarginContainer" type="MarginContainer" parent="ItemsPanel"]
 layout_mode = 1
@@ -62,9 +67,20 @@ size_flags_vertical = 6
 text = "Buy"
 
 [node name="EquipmentsMenu" type="Panel" parent="."]
+visible = false
 offset_top = 113.0
 offset_right = 364.0
 offset_bottom = 646.0
+
+[node name="NotEnoughEquipM" type="Label" parent="EquipmentsMenu"]
+visible = false
+layout_mode = 2
+offset_left = 31.0
+offset_top = 90.0
+offset_right = 347.0
+offset_bottom = 113.0
+text = "Not enought Money!!"
+horizontal_alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="EquipmentsMenu"]
 layout_mode = 1
