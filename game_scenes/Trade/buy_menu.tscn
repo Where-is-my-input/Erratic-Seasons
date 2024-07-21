@@ -6,6 +6,7 @@
 script = ExtResource("1_1ayk3")
 
 [node name="ItemsPanel" type="Panel" parent="."]
+visible = false
 offset_top = 113.0
 offset_right = 364.0
 offset_bottom = 646.0
@@ -61,7 +62,6 @@ size_flags_vertical = 6
 text = "Buy"
 
 [node name="EquipmentsMenu" type="Panel" parent="."]
-visible = false
 offset_top = 113.0
 offset_right = 364.0
 offset_bottom = 646.0
@@ -90,6 +90,71 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 text = "Back"
 
+[node name="ZeroMoneyEquipWarning" type="Label" parent="EquipmentsMenu/MarginContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 8
+text = "You don't have more money!!!"
+horizontal_alignment = 1
+
+[node name="VboxItemInfo" type="VBoxContainer" parent="EquipmentsMenu/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 50
+
+[node name="EquipInfo" type="Label" parent="EquipmentsMenu/MarginContainer/VboxItemInfo"]
+layout_mode = 2
+text = "Old Club: 150$$"
+horizontal_alignment = 1
+
+[node name="EquipInfo2" type="Label" parent="EquipmentsMenu/MarginContainer/VboxItemInfo"]
+layout_mode = 2
+text = "Earth Dagger: 180$$"
+horizontal_alignment = 1
+
+[node name="EquipInfo3" type="Label" parent="EquipmentsMenu/MarginContainer/VboxItemInfo"]
+layout_mode = 2
+text = "Broken Shield: 50$$"
+horizontal_alignment = 1
+
+[node name="EquipInfo4" type="Label" parent="EquipmentsMenu/MarginContainer/VboxItemInfo"]
+layout_mode = 2
+text = "Bubble Shield: 120$$"
+horizontal_alignment = 1
+
+[node name="VBoxBuyEquipButtons" type="VBoxContainer" parent="EquipmentsMenu/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 30
+
+[node name="EquipOneButton" type="Button" parent="EquipmentsMenu/MarginContainer/VBoxBuyEquipButtons" groups=["BuyButton"]]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 6
+text = "Buy"
+
+[node name="EquipOneButton2" type="Button" parent="EquipmentsMenu/MarginContainer/VBoxBuyEquipButtons" groups=["BuyButton"]]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 6
+text = "Buy"
+
+[node name="EquipOneButton3" type="Button" parent="EquipmentsMenu/MarginContainer/VBoxBuyEquipButtons" groups=["BuyButton"]]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 6
+text = "Buy"
+
+[node name="EquipOneButton4" type="Button" parent="EquipmentsMenu/MarginContainer/VBoxBuyEquipButtons" groups=["BuyButton"]]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 6
+text = "Buy"
+
 [connection signal="pressed" from="ItemsPanel/MarginContainer/NxtButton" to="." method="_on_nxt_button_pressed"]
 [connection signal="pressed" from="ItemsPanel/MarginContainer/VBoxBuyButtons/BuyPotionButton" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="EquipmentsMenu/MarginContainer/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="EquipmentsMenu/MarginContainer/VBoxBuyEquipButtons/EquipOneButton" to="." method="_on_equip_one_button_pressed"]
+[connection signal="pressed" from="EquipmentsMenu/MarginContainer/VBoxBuyEquipButtons/EquipOneButton2" to="." method="_on_equip_one_button_2_pressed"]
+[connection signal="pressed" from="EquipmentsMenu/MarginContainer/VBoxBuyEquipButtons/EquipOneButton3" to="." method="_on_equip_one_button_3_pressed"]
+[connection signal="pressed" from="EquipmentsMenu/MarginContainer/VBoxBuyEquipButtons/EquipOneButton4" to="." method="_on_equip_one_button_4_pressed"]
