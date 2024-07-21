@@ -3,6 +3,7 @@ extends Node2D
 @export var difficulty:int = 0
 @onready var tmr_revive = $CanvasLayer/tmrRevive
 @onready var player = $CanvasLayer/player
+@onready var col_track = $CanvasLayer/colTrack
 
 
 #func _init(dif = 100):
@@ -11,6 +12,11 @@ extends Node2D
 func _ready():
 	difficulty = Global.gameOvers
 	z_index = 20
+	var index = col_track.get_child_count() - 1
+	while index > -1:
+		if index >= difficulty:
+			col_track.get_child(index).queue_free()
+		index -= 1
 
 func _on_tmr_revive_timeout():
 	for c in Global.playerParty:

@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://dofnxkn5mwsri"]
+[gd_scene load_steps=20 format=3 uid="uid://dofnxkn5mwsri"]
 
 [ext_resource type="Script" path="res://game_scenes/game_over_minigame/player.gd" id="1_qfqtu"]
 [ext_resource type="Script" path="res://game_scenes/game_over_minigame/game_over_minigame.gd" id="1_urof0"]
 [ext_resource type="Texture2D" uid="uid://c58ot3jkuvk6g" path="res://assets/sprites/heart/heart.png" id="3_yerqe"]
 [ext_resource type="Texture2D" uid="uid://ceblt7glrrky7" path="res://assets/sprites/heart/heart1.png" id="4_5xsh4"]
 [ext_resource type="PackedScene" uid="uid://c330gagwai2ik" path="res://game_scenes/game_over_minigame/spawner.tscn" id="4_nf712"]
+[ext_resource type="PackedScene" uid="uid://cbypa12f0w3kt" path="res://system/game_over_minigame/g_o_minigame.tscn" id="5_iv0dm"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1nee7"]
 animations = [{
@@ -21,15 +22,33 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r00bq"]
-size = Vector2(24, 24)
+size = Vector2(10, 10)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mhuw3"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_h5tbo"]
-size = Vector2(8, 410.25)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a0hla"]
+size = Vector2(13, 432)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_044f5"]
-size = Vector2(202, 10)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i4uq5"]
+size = Vector2(241, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rquta"]
+size = Vector2(199, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kjqtv"]
+size = Vector2(151, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jrr88"]
+size = Vector2(212.5, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4gcvo"]
+size = Vector2(152, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yhuwu"]
+size = Vector2(54, 21.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wy026"]
+size = Vector2(59.196, 12.3427)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g1vfs"]
 size = Vector2(462, 550)
@@ -44,6 +63,7 @@ script = ExtResource("1_urof0")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ColorRect5" type="ColorRect" parent="CanvasLayer"]
+visible = false
 z_index = 10
 offset_left = 449.0
 offset_top = 233.0
@@ -52,6 +72,7 @@ offset_bottom = 273.0
 scale = Vector2(3.68088, 0.256707)
 
 [node name="ColorRect6" type="ColorRect" parent="CanvasLayer"]
+visible = false
 z_index = 10
 offset_left = 477.0
 offset_top = 381.0
@@ -118,37 +139,104 @@ shape = SubResource("RectangleShape2D_mhuw3")
 debug_color = Color(2.88785e-06, 0.637681, 0.388877, 0.42)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="CanvasLayer"]
-position = Vector2(448, 110)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/StaticBody2D"]
-position = Vector2(-4, 204.75)
-shape = SubResource("RectangleShape2D_h5tbo")
-debug_color = Color(0, 0.476397, 0.491257, 0.42)
+position = Vector2(441.5, 312)
+shape = SubResource("RectangleShape2D_a0hla")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="CanvasLayer/StaticBody2D"]
-position = Vector2(236, 202.875)
-shape = SubResource("RectangleShape2D_h5tbo")
-debug_color = Color(0, 0.476397, 0.491257, 0.42)
+position = Vector2(690, 311)
+shape = SubResource("RectangleShape2D_a0hla")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="CanvasLayer/StaticBody2D"]
-position = Vector2(112, 412)
-rotation = 1.5708
-shape = SubResource("RectangleShape2D_h5tbo")
-debug_color = Color(0, 0.476397, 0.491257, 0.42)
+position = Vector2(565.5, 524)
+shape = SubResource("RectangleShape2D_i4uq5")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="CanvasLayer/StaticBody2D"]
-position = Vector2(96, -4)
-rotation = 1.5708
-shape = SubResource("RectangleShape2D_h5tbo")
-debug_color = Color(0, 0.476397, 0.491257, 0.42)
+position = Vector2(565, 102)
+shape = SubResource("RectangleShape2D_i4uq5")
 
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="CanvasLayer/StaticBody2D"]
-position = Vector2(74, 128)
-shape = SubResource("RectangleShape2D_044f5")
+[node name="colTrack" type="StaticBody2D" parent="CanvasLayer"]
 
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="CanvasLayer/StaticBody2D"]
-position = Vector2(130, 276)
-shape = SubResource("RectangleShape2D_044f5")
+[node name="gOMinigame" parent="CanvasLayer/colTrack" instance=ExtResource("5_iv0dm")]
+position = Vector2(544, 161)
+shape = SubResource("RectangleShape2D_rquta")
+
+[node name="gOMinigame2" parent="CanvasLayer/colTrack" instance=ExtResource("5_iv0dm")]
+position = Vector2(589.5, 210)
+shape = SubResource("RectangleShape2D_kjqtv")
+
+[node name="gOMinigame3" parent="CanvasLayer/colTrack" instance=ExtResource("5_iv0dm")]
+position = Vector2(582.25, 258)
+shape = SubResource("RectangleShape2D_jrr88")
+
+[node name="gOMinigame4" parent="CanvasLayer/colTrack" instance=ExtResource("5_iv0dm")]
+position = Vector2(515, 328)
+shape = SubResource("RectangleShape2D_4gcvo")
+
+[node name="gOMinigame5" parent="CanvasLayer/colTrack" instance=ExtResource("5_iv0dm")]
+position = Vector2(658, 326.75)
+shape = SubResource("RectangleShape2D_yhuwu")
+
+[node name="gOMinigame6" parent="CanvasLayer/colTrack" instance=ExtResource("5_iv0dm")]
+position = Vector2(562, 374)
+scale = Vector2(0.758681, 0.758681)
+shape = SubResource("RectangleShape2D_wy026")
+
+[node name="gOMinigame7" parent="CanvasLayer/colTrack" instance=ExtResource("5_iv0dm")]
+position = Vector2(605.731, 400.269)
+scale = Vector2(0.853727, 0.853727)
+shape = SubResource("RectangleShape2D_wy026")
+
+[node name="gOMinigame8" parent="CanvasLayer/colTrack" instance=ExtResource("5_iv0dm")]
+position = Vector2(518, 400)
+scale = Vector2(0.853727, 0.853727)
+shape = SubResource("RectangleShape2D_wy026")
+
+[node name="gOMinigame9" parent="CanvasLayer/colTrack" instance=ExtResource("5_iv0dm")]
+position = Vector2(563, 427)
+scale = Vector2(0.853727, 0.853727)
+shape = SubResource("RectangleShape2D_wy026")
+
+[node name="gOMinigame10" parent="CanvasLayer/colTrack" instance=ExtResource("5_iv0dm")]
+position = Vector2(491, 426)
+scale = Vector2(0.853727, 0.853727)
+shape = SubResource("RectangleShape2D_wy026")
+
+[node name="gOMinigame11" parent="CanvasLayer/colTrack" instance=ExtResource("5_iv0dm")]
+position = Vector2(635, 428)
+scale = Vector2(0.853727, 0.853727)
+shape = SubResource("RectangleShape2D_wy026")
+
+[node name="gOMinigame12" parent="CanvasLayer/colTrack" instance=ExtResource("5_iv0dm")]
+position = Vector2(604, 455)
+scale = Vector2(0.853727, 0.853727)
+shape = SubResource("RectangleShape2D_wy026")
+
+[node name="gOMinigame13" parent="CanvasLayer/colTrack" instance=ExtResource("5_iv0dm")]
+position = Vector2(528, 456)
+scale = Vector2(0.853727, 0.853727)
+shape = SubResource("RectangleShape2D_wy026")
+
+[node name="gOMinigame14" parent="CanvasLayer/colTrack" instance=ExtResource("5_iv0dm")]
+position = Vector2(482, 490)
+scale = Vector2(0.853727, 0.853727)
+shape = SubResource("RectangleShape2D_wy026")
+
+[node name="gOMinigame15" parent="CanvasLayer/colTrack" instance=ExtResource("5_iv0dm")]
+position = Vector2(650, 492)
+scale = Vector2(0.853727, 0.853727)
+shape = SubResource("RectangleShape2D_wy026")
+
+[node name="gOMinigame16" parent="CanvasLayer/colTrack" instance=ExtResource("5_iv0dm")]
+position = Vector2(567, 491)
+scale = Vector2(0.853727, 0.853727)
+shape = SubResource("RectangleShape2D_wy026")
+
+[node name="gOMinigame17" parent="CanvasLayer/colTrack" instance=ExtResource("5_iv0dm")]
+position = Vector2(566, 474)
+scale = Vector2(0.853727, 0.853727)
+shape = SubResource("RectangleShape2D_wy026")
 
 [node name="tmrRevive" type="Timer" parent="CanvasLayer"]
 wait_time = 2.0
