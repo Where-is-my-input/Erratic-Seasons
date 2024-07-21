@@ -35,4 +35,5 @@ func startFinalBattle():
 			Global.npcParty.push_back(c)
 			c.isNPC = true
 			c.revive(9999)
+			c.levelUp(15)
 			get_tree().change_scene_to_file("res://game_scenes/secret_final_battle/secret_final_battle.tscn")

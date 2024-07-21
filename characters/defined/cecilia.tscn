@@ -20,5 +20,5 @@ def = 5
 [node name="equipment2" parent="." index="1" instance=ExtResource("2_g7b8h")]
 equipmentName = "Fire sword"
 type = 1
-atk = 3
+atk = 13
 def = 0

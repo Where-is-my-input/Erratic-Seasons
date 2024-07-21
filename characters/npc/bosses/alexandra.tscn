@@ -6,7 +6,7 @@
 
 [node name="Alexandra" node_paths=PackedStringArray("weapon", "armor") instance=ExtResource("1_8qyiq")]
 characterType = 5
-baseHP = 50
+baseHP = 150
 baseAtk = 13
 baseDef = 20
 characterName = "Alexandra"

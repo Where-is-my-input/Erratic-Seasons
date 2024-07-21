@@ -106,6 +106,7 @@ func revive():
 	updateUI()
 	turnActionAvailable = true
 	setTurnDisabled()
+	grabFocus()
 
 func dead(deadCharacter = null):
 	playAnimation("death")

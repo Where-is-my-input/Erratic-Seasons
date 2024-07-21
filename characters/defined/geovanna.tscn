@@ -19,7 +19,7 @@ sprite = ExtResource("2_2fuxv")
 equipmentName = "Earth Shield"
 type = 2
 atk = 0
-def = 8
+def = 18
 
 [node name="equipment" parent="." index="1" instance=ExtResource("2_x81yg")]
 equipmentName = "Water Axe"
