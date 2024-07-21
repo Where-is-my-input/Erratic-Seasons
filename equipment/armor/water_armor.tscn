@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://i41igurmbvb7"]
+
+[ext_resource type="PackedScene" uid="uid://dlgyrrbpnqyvg" path="res://equipment/equipment.tscn" id="1_cej78"]
+
+[node name="waterArmor" instance=ExtResource("1_cej78")]
+equipmentName = "Water Armor"
+equipmentType = 1
+type = 3
+def = 13

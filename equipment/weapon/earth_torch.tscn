@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1ji00jhvma6u"]
+
+[ext_resource type="PackedScene" uid="uid://dlgyrrbpnqyvg" path="res://equipment/equipment.tscn" id="1_lbui5"]
+
+[node name="earthTorch" instance=ExtResource("1_lbui5")]
+equipmentName = "Earth Torch"
+type = 2
+atk = 15
+cost = 680

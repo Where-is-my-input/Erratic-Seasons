@@ -67,7 +67,7 @@ func npcCharacterDied(deadTarget = null):
 func dropEquipment(target):
 	if target == null: return
 	if Global.playerInventory.size() > 5: return
-	if randi_range(0,8) > - 1:
+	if randi_range(0,8) == 5:
 		var drop = null
 		if target.weapon != null && target.armor != null:
 			if randi_range(0,1) == 0:

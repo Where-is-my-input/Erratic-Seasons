@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://b7fkj4i5di2t0"]
+
+[ext_resource type="PackedScene" uid="uid://dlgyrrbpnqyvg" path="res://equipment/equipment.tscn" id="1_5d28b"]
+
+[node name="sparkingClothes" instance=ExtResource("1_5d28b")]
+equipmentName = "Sparking Clothes"
+equipmentType = 1
+type = 1
+def = 20

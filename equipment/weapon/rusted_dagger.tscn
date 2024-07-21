@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://uq6wc3pue24x"]
+
+[ext_resource type="PackedScene" uid="uid://dlgyrrbpnqyvg" path="res://equipment/equipment.tscn" id="1_cvejx"]
+
+[node name="rustedDagger" instance=ExtResource("1_cvejx")]
+equipmentName = "Rusted Dagger"
+type = 2
+atk = 20
