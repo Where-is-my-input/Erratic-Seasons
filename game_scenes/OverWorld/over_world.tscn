@@ -511,7 +511,7 @@ layer_2/tile_data = PackedInt32Array(1703966, 458752, 4, 1638430, 458752, 5, 163
 position = Vector2(389, 296)
 
 [node name="EncounterRandomizer" parent="." instance=ExtResource("5_7ppo1")]
-encounterToRandom = Array[PackedScene]([ExtResource("4_mmqro"), ExtResource("5_fcxlu"), ExtResource("6_hc7uu"), ExtResource("4_mmqro"), ExtResource("5_fcxlu"), ExtResource("6_hc7uu"), ExtResource("4_mmqro"), ExtResource("5_fcxlu"), ExtResource("6_hc7uu")])
+encounterToRandom = Array[PackedScene]([ExtResource("4_mmqro"), ExtResource("4_mmqro"), ExtResource("6_hc7uu"), ExtResource("4_mmqro"), ExtResource("5_fcxlu"), ExtResource("4_mmqro"), ExtResource("4_mmqro"), ExtResource("5_fcxlu"), ExtResource("6_hc7uu")])
 
 [node name="Markers" type="Node" parent="." groups=["Markers"]]
 
