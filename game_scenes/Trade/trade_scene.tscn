@@ -160,6 +160,7 @@ text = "Buy Items/Equipments
 "
 
 [node name="SellBT" type="Button" parent="TradeUI/MC/HBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4

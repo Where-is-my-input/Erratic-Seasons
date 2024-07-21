@@ -37,7 +37,7 @@ func _ready():
 		npcPartyCount += 1
 		c.connect("died", npcCharacterDied)
 		npc_party.add_child(c)
-	if Global.hasFled || Global.encountersCounter >= 2:
+	if Global.hasFled || Global.encountersCounter >= 3:
 		btn_flee.disabled = true
 	await get_tree().create_timer(1).timeout
 	battle_ui.playerGrabFocus()
