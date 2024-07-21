@@ -18,7 +18,7 @@ sprite = ExtResource("2_dlysn")
 [node name="equipment" parent="." index="0" instance=ExtResource("2_kc28f")]
 equipmentName = "Rounding Spear"
 type = 2
-atk = 2500
+atk = 35
 level = 30
 cost = 7850
 
@@ -26,6 +26,6 @@ cost = 7850
 equipmentName = "Random Clothes"
 equipmentType = 1
 type = 3
-def = 3500
+def = 30
 level = 55
 cost = 9500
