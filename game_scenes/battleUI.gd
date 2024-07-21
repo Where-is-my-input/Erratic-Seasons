@@ -119,7 +119,7 @@ func closeInventory(equipment = null):
 		playerUIInAction.endTurn()
 		playerInAction.equip(equipment)
 		playerUIInAction.setEquipments(playerInAction)
-		inventory.loadInventory()
+	inventory.loadInventory()
 	#player_party_container.set_mouse_filter(0)
 	inventory.visible = false
 	enablePlayerTurn()
