@@ -46,7 +46,7 @@ func defineOutCome(player, target, op1, op2, targetUI = null):
 				else:
 					dialog_outcome.setText("If I don't try then I wouldn't have a chance")
 					target.heal(10)
-		_:
+		Global.character.GOBLIN:
 			if op1:
 				dialog_outcome.setText("aoisngiasngoiansoginasoign")
 				target.getHit()
@@ -61,4 +61,10 @@ func defineOutCome(player, target, op1, op2, targetUI = null):
 					targetUI.dead()
 				else:
 					dialog_outcome.setText("Nobody seemed to hear you")
+		_:
+			if op1:
+				dialog_outcome.setText("...")
+				target.getHit(randi_range(1,100))
+			else:
+				dialog_outcome.setText("What?!")
 	dialog_outcome.visible = true

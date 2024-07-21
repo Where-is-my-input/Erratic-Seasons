@@ -33,9 +33,9 @@ func setDialogAndOptions(npc = null):
 			"Skill issue",
 			"I don't have to")
 		_:
-			lbl_dialog.text = "The Goblin doesn't look like he can understand you."
-			btn_op_1.text = "English, do you understand?"
-			btn_op_2.text = "Oh look, an airplane!"
+			lbl_dialog.text = "Unintengible grunts are heard"
+			btn_op_1.text = "Who crossed the road first?"
+			btn_op_2.text = "What if you in the oven open the food into?"
 
 func setTexts(dialog, op1, op2):
 	lbl_dialog.text = dialog
