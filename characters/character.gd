@@ -2,9 +2,9 @@ extends Node2D
 
 @export var characterType:Global.character
 #BaseStats
-@export var baseHP:int = 100
-@export var baseAtk = 10
-@export var baseDef = 10
+@export var baseHP:int
+@export var baseAtk:int
+@export var baseDef:int
 #Stats
 @export var characterName = "Character Name"
 @onready var maxHP:int = 100
@@ -27,16 +27,20 @@ signal died()
 signal revived()
 signal attack
 
-func _init(lvl = 1):
+#func _init(lvl = 1):
+	#atk = baseAtk
+	#def = baseDef
+	#maxHP = baseHP
+	#level += lvl
+	#scaleStatsToLevel()
+	#HP = maxHP
+
+func _ready():
 	atk = baseAtk
 	def = baseDef
 	maxHP = baseHP
-	level += lvl
-	scaleStatsToLevel()
+	levelUp()
 	HP = maxHP
-
-#func _ready():
-	#HP = maxHP
 
 func scaleStatsToLevel():
 	maxHP += (level * 0.025) * baseHP
@@ -94,6 +98,7 @@ func useItem(item:itemClass):
 	Global.playerItems.erase(item)
 
 func heal(value):
+	if HP == null: return
 	HP += value
 	if HP > maxHP:
 		HP = maxHP

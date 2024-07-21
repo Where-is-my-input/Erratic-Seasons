@@ -51,6 +51,9 @@ func newGame(ccNewGame = true):
 	cc.heal(500)
 	geo.heal(500)
 	
+	cc._ready()
+	geo._ready()
+	
 	playerParty.push_back(cc)
 	playerParty.push_back(geo)
 	changeSeason(randi_range(0,3))
@@ -76,7 +79,7 @@ func createRandomNPCParty(partySize = 4):
 	for i in amount:
 		var index = randi_range(0, RANDOM_MOBS.size() - 1)
 		var npc = RANDOM_MOBS[index].instantiate()
-		npc._init()
+		#npc._init()
 		Global.npcParty.push_back(npc)
 
 func changeSeason(value = 1):

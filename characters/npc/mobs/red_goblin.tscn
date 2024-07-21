@@ -6,8 +6,10 @@
 
 [node name="red_goblin" instance=ExtResource("1_5mddg")]
 characterType = 7
+baseHP = 50
+baseAtk = 15
+baseDef = 2
 characterName = "Red Goblin"
-maxHP = 35
 sprite = ExtResource("2_bcscb")
 
 [node name="equipmentGenerator" parent="." index="0" instance=ExtResource("2_acdi4")]
