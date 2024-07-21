@@ -52,11 +52,20 @@ func npcCharacterDied():
 		endBattle()
 
 func attack(attacker, target = null):
-	print("Battle scene attack called")
 	var attackTarget = target if target != null else npc_party.get_child(randi_range(0, npc_party.get_child_count() - 1))
 	if target == null: return
-	var damageDealt = getDamageDealt(attacker.atk, attacker.weapon, attackTarget.armor)
-	attackTarget.getHit(damageDealt)
+	var damageDealt = 0
+	match(playerRoll):
+		1:
+			attackTarget.attackMiss()
+		6:
+			print("CriticalDamage")
+			damageDealt = getDamageDealt(attacker.atk, attacker.weapon, attackTarget.armor) * 1.5
+			attackTarget.getHit(damageDealt)
+		_:
+			print("Normal damage")
+			damageDealt = getDamageDealt(attacker.atk, attacker.weapon, attackTarget.armor)
+			attackTarget.getHit(damageDealt)
 	return damageDealt
 
 func getDamageDealt(atk, attackerEquip, targetEquip):
@@ -110,7 +119,6 @@ func npcAttack(attacker):
 	while target.isDead:
 		if !checkPlayerPartyAlive(): return
 		target = getNextAlivePartyMember(targetId)
-	#target.getHit(attacker.atk)
 	attacker.attack.emit()
 	target.getHit(getDamageDealt(attacker.atk, attacker.weapon, target.armor))
 
@@ -163,15 +171,14 @@ func InstatiatePlayerDice() -> void:
 #Method that is called when the signal emits
 func OnPlayerDicePlayed(diceNumber : int)  -> void:
 	playerRoll = diceNumber
-	print(playerRoll)
-	if(diceState != callState[0]):
-		match(playerRoll):
-			1:
-				print("miss")
-			6:
-				print("CriticalDamage")
-			_:
-				print("Normal damage")
+	#if(diceState != callState[0]):
+		#match(playerRoll):
+			#1:
+				#print("miss")
+			#6:
+				#print("CriticalDamage")
+			#_:
+				#print("Normal damage")
 	
 func OnEnemyDicePlayed(diceNumber : int) -> void:
 	enemyRoll = diceNumber

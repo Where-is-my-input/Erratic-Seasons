@@ -43,12 +43,16 @@ func _ready():
 	character.connect("died", dead)
 	character.connect("revived", revive)
 	character.connect("attack", attackAnim)
+	character.connect("attackMissed", attackMissed)
 	setEquipments(character)
 	if character.isDead:
 		turnActionAvailable = false
 		setDisabledAll(true)
 	if !character.isNPC:
 		grabFocus()
+
+func attackMissed():
+	playAnimation("miss")
 
 func attackAnim():
 	playAnimation("attack")

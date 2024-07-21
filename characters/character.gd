@@ -26,6 +26,7 @@ signal gotHit()
 signal died()
 signal revived()
 signal attack
+signal attackMissed
 
 #func _init(lvl = 1):
 	#atk = baseAtk
@@ -76,6 +77,9 @@ func getHit(damage = 10):
 			print("Player character dead")
 			Global.playerCharacterDied.emit()
 	gotHit.emit(HP)
+
+func attackMiss():
+	attackMissed.emit()
 
 func revive(value = 10):
 	heal(value)

@@ -159,6 +159,9 @@ func attack(character, target = null):
 	get_parent().attack(character, target)
 	enablePlayerTurn()
 
+func attackMiss():
+	targetedNPCUI.playAnimation("miss")
+
 func enablePlayerTurn():
 	var turnOver = true
 	for c in player_party_container.get_children():
