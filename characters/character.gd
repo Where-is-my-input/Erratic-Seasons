@@ -82,7 +82,7 @@ func attackMiss():
 	attackMissed.emit()
 
 func revive(value = 10):
-	HP = 0
+	HP = 0 if HP < 0 else HP
 	heal(value)
 	isDead = false
 	revived.emit()

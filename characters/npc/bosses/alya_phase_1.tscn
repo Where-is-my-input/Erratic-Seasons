@@ -6,7 +6,7 @@
 
 [node name="alya_phase_1" node_paths=PackedStringArray("weapon", "armor") instance=ExtResource("1_ua04m")]
 characterType = 3
-baseHP = 69
+baseHP = 169
 baseAtk = 20
 baseDef = 15
 characterName = "Alya"

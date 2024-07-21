@@ -6,7 +6,7 @@
 
 [node name="YaelPhase1" node_paths=PackedStringArray("weapon", "armor") instance=ExtResource("1_62b6c")]
 characterType = 4
-baseHP = 66
+baseHP = 166
 baseAtk = 25
 baseDef = 10
 characterName = "Yael"
