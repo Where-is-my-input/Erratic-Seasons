@@ -16,5 +16,5 @@ animations = [{
 }]
 
 [node name="goblindSprite" instance=ExtResource("1_jkyoc")]
-scale = Vector2(0.1, 0.1)
+scale = Vector2(0.13, 0.13)
 sprite_frames = SubResource("SpriteFrames_6uean")

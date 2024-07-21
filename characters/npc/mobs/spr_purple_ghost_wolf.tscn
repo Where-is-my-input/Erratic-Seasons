@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://tryj14rxpwyd"]
+
+[ext_resource type="PackedScene" uid="uid://cec11ffro8y4x" path="res://characters/npc/mobs/npc_sprite.tscn" id="1_0hkkr"]
+[ext_resource type="Texture2D" uid="uid://dtahsk26eysea" path="res://assets/sprites/mobs/GreatoDoggo3.png" id="2_andia"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8ouix"]
+resource_local_to_scene = true
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_andia")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="sprPurpleGhostWolf" instance=ExtResource("1_0hkkr")]
+scale = Vector2(0.15, 0.15)
+sprite_frames = SubResource("SpriteFrames_8ouix")

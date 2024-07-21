@@ -16,5 +16,5 @@ animations = [{
 }]
 
 [node name="sprBlueGoblin" instance=ExtResource("1_xgp3b")]
-scale = Vector2(0.1, 0.1)
+scale = Vector2(0.13, 0.13)
 sprite_frames = SubResource("SpriteFrames_5o758")

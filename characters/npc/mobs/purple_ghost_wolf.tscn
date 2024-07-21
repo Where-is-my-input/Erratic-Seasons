@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://mwbklf0j40kg"]
+
+[ext_resource type="PackedScene" uid="uid://vrmulrli4eab" path="res://characters/character.tscn" id="1_84hj5"]
+[ext_resource type="PackedScene" uid="uid://tryj14rxpwyd" path="res://characters/npc/mobs/spr_purple_ghost_wolf.tscn" id="2_o67lr"]
+
+[node name="purpleGhostWolf" instance=ExtResource("1_84hj5")]
+characterType = 8
+baseHP = 25
+baseAtk = 7
+characterName = "Purple Ghost Wolf"
+sprite = ExtResource("2_o67lr")

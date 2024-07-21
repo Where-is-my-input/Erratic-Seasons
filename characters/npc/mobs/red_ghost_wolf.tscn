@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://lpn0nhrfuyh8"]
+
+[ext_resource type="PackedScene" uid="uid://vrmulrli4eab" path="res://characters/character.tscn" id="1_r4jar"]
+[ext_resource type="PackedScene" uid="uid://ue08b61iff5b" path="res://characters/npc/mobs/spr_red_ghost_wolf.tscn" id="2_jvk7l"]
+
+[node name="redGhostWolf" instance=ExtResource("1_r4jar")]
+characterType = 8
+baseHP = 5
+baseAtk = 5
+baseDef = 1
+characterName = "Red Ghost Wolf"
+sprite = ExtResource("2_jvk7l")

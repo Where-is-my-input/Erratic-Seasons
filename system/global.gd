@@ -1,6 +1,6 @@
 extends Node
 
-enum character {CECILIA, GEOVANNA, TWIN_ANGELS, ALYA, YAEL, ALEXANDRA, RENI, GOBLIN}
+enum character {CECILIA, GEOVANNA, TWIN_ANGELS, ALYA, YAEL, ALEXANDRA, RENI, GOBLIN, GHOST_WOLF, UNDEAD, REAPER}
 enum seasons {SPRING, SUMMER, AUTUMN, WINTER}
 enum type {AIR, FIRE, EARTH, WATER}
 enum equipmentType {WEAPON, ARMOR}
@@ -8,7 +8,12 @@ enum itemType {HEAL}
 
 var mainCharacter:Global.character
 
-const RANDOM_MOBS:Array = [preload("res://characters/npc/mobs/goblin.tscn"), preload("res://characters/npc/mobs/red_goblin.tscn"), preload("res://characters/npc/mobs/blue_goblin.tscn")]
+const RANDOM_MOBS:Array = [preload("res://characters/npc/mobs/goblin.tscn"), 
+preload("res://characters/npc/mobs/red_goblin.tscn"), 
+preload("res://characters/npc/mobs/blue_goblin.tscn"),
+preload("res://characters/npc/mobs/green_ghost_wolf.tscn"),
+preload("res://characters/npc/mobs/purple_ghost_wolf.tscn"),
+preload("res://characters/npc/mobs/red_ghost_wolf.tscn")]
 
 var OwScene : PackedScene = preload("res://game_scenes/OverWorld/over_world.tscn")
 
