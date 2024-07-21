@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://1bj38fktu8r6"]
+[gd_scene load_steps=11 format=3 uid="uid://1bj38fktu8r6"]
 
 [ext_resource type="Script" path="res://game_scenes/Camp/camp_scene.gd" id="1_5txfa"]
+[ext_resource type="Texture2D" uid="uid://b6hpuoktifafk" path="res://assets/backgrounds/camp/fire_fire_light_the_fire.png" id="2_ji6hh"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_x171v"]
 font_size = 48
@@ -146,6 +147,14 @@ script = ExtResource("1_5txfa")
 
 [node name="CampUI" type="CanvasLayer" parent="."]
 
+[node name="CampBG" type="TextureRect" parent="CampUI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ji6hh")
+
 [node name="SeasonIcon" type="TextureRect" parent="CampUI"]
 anchors_preset = 8
 anchor_left = 0.5
@@ -173,7 +182,7 @@ theme_override_constants/margin_right = 48
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
-text = "CAMP(REST SITE?)"
+text = "REST SITE"
 label_settings = SubResource("LabelSettings_x171v")
 horizontal_alignment = 1
 

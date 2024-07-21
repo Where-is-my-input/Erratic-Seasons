@@ -3,9 +3,11 @@ extends Node2D
 @onready var transition: AnimationPlayer = $TradeUI/Transition
 @onready var season_inf: Label = $TradeUI/MC/SeasonInf
 @onready var season_icon: TextureRect = $TradeUI/SeasonIcon
+@onready var money: Label = $TradeUI/MC/Money
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	SetPlayerMoneyLabel()
 	SetSeasonLabel()
 	SetTextureIcon()
 	transition.play("fadeIn")
@@ -17,6 +19,9 @@ func SetTextureIcon() -> void:
 
 func SetSeasonLabel() -> void:
 	season_inf.text = Global.GetCurrentSeason()
+
+func SetPlayerMoneyLabel() -> void:
+	money.text = "Money: %d" % [Global.playerMoney]
 
 func _on_buy_bt_pressed() -> void:
 	print("Opening buying menu!!")

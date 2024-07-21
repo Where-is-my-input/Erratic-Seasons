@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://bhuc23104v20c"]
+[gd_scene load_steps=8 format=3 uid="uid://bhuc23104v20c"]
 
 [ext_resource type="Script" path="res://game_scenes/Trade/trade_scene.gd" id="1_jae5t"]
+[ext_resource type="Texture2D" uid="uid://u147825pd8al" path="res://assets/backgrounds/shop/trade.png" id="2_7pt5y"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_5xfvu"]
 font_size = 48
@@ -91,6 +92,14 @@ offset_top = 115.0
 offset_right = 1048.0
 offset_bottom = 168.0
 
+[node name="ShopBG" type="TextureRect" parent="TradeUI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_7pt5y")
+
 [node name="MC" type="MarginContainer" parent="TradeUI"]
 anchors_preset = 15
 anchor_right = 1.0
@@ -129,7 +138,7 @@ horizontal_alignment = 1
 custom_minimum_size = Vector2(300, 100)
 layout_mode = 2
 size_flags_horizontal = 8
-text = "Welcome to the trade site!, here you will be able to sell(?) items and also buy new equipment to your adventure!"
+text = "Welcome to the trade site!, here you will be able to sell items and also buy new equipment to your adventure!"
 label_settings = SubResource("LabelSettings_gm68b")
 horizontal_alignment = 1
 vertical_alignment = 1
