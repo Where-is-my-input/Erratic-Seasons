@@ -1,12 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://bsq51bmm17fuy"]
+[gd_scene load_steps=3 format=3 uid="uid://bsq51bmm17fuy"]
 
 [ext_resource type="PackedScene" uid="uid://c0mnwb281wdlk" path="res://game_scenes/Encounters/base_encounter.tscn" id="1_j23vl"]
+[ext_resource type="Texture2D" uid="uid://cht670f630653" path="res://assets/sprites/bosses/overworld/sprite_boss_1.png" id="2_1s4iu"]
 
 [node name="Boss Encounter" instance=ExtResource("1_j23vl")]
 encounterTypes = "Boss"
 
-[node name="ColorRect" parent="Sprite2D" index="0"]
-color = Color(0.726832, 0.146726, 0.586712, 1)
+[node name="Sprite2D" parent="." index="0"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_1s4iu")
 
 [node name="CollisionShape2D" parent="." index="1"]
 debug_color = Color(0, 0.6, 0.701961, 0)
