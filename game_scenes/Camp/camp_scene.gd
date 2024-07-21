@@ -6,6 +6,7 @@ extends Node2D
 @onready var sleep_bt: Button = $CampUI/MC/HBoxContainer/SleepBT
 @onready var season_icon: TextureRect = $CampUI/SeasonIcon
 @onready var party = $CampUI/party
+@onready var audio_stream_player = $AudioStreamPlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -17,6 +18,7 @@ func _ready() -> void:
 		charUI.character = c
 		charUI.hideButtons()
 		party.add_child(charUI)
+	SoundManager.PlayClip(audio_stream_player, "characterBackground")
 	
 func SetTextureIcon() -> void:
 	var iconSeason = Global.GetCurrentIconSeason()
@@ -41,6 +43,9 @@ func _on_sleep_bt_pressed():
 	sleep_bt.disabled = true
 	Global.changeSeason()
 	SetTextureIcon()
+	HealPlayer()
+	for c in party.get_children():
+		c.updateUI()
 	sleep_animation.play("SleepAnimation")
 
 

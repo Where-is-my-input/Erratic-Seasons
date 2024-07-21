@@ -215,8 +215,7 @@ theme_override_constants/separation = 48
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-text = "Sleep(Changes Season)
-"
+text = "Sleep"
 
 [node name="GbBT" type="Button" parent="CampUI/MC/HBoxContainer"]
 layout_mode = 2
@@ -255,6 +254,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
 [connection signal="pressed" from="CampUI/MC/HBoxContainer/SleepBT" to="." method="_on_sleep_bt_pressed"]
 [connection signal="pressed" from="CampUI/MC/HBoxContainer/GbBT" to="." method="_on_gb_bt_pressed"]
