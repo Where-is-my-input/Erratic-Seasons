@@ -149,10 +149,10 @@ func endBattle():
 	print("Battle ended")
 	for c in Global.playerParty:
 		c.gainXp(500)
+	Global.playerMoney += 150 * (Global.gameOvers + 1)
 	await get_tree().create_timer(2).timeout
 	Global.npcParty.clear()
 	get_tree().change_scene_to_file("res://game_scenes/OverWorld/over_world.tscn")
-	
 
 func npcAttack(attacker):
 	var targetId = randi_range(0, Global.playerParty.size() - 1)

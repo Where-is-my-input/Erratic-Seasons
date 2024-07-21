@@ -11,6 +11,7 @@ var isBuyingStoreOpened = false
 var isSellingStoreOpened = false
 var menusOpened = 0
 var maxMenuAllowed = 1 as int
+@onready var audio_stream_player = $AudioStreamPlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -21,6 +22,7 @@ func _ready() -> void:
 	SetSeasonLabel()
 	SetTextureIcon()
 	transition.play("fadeIn")
+	SoundManager.PlayClip(audio_stream_player, "lastEncounter")
 
 func SetTextureIcon() -> void:
 	var iconSeason = Global.GetCurrentIconSeason()

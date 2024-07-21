@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://bfu7htt3k0wng"]
+[gd_scene load_steps=7 format=3 uid="uid://bfu7htt3k0wng"]
 
 [ext_resource type="Script" path="res://UI/main_menu.gd" id="1_hugeg"]
 [ext_resource type="Texture2D" uid="uid://r8ylh4capr63" path="res://assets/backgrounds/cenario.png" id="2_kerge"]
 [ext_resource type="Texture2D" uid="uid://cpbgb3j8mjn3n" path="res://assets/logo/logo.png" id="3_tusab"]
+[ext_resource type="PackedScene" uid="uid://bjbk51j3u5v5p" path="res://UI/credits.tscn" id="4_khhxo"]
+[ext_resource type="Texture2D" uid="uid://cp6cayf0c77sa" path="res://assets/wild_jam/71-unintended-consequences.png" id="5_b3t6v"]
+[ext_resource type="Texture2D" uid="uid://y8e5dguku11p" path="res://assets/wild_jam/71-All-Cards.png" id="6_vr2vr"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -63,6 +66,29 @@ offset_top = 48.0
 offset_right = 790.0
 offset_bottom = 320.0
 texture = ExtResource("3_tusab")
+
+[node name="credits" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Credits" parent="credits" instance=ExtResource("4_khhxo")]
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 368.0
+offset_right = 2756.0
+offset_bottom = 1138.0
+scale = Vector2(0.125694, 0.125694)
+texture = ExtResource("5_b3t6v")
+
+[node name="TextureRect4" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 472.0
+offset_right = 2756.0
+offset_bottom = 1676.0
+scale = Vector2(0.126, 0.126)
+texture = ExtResource("6_vr2vr")
 
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="VBoxContainer/Settings" to="." method="_on_settings_pressed"]

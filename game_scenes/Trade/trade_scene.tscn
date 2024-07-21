@@ -188,6 +188,8 @@ metadata/_edit_use_anchors_ = true
 
 [node name="SellMenu" parent="TradeUI" instance=ExtResource("4_qntsp")]
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
 [connection signal="pressed" from="TradeUI/MC/HBoxContainer/BuyBT" to="." method="_on_buy_bt_pressed"]
 [connection signal="pressed" from="TradeUI/MC/HBoxContainer/SellBT" to="." method="_on_sell_bt_pressed"]
 [connection signal="pressed" from="TradeUI/MC/HBoxContainer/GbBT" to="." method="_on_gb_bt_pressed"]

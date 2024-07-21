@@ -2,4 +2,5 @@ extends Control
 
 
 func _on_back_pressed():
-	get_tree().change_scene_to_file("res://UI/main_menu.tscn")
+	get_parent().visible = false
+	set_mouse_filter(Control.MOUSE_FILTER_IGNORE)

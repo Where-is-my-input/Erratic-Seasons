@@ -4,7 +4,8 @@ extends Node2D
 @onready var season_icon: TextureRect = $HUD/SeasonIcon
 @onready var over_world_animator: AnimationPlayer = $HUD/OverWorldAnimator
 @onready var floor_info: Label = $HUD/MC/FloorInfo
-var playerRef : CharacterBody2D	
+var playerRef : CharacterBody2D
+@onready var audio_stream_player = $AudioStreamPlayer
 
 
 # Called when the node enters the scene tree for the first time.
@@ -13,6 +14,7 @@ func _ready() -> void:
 	playerRef.on_encounter_found.connect(OnEncounterFound)
 	SetSeasonLabel()
 	SetTextureIcon()
+	SoundManager.PlayClip(audio_stream_player, "characterBackground")
 
 func SetTextureIcon() -> void:
 	var iconSeason = Global.GetCurrentIconSeason()
