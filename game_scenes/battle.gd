@@ -30,6 +30,7 @@ func _ready():
 	setSoundtrack()
 	Global.connect("playerCharacterDied", playerCharacterDied)
 	transition.play("fadeIn")
+	#transition.connect("animation_finished", playerUIGrabFocus)
 	#for c in Global.playerParty:
 		#player_party.add_child(c)
 	for c in Global.npcParty:
@@ -38,6 +39,11 @@ func _ready():
 		npc_party.add_child(c)
 	if Global.hasFled:
 		btn_flee.disabled = true
+	await get_tree().create_timer(1).timeout
+	battle_ui.playerGrabFocus()
+
+func playerUIGrabFocus():
+	battle_ui.playerGrabFocus()
 
 func SetTextureIcon() -> void:
 	var iconSeason = Global.GetCurrentIconSeason()

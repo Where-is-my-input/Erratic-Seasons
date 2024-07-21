@@ -48,6 +48,11 @@ func _ready():
 		charUI.connect("talkedTo", showTalkControl)
 		npc_party_container.add_child(charUI)
 
+func playerGrabFocus():
+	for c in player_party_container.get_children():
+		c.grabFocus()
+		return
+
 func _input(event):
 	if event.is_action_pressed("tab"):
 		playerFocus = !playerFocus
@@ -106,6 +111,7 @@ func showItemInventory(charUI, characterEquiping):
 	#player_party_container.set_mouse_filter(2)
 	disablePlayableCharactersActions()
 	item_inventory.visible = true
+	item_inventory.grabFocus()
 
 func showInventory(charUI, characterEquiping):
 	playerInAction = characterEquiping
@@ -113,6 +119,7 @@ func showInventory(charUI, characterEquiping):
 	#player_party_container.set_mouse_filter(2)
 	disablePlayableCharactersActions()
 	inventory.visible = true
+	inventory.grabFocus()
 
 func closeInventory(equipment = null):
 	if equipment != null: 

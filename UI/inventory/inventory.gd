@@ -1,6 +1,7 @@
 extends Control
 @onready var item_list = $itemList
 #@onready var color_rect = $ColorRect
+@onready var btn_close = $itemList/btnClose
 
 signal closeInventory
 
@@ -28,3 +29,6 @@ func equipEquipment(equipment):
 
 func clearList():
 	for i in item_list.get_children(): if i is HBoxContainer: i.queue_free()
+
+func grabFocus():
+	btn_close.grab_focus()
