@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://ymrq80vwk5l8"]
+[gd_scene load_steps=19 format=3 uid="uid://ymrq80vwk5l8"]
 
 [ext_resource type="Texture2D" uid="uid://dbleu6wrunhe4" path="res://assets/floor/ground_tiles.png" id="1_2ij1e"]
 [ext_resource type="Script" path="res://game_scenes/OverWorld/over_world.gd" id="1_h2n48"]
@@ -447,6 +447,9 @@ size = Vector2(20, 346)
 [sub_resource type="LabelSettings" id="LabelSettings_8wuqo"]
 font_size = 36
 
+[sub_resource type="LabelSettings" id="LabelSettings_wyqcu"]
+font_size = 18
+
 [sub_resource type="Animation" id="Animation_rjbp5"]
 resource_name = "HUD_FADEOUT"
 tracks/0/type = "value"
@@ -587,6 +590,12 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 text = "Spring"
 label_settings = SubResource("LabelSettings_8wuqo")
+
+[node name="FloorInfo" type="Label" parent="HUD/MC"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Floor 99"
+label_settings = SubResource("LabelSettings_wyqcu")
 
 [node name="SeasonIcon" type="TextureRect" parent="HUD"]
 offset_left = 84.0

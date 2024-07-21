@@ -118,6 +118,12 @@ func ResetEncCounter() -> void:
 	playerLastPos = Vector2.ZERO
 	hasFled = false
 
+func NextFloor() -> void:
+	isRandomized = false
+	encounterStored.clear()
+	playerLastPos = Vector2.ZERO
+	hasFled = false
+
 #Retrieves a text so it can be used in the labels
 func GetCurrentSeason() -> String:
 	var textSeason = " ";

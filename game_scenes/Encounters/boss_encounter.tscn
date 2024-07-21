@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://c0mnwb281wdlk" path="res://game_scenes/Encounters/base_encounter.tscn" id="1_j23vl"]
 [ext_resource type="Texture2D" uid="uid://cht670f630653" path="res://assets/sprites/bosses/overworld/sprite_boss_1.png" id="2_1s4iu"]
 
-[node name="Boss Encounter" instance=ExtResource("1_j23vl")]
+[node name="Boss Encounter" groups=["BossEncounter"] instance=ExtResource("1_j23vl")]
 encounterTypes = "Boss"
 
 [node name="Sprite2D" parent="." index="0"]

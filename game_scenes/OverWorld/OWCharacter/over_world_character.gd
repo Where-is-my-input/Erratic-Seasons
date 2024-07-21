@@ -6,6 +6,7 @@ var playerSpeed = 200 as float
 var _stopped = false as bool
 var spawnPos : Vector2 = Vector2(395,350)
 var xOffset : float = 100
+var encounterRefString : String
 @onready var spr_cecilia = $sprCecilia
 @onready var spr_geovanna = $sprGeovanna
 
