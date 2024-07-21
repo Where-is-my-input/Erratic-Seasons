@@ -12,10 +12,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 460.0
-offset_top = 41.0
-offset_right = 460.0
-offset_bottom = 41.0
+offset_left = 457.0
+offset_top = 10.0
+offset_right = 457.0
+offset_bottom = 10.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -64,6 +64,10 @@ text = "Final Boss"
 layout_mode = 2
 text = "level up"
 
+[node name="Button11" type="Button" parent="Container/BoxContainer"]
+layout_mode = 2
+text = "gin xp"
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
 [connection signal="pressed" from="Container/BoxContainer/Button" to="." method="_on_button_pressed"]
@@ -76,3 +80,4 @@ text = "level up"
 [connection signal="pressed" from="Container/BoxContainer/Button8" to="." method="_on_button_8_pressed"]
 [connection signal="pressed" from="Container/BoxContainer/Button9" to="." method="_on_button_9_pressed"]
 [connection signal="pressed" from="Container/BoxContainer/Button10" to="." method="_on_button_10_pressed"]
+[connection signal="pressed" from="Container/BoxContainer/Button11" to="." method="_on_button_11_pressed"]

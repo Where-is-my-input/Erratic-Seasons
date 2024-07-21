@@ -54,6 +54,7 @@ func levelUp(levels = 1):
 	HP = maxHP
 
 func gainXp(value = 0):
+	value = value * (Global.gameOvers + 1)
 	xp += value
 	var levelUpThreshold:int = (level * (500)) / ((2 * (level * 0.1)) + 1)
 	if xp > levelUpThreshold:

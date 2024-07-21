@@ -62,3 +62,8 @@ func _on_button_9_pressed():
 func _on_button_10_pressed():
 	for c in Global.playerParty:
 		c.levelUp()
+
+
+func _on_button_11_pressed():
+	for c in Global.playerParty:
+		c.gainXp(2500)

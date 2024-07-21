@@ -6,10 +6,11 @@
 
 [node name="reni" node_paths=PackedStringArray("weapon", "armor") instance=ExtResource("1_2lf1m")]
 characterType = 4
+baseHP = 45
+baseAtk = 30
+baseDef = 5
 characterName = "Reni"
-maxHP = 666
-atk = 315
-level = 25
+level = 10
 weapon = NodePath("equipment")
 armor = NodePath("equipment2")
 sprite = ExtResource("2_dlysn")

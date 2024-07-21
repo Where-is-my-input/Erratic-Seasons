@@ -120,6 +120,8 @@ func npcTurn():
 
 func endBattle():
 	print("Battle ended")
+	for c in Global.playerParty:
+		c.gainXp(2500)
 	await get_tree().create_timer(2).timeout
 	Global.npcParty.clear()
 	get_tree().change_scene_to_file("res://game_scenes/OverWorld/over_world.tscn")
