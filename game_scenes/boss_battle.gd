@@ -6,7 +6,7 @@ extends BattleClass
 func setSoundtrack():
 	SoundManager.PlayClip(battle_soundtrack, "pleaseAnswearMe")
 
-func npcCharacterDied():
+func npcCharacterDied(deadTarget = null):
 	for c in Global.npcParty:
 		if c.isDead:
 			match c.characterType:

@@ -11,7 +11,8 @@ var bossesSprites : Array = [
 var encountersScenes = {
 	"CampScene" : preload("res://game_scenes/Camp/camp_scene.tscn"),
 	"BattleScene" : preload("res://game_scenes/battle.tscn"),
-	"TradeScene" : preload("res://game_scenes/Trade/trade_scene.tscn")
+	"TradeScene" : preload("res://game_scenes/Trade/trade_scene.tscn"),
+	"BossBattle" : preload("res://game_scenes/boss_battle.tscn")
 }
 var assignedType : String = "";
 
@@ -64,12 +65,12 @@ func _on_body_entered(body: Node2D) -> void:
 						npc._ready()
 						Global.npcParty.push_back(npc)
 					2:
-							var npc = preload("res://characters/npc/bosses/alya_phase_1.tscn").instantiate()
-							npc._ready()
-							Global.npcParty.push_back(npc)
-							npc = preload("res://characters/npc/bosses/yael_phase_1.tscn").instantiate()
-							npc._ready()
-							Global.npcParty.push_back(npc)
+						var npc = preload("res://characters/npc/bosses/alya_phase_1.tscn").instantiate()
+						npc._ready()
+						Global.npcParty.push_back(npc)
+						npc = preload("res://characters/npc/bosses/yael_phase_1.tscn").instantiate()
+						npc._ready()
+						Global.npcParty.push_back(npc)
 func _on_transition_animation_finished(anim_name: StringName) -> void:
 	match(assignedType):
 		"Battle":
@@ -79,6 +80,10 @@ func _on_transition_animation_finished(anim_name: StringName) -> void:
 		"Trade":
 			get_tree().change_scene_to_packed(encountersScenes["TradeScene"])
 		"Boss":
+			match(Global.encountersCounter):
+				2:
+					get_tree().change_scene_to_packed(encountersScenes["BossBattle"])
+				_:
+					get_tree().change_scene_to_packed(encountersScenes["BattleScene"])
 			Global.IncreaseEncCounter()
 			Global.NextFloor()
-			get_tree().change_scene_to_packed(encountersScenes["BattleScene"])

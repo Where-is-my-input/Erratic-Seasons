@@ -46,7 +46,7 @@ func _on_button_8_pressed():
 	var npc = preload("res://characters/npc/bosses/reni.tscn").instantiate()
 	npc._ready()
 	Global.npcParty.push_back(npc)
-	get_tree().change_scene_to_file("res://game_scenes/battle.tscn")
+	get_tree().change_scene_to_file("res://game_scenes/mini_boss_battle/mini_boss_battle.tscn")
 
 
 func _on_button_9_pressed():

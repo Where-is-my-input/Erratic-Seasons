@@ -164,7 +164,7 @@ func attack(character, target = null):
 	disablePlayableCharactersActions()
 	print("BattleUI attack ", character)
 	get_parent().attack(character, target)
-	await get_tree().create_timer(2).timeout
+	if get_tree() != null: await get_tree().create_timer(2).timeout
 	enablePlayerTurn()
 
 func attackMiss():
