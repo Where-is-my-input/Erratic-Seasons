@@ -55,6 +55,7 @@ func _on_body_entered(body: Node2D) -> void:
 			"Trade":
 				print("What do you think about trading that precious coins for my precious items?")
 			"Boss":
+				Global.npcParty.clear()
 				match(Global.encountersCounter):
 					0:
 						var npc = preload("res://characters/npc/bosses/alexandra.tscn").instantiate()

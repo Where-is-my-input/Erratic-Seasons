@@ -237,6 +237,10 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
 
+[node name="party" type="VBoxContainer" parent="CampUI"]
+offset_right = 40.0
+offset_bottom = 40.0
+
 [node name="SleepAnimation" type="AnimationPlayer" parent="."]
 root_node = NodePath("../CampUI")
 libraries = {

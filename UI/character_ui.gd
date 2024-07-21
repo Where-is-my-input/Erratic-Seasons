@@ -58,6 +58,7 @@ func attackAnim():
 	playAnimation("attack")
 
 func setCharacter():
+	if character == null: return
 	lblname.text = character.characterName
 	if !character.isNPC:
 		sprite.visible = false
@@ -177,3 +178,7 @@ func _on_items_pressed():
 
 func grabFocus():
 	btn_attack.grab_focus()
+
+func hideButtons():
+	v_box_container.visible = false
+	v_box_container_2.visible = false

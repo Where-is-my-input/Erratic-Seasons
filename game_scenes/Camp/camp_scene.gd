@@ -5,12 +5,18 @@ extends Node2D
 @onready var sleep_animation: AnimationPlayer = $SleepAnimation
 @onready var sleep_bt: Button = $CampUI/MC/HBoxContainer/SleepBT
 @onready var season_icon: TextureRect = $CampUI/SeasonIcon
+@onready var party = $CampUI/party
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	SetSeasonLabel()
 	transition.play("fadeIn")
 	SetTextureIcon()
+	for c in Global.playerParty:
+		var charUI = preload("res://UI/character_ui.tscn").instantiate()
+		charUI.character = c
+		charUI.hideButtons()
+		party.add_child(charUI)
 	
 func SetTextureIcon() -> void:
 	var iconSeason = Global.GetCurrentIconSeason()
