@@ -21,6 +21,7 @@ var maxLoopAmount = 4
 var currentReRoll = 0
 var maxReRoll = 1
 var isPlayer : bool = false
+var isAttackDice : bool = false
 
 #visual variables
 var enemyDicePos : Vector2 = Vector2(1060, 200)
@@ -33,6 +34,8 @@ func _ready() -> void:
 	call_deferred("McGetFocus")
 	SetPlayerReRollLabel()
 	CheckEnemy()
+	if(isAttackDice):
+		PlayPlayerDice()
 	
 func McGetFocus() -> void:
 	mc.grab_focus()
@@ -44,6 +47,7 @@ func PlayPlayerDice() -> void:
 	dice_anim.play("RollDice")
 	on_player_dice_played.emit(firstRoll)
 	SoundManager.PlayClip(dice_stream, SoundManager.SFX_ROLLDICE)
+	
 
 func PlayEnemyDice() -> void:
 	randomNumber2.randomize()
@@ -51,6 +55,7 @@ func PlayEnemyDice() -> void:
 	dice_anim.play("RollDice")
 	on_enemy_dice_played.emit(secondRoll)
 	SoundManager.PlayClip(dice_stream, SoundManager.SFX_ROLLDICE)
+	
 
 func SetPlayerReRollLabel() -> void:
 	max_rerrolLabel.text = "Rerrol %d/%d" % [currentReRoll, maxReRoll] 
@@ -64,8 +69,16 @@ func CheckEnemy() -> void:
 		dice_anim.global_position = enemyDicePos
 		enemy_timer.start()
 
+	if(isAttackDice):
+		roll_button.visible = false
+		reroll_button.visible = false
+		max_rerrolLabel.visible = false
+
 func IsPlayerDice(isOwnerPlayer : bool) -> void:
 	isPlayer = isOwnerPlayer
+	
+func IsAttackDice(isIt : bool) -> void:
+	isAttackDice = isIt
 
 func _on_button_pressed() -> void:
 	roll_button.disabled = true

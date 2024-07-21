@@ -156,13 +156,14 @@ func InstatiatePlayerDice() -> void:
 	myDice.IsPlayerDice(true)
 	isPlayerRoll = myDice.GetIsPlayer()
 	diceState = callState[0]
-	myDice.on_player_dice_played.connect(OnPlayerDicePlayed)
 	myDice.on_dice_finished.connect(CheckFleeWinner)
+	myDice.on_player_dice_played.connect(OnPlayerDicePlayed)
 	add_child(myDice)
 
 #Method that is called when the signal emits
 func OnPlayerDicePlayed(diceNumber : int)  -> void:
 	playerRoll = diceNumber
+	print(playerRoll)
 	if(diceState != callState[0]):
 		match(playerRoll):
 			1:

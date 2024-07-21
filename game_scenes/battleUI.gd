@@ -10,6 +10,7 @@ extends Control
 @onready var item_inventory = $tabs/item_inventory
 @onready var btn_inspect = $partyUI/HBoxContainer/btnInspect
 @onready var btn_flee = $partyUI/HBoxContainer/btnFlee
+@onready var diceScene : PackedScene = preload("res://game_scenes/Dice/dice_scene.tscn")
 
 var inspected = false
 
@@ -18,6 +19,7 @@ var playerUIInAction
 
 var targetedNPC
 var targetedNPCUI
+var attackDiceUI
 
 var playerFocus = false
 
@@ -56,6 +58,20 @@ func _input(event):
 		else:
 			btn_flee.grab_focus()
 
+func InstantiateDice() -> void:
+	var myDice = battle.diceScene.instantiate()
+	attackDiceUI = myDice
+	myDice.IsPlayerDice(true)
+	myDice.IsAttackDice(true)
+	myDice.on_dice_finished.connect(OnDiceAnimFinished)
+	myDice.on_player_dice_played.connect(battle.OnPlayerDicePlayed)
+	add_child(myDice)
+
+func OnDiceAnimFinished() -> void:
+	attack(playerInAction, targetedNPC)
+	await get_tree().create_timer(1).timeout
+	attackDiceUI.queue_free()
+				
 func tryInspect():
 	if inspected: return
 	inspected = true
@@ -131,8 +147,10 @@ func enableTargeting(value = true):
 
 func playerAttack(target):
 	enableTargeting(false)
+	InstantiateDice()
 	#rodar o dado aqui
-	attack(playerInAction, target)
+	#attack(playerInAction, target)
+	targetedNPC = target
 
 func attack(character, target = null):
 	disablePlayableCharactersActions()
