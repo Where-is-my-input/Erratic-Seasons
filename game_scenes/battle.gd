@@ -37,7 +37,7 @@ func _ready():
 		npcPartyCount += 1
 		c.connect("died", npcCharacterDied)
 		npc_party.add_child(c)
-	if Global.hasFled:
+	if Global.hasFled || Global.encountersCounter >= 2:
 		btn_flee.disabled = true
 	await get_tree().create_timer(1).timeout
 	battle_ui.playerGrabFocus()
@@ -148,7 +148,7 @@ func npcTurn():
 func endBattle():
 	print("Battle ended")
 	for c in Global.playerParty:
-		c.gainXp(2500)
+		c.gainXp(500)
 	await get_tree().create_timer(2).timeout
 	Global.npcParty.clear()
 	get_tree().change_scene_to_file("res://game_scenes/OverWorld/over_world.tscn")
@@ -174,7 +174,9 @@ func getNextAlivePartyMember(targetId = 0):
 
 func checkPlayerPartyAlive():
 	for c in Global.playerParty:
-		if c.HP > 0: return true
+		if c.HP > 0: 
+			c.isDead = false
+			return true
 	return false
 
 func playerCharacterDied():

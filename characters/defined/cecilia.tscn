@@ -15,7 +15,7 @@ armor = NodePath("equipment")
 [node name="equipment" parent="." index="0" instance=ExtResource("2_g7b8h")]
 equipmentName = "Wind Robe"
 atk = 0
-def = 5
+def = 15
 
 [node name="equipment2" parent="." index="1" instance=ExtResource("2_g7b8h")]
 equipmentName = "Fire sword"
