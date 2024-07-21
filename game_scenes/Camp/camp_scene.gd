@@ -34,6 +34,7 @@ func ChangeSeason() -> void:
 func _on_sleep_bt_pressed():
 	sleep_bt.disabled = true
 	Global.changeSeason()
+	SetTextureIcon()
 	sleep_animation.play("SleepAnimation")
 
 
