@@ -38,23 +38,23 @@ func _on_button_6_pressed():
 
 func _on_button_7_pressed():
 	var npc = preload("res://characters/npc/bosses/alexandra.tscn").instantiate()
-	npc._init()
+	npc._ready()
 	Global.npcParty.push_back(npc)
 	get_tree().change_scene_to_file("res://game_scenes/battle.tscn")
 
 func _on_button_8_pressed():
 	var npc = preload("res://characters/npc/bosses/reni.tscn").instantiate()
-	npc._init()
+	npc._ready()
 	Global.npcParty.push_back(npc)
 	get_tree().change_scene_to_file("res://game_scenes/battle.tscn")
 
 
 func _on_button_9_pressed():
 	var npc = preload("res://characters/npc/bosses/alya_phase_1.tscn").instantiate()
-	npc._init()
+	npc._ready()
 	Global.npcParty.push_back(npc)
 	npc = preload("res://characters/npc/bosses/yael_phase_1.tscn").instantiate()
-	npc._init()
+	npc._ready()
 	Global.npcParty.push_back(npc)
 	get_tree().change_scene_to_file("res://game_scenes/boss_battle.tscn")
 

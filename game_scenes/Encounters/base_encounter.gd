@@ -36,7 +36,7 @@ func _on_body_entered(body: Node2D) -> void:
 				print("What do you think about trading that precious coins for my precious items?")
 			_:
 				var npc = preload("res://characters/npc/bosses/alexandra.tscn").instantiate()
-				npc._init()
+				npc._ready()
 				Global.npcParty.push_back(npc)
 
 func _on_transition_animation_finished(anim_name: StringName) -> void:

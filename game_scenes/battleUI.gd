@@ -69,6 +69,7 @@ func InstantiateDice() -> void:
 
 func OnDiceAnimFinished() -> void:
 	attack(playerInAction, targetedNPC)
+	if get_tree() == null: return
 	await get_tree().create_timer(1).timeout
 	attackDiceUI.queue_free()
 				
