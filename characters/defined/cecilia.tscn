@@ -4,9 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://dlgyrrbpnqyvg" path="res://equipment/equipment.tscn" id="2_g7b8h"]
 
 [node name="character" node_paths=PackedStringArray("weapon", "armor") instance=ExtResource("1_4h4kh")]
+baseHP = 135
+baseAtk = 15
+baseDef = 8
 characterName = "Cecilia"
-maxHP = 80
-atk = 15
 isNPC = false
 weapon = NodePath("equipment2")
 armor = NodePath("equipment")

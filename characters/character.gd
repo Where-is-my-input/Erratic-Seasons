@@ -1,12 +1,16 @@
 extends Node2D
 
 @export var characterType:Global.character
-
+#BaseStats
+@export var baseHP:int = 100
+@export var baseAtk = 10
+@export var baseDef = 10
 #Stats
 @export var characterName = "Character Name"
-@export var maxHP:int = 100
+@onready var maxHP:int = 100
 @onready var HP = maxHP
-@export var atk = 10
+@onready var atk = 10
+@onready var def = 10
 @export var isNPC = true
 @export var level = 0
 var xp:int = 0
@@ -24,6 +28,9 @@ signal revived()
 signal attack
 
 func _init(lvl = 1):
+	atk = baseAtk
+	def = baseDef
+	maxHP = baseHP
 	level += lvl
 	scaleStatsToLevel()
 	HP = maxHP
@@ -32,8 +39,9 @@ func _init(lvl = 1):
 	#HP = maxHP
 
 func scaleStatsToLevel():
-	maxHP += (level * 0.025) * maxHP
-	atk += (level * 0.008) * atk
+	maxHP += (level * 0.025) * baseHP
+	atk += (level * 0.008) * baseAtk
+	def += (level * 0.008) * baseDef
 
 func levelUp(levels = 1):
 	level += levels
